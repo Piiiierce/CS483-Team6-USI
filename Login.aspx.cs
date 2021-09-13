@@ -38,17 +38,9 @@ namespace User
                     dr = cmd.ExecuteReader();
                     if (dr.Read())
                     {
-                        if (TextBox1.Text == "Admin" && TextBox2.Text == "Admin")
-                        {
-                            Response.Redirect("~/AdminLogin.aspx");
-                        }
-                        else
-                        {
                             Label3.Text = "Logged In";
                             Response.Redirect("~/Student.aspx", false);
                             Response.Redirect("~/Student.aspx?Name=" + TextBox1.Text);
-                        }
-
                     }
                     else
                     {
