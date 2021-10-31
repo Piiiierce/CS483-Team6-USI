@@ -14,6 +14,8 @@
 &nbsp;<asp:LinkButton ID="LinkButton4" runat="server" OnClick="LinkButton4_Click">Your Schedule</asp:LinkButton>
             <br />
             <br />
+            <asp:Calendar ID="Calendar1" runat="server" OnDayRender="Calendar1_DayRender" OnSelectionChanged="Calendar1_SelectionChanged"></asp:Calendar>
+            <br />
             <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource2" DataTextField="Name" DataValueField="Name">
             </asp:DropDownList>
             <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT Project.Name FROM [User] INNER JOIN Recruit ON [User].SubjectID = Recruit.SubjectID INNER JOIN Project ON Recruit.ProjectID = Project.ProjectID WHERE ([User].Email = @Email)">
@@ -21,8 +23,6 @@
                     <asp:ControlParameter ControlID="Label4" Name="Email" PropertyName="Text" />
                 </SelectParameters>
             </asp:SqlDataSource>
-            <br />
-            <asp:Calendar ID="Calendar1" runat="server" OnDayRender="Calendar1_DayRender" OnSelectionChanged="Calendar1_SelectionChanged"></asp:Calendar>
             <br />
             <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
                 <Columns>
@@ -57,12 +57,12 @@
             <br />
             <asp:Label ID="Label6" runat="server" Text="Start Time:"></asp:Label>
             <br />
-            <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+            <asp:TextBox ID="TextBox2" runat="server" TextMode="Time" format="HH:mm"></asp:TextBox>
             <br />
             <br />
             <asp:Label ID="Label7" runat="server" Text="End Time:"></asp:Label>
             <br />
-            <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+            <asp:TextBox ID="TextBox3" runat="server" TextMode="Time" format="HH:mm"></asp:TextBox>
             <br />
             <br />
             <asp:Label ID="Label8" runat="server" Text="Occupancy:"></asp:Label>
@@ -73,9 +73,12 @@
             <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Button" />
             <br />
             <br />
-            <br />
-            <br />
-            <br />
+            <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" InsertCommand="INSERT INTO Notify(ReservationID, UserID) VALUES (@ReservationID, @UserID)" SelectCommand="SELECT Notify.* FROM Notify">
+                <InsertParameters>
+                    <asp:Parameter Name="ReservationID" />
+                    <asp:Parameter Name="UserID" />
+                </InsertParameters>
+            </asp:SqlDataSource>
             <br />
             <br />
             <br />
