@@ -28,7 +28,7 @@ namespace Senior_Project
             {
                 Label1.Text = dr["FirstName"].ToString().Trim();
                 Label2.Text = dr["LastName"].ToString().Trim();
-                Label3.Text = dr["ReservationID"].ToString().Trim();
+                Label3.Text = dr["SubjectID"].ToString().Trim();
             }
             con.Close();
         }
@@ -74,7 +74,8 @@ namespace Senior_Project
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            int c =3110;
+            int c = 0;
+            string holder = Label3.Text;
             con.Open();
             cmd.Connection = con;
             cmd.CommandText = "SELECT Project.ProjectID FROM [User], Project WHERE [User].Email='" + Label4.Text.Trim() + "' AND Project.Name = '" + DropDownList1.SelectedValue + "'";
@@ -108,11 +109,20 @@ namespace Senior_Project
             parameter["ManagerApprove"].DefaultValue = "0";
             parameter["Date"].DefaultValue = TextBox1.Text;
             parameter["Occupancy"].DefaultValue = TextBox4.Text;
-            //insert and bind data table
+
+            var parameret1 = SqlDataSource3.InsertParameters;
+            parameret1["ReservationID"].DefaultValue = c.ToString();
+            parameret1["UserID"].DefaultValue = holder;
+
             try
             {
                 SqlDataSource1.Insert();
+                SqlDataSource3.Insert();
                 GridView1.DataBind();
+                TextBox1.Text = "";
+                TextBox2.Text = "";
+                TextBox3.Text = "";
+                TextBox4.Text = "";
             }
             catch (Exception ex)
             {
