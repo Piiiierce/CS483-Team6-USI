@@ -12,7 +12,16 @@
 <body>
     <form id="form1" runat="server">
         <div>
+            <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click">Projects</asp:LinkButton>
+&nbsp;<asp:LinkButton ID="LinkButton2" runat="server" OnClick="LinkButton2_Click">Your Schedule</asp:LinkButton>
+&nbsp;<asp:LinkButton ID="LinkButton3" runat="server" OnClick="LinkButton3_Click">Create Reservation</asp:LinkButton>
+            <br />
             <asp:Calendar ID="Calendar1" runat="server" CssClass="auto-style1" Height="335px" OnDayRender="Calendar1_DayRender" OnSelectionChanged="Calendar1_SelectionChanged" Width="431px"></asp:Calendar>
+            <br />
+            <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+&nbsp;<asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
+&nbsp;<asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
+&nbsp;<asp:Label ID="Label4" runat="server" Text="Label"></asp:Label>
         </div>
     </form>
 </body>
