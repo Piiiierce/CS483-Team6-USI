@@ -12,6 +12,7 @@
             <asp:LinkButton ID="LinkButton2" runat="server" OnClick="LinkButton2_Click">Calendar</asp:LinkButton>
 &nbsp;<asp:LinkButton ID="LinkButton3" runat="server" OnClick="LinkButton3_Click">Projects</asp:LinkButton>
 &nbsp;<asp:LinkButton ID="LinkButton4" runat="server" OnClick="LinkButton4_Click">Your Schedule</asp:LinkButton>
+            &nbsp;<asp:LinkButton ID="LinkButton5" runat="server" OnClick="LinkButton5_Click">Account</asp:LinkButton>
             <br />
             <br />
             <asp:Calendar ID="Calendar1" runat="server" OnDayRender="Calendar1_DayRender" OnSelectionChanged="Calendar1_SelectionChanged"></asp:Calendar>
@@ -71,15 +72,6 @@
             <br />
             <br />
             <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Button" />
-            <br />
-            <br />
-            <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" InsertCommand="INSERT INTO Notify(ReservationID, UserID) VALUES (@ReservationID, @UserID)" SelectCommand="SELECT Notify.* FROM Notify">
-                <InsertParameters>
-                    <asp:Parameter Name="ReservationID" />
-                    <asp:Parameter Name="UserID" />
-                </InsertParameters>
-            </asp:SqlDataSource>
-            <br />
             <br />
             <br />
             <br />
