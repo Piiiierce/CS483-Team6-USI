@@ -12,6 +12,7 @@
             <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click">Calendar</asp:LinkButton>
 &nbsp;<asp:LinkButton ID="LinkButton2" runat="server" OnClick="LinkButton2_Click">Your Schedule</asp:LinkButton>
 &nbsp;<asp:LinkButton ID="LinkButton3" runat="server" OnClick="LinkButton3_Click">Create Reservation</asp:LinkButton>
+            &nbsp;<asp:LinkButton ID="LinkButton4" runat="server" OnClick="LinkButton4_Click">Account</asp:LinkButton>
             <br />
             <asp:ListView ID="ListView1" runat="server" DataSourceID="SqlDataSource1">
                 <AlternatingItemTemplate>
@@ -104,6 +105,9 @@
                     <asp:ControlParameter ControlID="Label4" Name="Email" PropertyName="Text" />
                 </SelectParameters>
             </asp:SqlDataSource>
+            <br />
+            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Create Project" />
+            <br />
             <br />
             <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
 &nbsp;<asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
