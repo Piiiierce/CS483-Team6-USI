@@ -24,14 +24,17 @@ namespace Senior_Project
             try
             {
                 con.Open();
-                cmd.Connection = con;
-                cmd.CommandText = "SELECT * FROM [User] WHERE Email='" + TextBox1.Text + "'and Password= '" + TextBox2.Text + "'";
+                SqlCommand cmd = new SqlCommand("SELECT * FROM[User] WHERE Email = @Email and Password = @Password", con);
+                cmd.Parameters.Add(new SqlParameter("Email", TextBox1.Text));
+                cmd.Parameters.Add(new SqlParameter("Password", TextBox2.Text));
                 dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
                     if (dr["Type"].ToString().Trim() == "Researcher")
                     {
-                        Response.Redirect("~/Calendar.aspx");
+                        Response.Redirect("~/Calendar.aspx", false);
+                        Response.Redirect("~/Calendar.aspx?Email=" + TextBox1.Text);
+
                     }
                     else if (dr["Type"].ToString().Trim() == "Student")
                     {
@@ -40,8 +43,8 @@ namespace Senior_Project
                     }
                     else if (dr["Type"].ToString().Trim() == "Admin")
                     {
-                        //Response.Redirect("~/CalendarStudent.aspx");
-                        Label3.Text = "Admin";
+                        Response.Redirect("~/AdminCalendar.aspx", false);
+                        Response.Redirect("~/AdminCalendar.aspx?Email=" + TextBox1.Text);
                     }
                     else
                     {
