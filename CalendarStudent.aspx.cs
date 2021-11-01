@@ -16,12 +16,13 @@ namespace Senior_Project
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            Page.DataBind();
             if (Request.QueryString["Email"] != null)
             { Label4.Text = Request.QueryString["Email"]; }
             con.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True";
             con.Open();
-            cmd.Connection = con;
-            cmd.CommandText = "SELECT * FROM [User] WHERE Email='" + Label4.Text.Trim() + "'";
+            SqlCommand cmd = new SqlCommand("SELECT * FROM[User] WHERE Email = @Email ", con);
+            cmd.Parameters.Add(new SqlParameter("Email", Label4.Text));
             dr = cmd.ExecuteReader();
             while (dr.Read())
             {
@@ -29,6 +30,44 @@ namespace Senior_Project
                 Label2.Text = dr["LastName"].ToString().Trim();
                 Label3.Text = dr["ReservationID"].ToString().Trim();
             }
+            con.Close();
+        }
+
+        protected void LinkButton1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/StudentSchedule.aspx", false);
+            Response.Redirect("~/StudentSchedule.aspx?Email=" + Label4.Text);
+        }
+
+        protected void Calendar1_DayRender(object sender, DayRenderEventArgs e)
+        {
+            con.Open();
+            string sql = "SELECT Date FROM Reservation WHERE ReservationId = '" + Label3.Text + "'";
+            SqlCommand cmd = new SqlCommand(sql, con);
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                if (dr["Date"].ToString() == e.Day.Date.ToString() && !e.Day.IsOtherMonth)
+                {
+                    e.Cell.BackColor = System.Drawing.Color.Red;
+                }
+                if (e.Day.IsOtherMonth)
+                {
+                    e.Day.IsSelectable = false;
+                }
+            }
+            con.Close();
+        }
+
+        protected void Calendar1_SelectionChanged(object sender, EventArgs e)
+        {
+            TextBox1.Text = Calendar1.SelectedDate.ToString("MM/dd/yyyy");
+        }
+
+        protected void LinkButton2_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/StudentAccount.aspx", false);
+            Response.Redirect("~/StudentAccount.aspx?Email=" + Label4.Text);
         }
     }
 }
