@@ -16,13 +16,12 @@ namespace Senior_Project
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            Page.DataBind();
             if (Request.QueryString["Email"] != null)
             { Label4.Text = Request.QueryString["Email"]; }
             con.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True";
             con.Open();
-            cmd.Connection = con;
-            cmd.CommandText = "SELECT * FROM [User] WHERE Email='" + Label4.Text.Trim() + "'";
+            SqlCommand cmd = new SqlCommand("SELECT * FROM[User] WHERE Email = @Email ", con);
+            cmd.Parameters.Add(new SqlParameter("Email", Label4.Text));
             dr = cmd.ExecuteReader();
             while (dr.Read())
             {
@@ -58,31 +57,53 @@ namespace Senior_Project
 
         protected void Calendar1_DayRender(object sender, DayRenderEventArgs e)
         {
-            con.Open();
-            string sql = "SELECT Date FROM Reservation WHERE ManagerApprove = 1";
-            SqlCommand cmd = new SqlCommand(sql, con);
-            dr = cmd.ExecuteReader();
-            while (dr.Read())
+            try
             {
-                if (dr["Date"].ToString() == e.Day.Date.ToString() && !e.Day.IsOtherMonth)
+                con.Open();
+                cmd.Connection = con;
+                cmd.CommandText = "SELECT Date FROM Reservation WHERE ManagerApprove = 1";
+                dr = cmd.ExecuteReader();
+                while (dr.Read())
                 {
-                    e.Cell.BackColor = System.Drawing.Color.Red;
+                    if (dr["Date"].ToString() == e.Day.Date.ToString() && !e.Day.IsOtherMonth)
+                    {
+                        e.Cell.BackColor = System.Drawing.Color.Red;
+                    }
+
+                    if (e.Day.IsOtherMonth)
+                    {
+                        e.Day.IsSelectable = false;
+                    }
+
                 }
+                con.Close();
             }
-            con.Close();
+            catch
+            {
+                TextBox1.Text = "";
+                TextBox2.Text = "";
+                TextBox3.Text = "";
+                TextBox4.Text = "";
+
+                Response.Redirect("~/ResearchReservation.aspx", false);
+                Response.Redirect("~/ResearchReservation.aspx?Email=" + Label4.Text);
+            }
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
             int c = 0;
+            int d = 0;
             string holder = Label3.Text;
             con.Open();
-            cmd.Connection = con;
-            cmd.CommandText = "SELECT Project.ProjectID FROM [User], Project WHERE [User].Email='" + Label4.Text.Trim() + "' AND Project.Name = '" + DropDownList1.SelectedValue + "'";
+            cmd = new SqlCommand("SELECT Project.ProjectID FROM [User], Project WHERE [User].Email= @Email AND Project.Name = @Name", con);
+            cmd.Parameters.Add(new SqlParameter("Name", DropDownList1.SelectedValue));
+            cmd.Parameters.Add(new SqlParameter("Email", Label4.Text));
+
             dr = cmd.ExecuteReader();
             while (dr.Read())
             {
-                Label3.Text = dr["ProjectID"].ToString().Trim();
+                d = Convert.ToInt32(dr["ProjectID"]);
             }
             con.Close();
 
@@ -97,36 +118,50 @@ namespace Senior_Project
             }
             con.Close();
             c++;
-            Label9.Text = c.ToString();
-            var parameter = SqlDataSource1.InsertParameters;
-            parameter["ReservationId"].DefaultValue = c.ToString();
-            parameter["StartTime"].DefaultValue = TextBox2.Text;
-            parameter["EndTime"].DefaultValue = TextBox3.Text;
-            parameter["Status"].DefaultValue = "Pending";
-            parameter["isRecruit"].DefaultValue = "False";
-            parameter["isEmail"].DefaultValue = "False";
-            parameter["ProjectID"].DefaultValue = Label3.Text;
-            parameter["ManagerApprove"].DefaultValue = "0";
-            parameter["Date"].DefaultValue = TextBox1.Text;
-            parameter["Occupancy"].DefaultValue = TextBox4.Text;
-
-            var parameret1 = SqlDataSource3.InsertParameters;
-            parameret1["ReservationID"].DefaultValue = c.ToString();
-            parameret1["UserID"].DefaultValue = holder;
 
             try
             {
-                SqlDataSource1.Insert();
-                SqlDataSource3.Insert();
-                GridView1.DataBind();
+                con.Open();
+                cmd = new SqlCommand("INSERT INTO Reservation (ReservationId, StartTime, EndTime, Status, isRecruit, isEmail, ProjectID, ManagerApprove, Date, Occupancy) VALUES (@ReservationId, @StartTime, @EndTime, @Status, @isRecruit, @isEmail, @ProjectID, @ManagerApprove, @Date, @Occupancy)", con);
+                cmd.Parameters.Add(new SqlParameter("ReservationId", c.ToString()));
+                cmd.Parameters.Add(new SqlParameter("StartTime", TextBox2.Text));
+                cmd.Parameters.Add(new SqlParameter("EndTime", TextBox3.Text));
+                cmd.Parameters.Add(new SqlParameter("ProjectID", d.ToString()));
+                cmd.Parameters.Add(new SqlParameter("Date", TextBox1.Text));
+                cmd.Parameters.Add(new SqlParameter("Occupancy", TextBox4.Text));
+                cmd.Parameters.Add(new SqlParameter("Status", "Pending"));
+                cmd.Parameters.Add(new SqlParameter("isEmail", "False"));
+                cmd.Parameters.Add(new SqlParameter("isRecruit", "False"));
+                cmd.Parameters.Add(new SqlParameter("ManagerApprove", "0"));
+                cmd.ExecuteNonQuery();
+                con.Close();
+
+                con.Open();
+                cmd = new SqlCommand("INSERT INTO Notify (ReservationID, UserID) VALUES(@ReservationID, @UserID)", con);
+                cmd.Parameters.Add(new SqlParameter("ReservationID", c.ToString()));
+                cmd.Parameters.Add(new SqlParameter("UserID", holder));
+                cmd.ExecuteNonQuery();
+                con.Close();
+            
+
+
                 TextBox1.Text = "";
                 TextBox2.Text = "";
                 TextBox3.Text = "";
                 TextBox4.Text = "";
+
+                Response.Redirect("~/ResearchReservation.aspx", false);
+                Response.Redirect("~/ResearchReservation.aspx?Email=" + Label4.Text);
             }
             catch (Exception ex)
             {
             }
+
+        }
+        protected void LinkButton5_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/ResearcherAccount.aspx", false);
+            Response.Redirect("~/ResearcherAccount.aspx?Email=" + Label4.Text);
         }
     }
 }
