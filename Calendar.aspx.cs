@@ -20,8 +20,8 @@ namespace Senior_Project
             { Label4.Text = Request.QueryString["Email"]; }
             con.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True";
             con.Open();
-            cmd.Connection = con;
-            cmd.CommandText = "SELECT * FROM [User] WHERE Email='" + Label4.Text.Trim() + "'";
+            SqlCommand cmd = new SqlCommand("SELECT * FROM[User] WHERE Email = @Email ", con);
+            cmd.Parameters.Add(new SqlParameter("Email", Label4.Text));
             dr = cmd.ExecuteReader();
             while (dr.Read())
             {
@@ -49,6 +49,11 @@ namespace Senior_Project
                 {
                     e.Cell.BackColor = System.Drawing.Color.Red;
                 }
+
+                if (e.Day.IsOtherMonth)
+                {
+                    e.Day.IsSelectable = false;
+                }
             }
             con.Close();
         }
@@ -69,6 +74,12 @@ namespace Senior_Project
         {
             Response.Redirect("~/ResearchReservation.aspx", false);
             Response.Redirect("~/ResearchReservation.aspx?Email=" + Label4.Text);
+        }
+
+        protected void LinkButton4_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/ResearcherAccount.aspx", false);
+            Response.Redirect("~/ResearcherAccount.aspx?Email=" + Label4.Text);
         }
     }
 }
