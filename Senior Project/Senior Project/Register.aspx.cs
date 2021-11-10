@@ -20,7 +20,7 @@ namespace Senior_Project
         {
             SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True");
             con.Open();
-            SqlCommand cmd = new SqlCommand("insert into [User]" + "(Recruited,Type,SubjectID,FirstName,LastName,PaymentType,Email,Password,Gender,DateofBirth,Major,EnrollmentDate,GPA,Address,ZIP,PaymentInfo) values (@Recruited,@Type,@SubjectID,@FirstName,@LastName,@PaymentType,@Email,@Password,@Gender,@DateofBirth,@Major,@EnrollmentDate,@GPA,@Address,@ZIP,@PaymentInfo)", con);
+            SqlCommand cmd = new SqlCommand("INSERT INTO [User]" + "(Recruited,Type,SubjectID,FirstName,LastName,PaymentType,Email,Password,Gender,DateofBirth,Major,EnrollmentDate,GPA,Address,ZIP,PaymentInfo) VALUES (@Recruited,@Type,@SubjectID,@FirstName,@LastName,@PaymentType,@Email,@Password,@Gender,@DateofBirth,@Major,@EnrollmentDate,@GPA,@Address,@ZIP,@PaymentInfo)", con);
             cmd.Parameters.AddWithValue("@FirstName", TextBox1.Text);
             cmd.Parameters.AddWithValue("@LastName", TextBox2.Text);
             cmd.Parameters.AddWithValue("@SubjectID", TextBox10.Text);
