@@ -18,9 +18,10 @@
             <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Sign In" />
             <br />
             <br />
+            <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click">Register</asp:LinkButton>
+            <br />
             <asp:Label ID="Label3" runat="server" Text="0"></asp:Label>
-        &nbsp;<asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
-        </div>
+        &nbsp;</div>
     </form>
 </body>
 </html>

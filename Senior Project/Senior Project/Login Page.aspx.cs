@@ -84,6 +84,11 @@ namespace Senior_Project
             //{
             //}
         }
+
+        protected void LinkButton1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Register.aspx");
+        }
     }
 }
 
