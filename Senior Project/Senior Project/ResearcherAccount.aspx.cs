@@ -30,6 +30,7 @@ namespace Senior_Project
             {
                 Label1.Text = dr["FirstName"].ToString().Trim();
                 Label2.Text = dr["LastName"].ToString().Trim();
+                Label3.Text = dr["ReservationID"].ToString().Trim();
             }
             con.Close();
         }

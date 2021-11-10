@@ -21,11 +21,12 @@
                     <asp:BoundField DataField="PaymentType" HeaderText="PaymentType" SortExpression="PaymentType" />
                     <asp:BoundField DataField="Type" HeaderText="Type" SortExpression="Type" />
                     <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
+                    <asp:BoundField DataField="ReservationID" HeaderText="ReservationID" SortExpression="ReservationID" />
                     <asp:BoundField DataField="Password" HeaderText="Password" SortExpression="Password" />
                     <asp:BoundField DataField="Gender" HeaderText="Gender" SortExpression="Gender" />
-                    <asp:BoundField DataField="DateofBirth" HeaderText="DateofBirth" SortExpression="DateofBirth" />
+                    <asp:BoundField DataField="DateofBirth" HeaderText="DateofBirth" SortExpression="DateofBirth" DataFormatString="{0:MM/dd/yyyy}" />
                     <asp:BoundField DataField="Major" HeaderText="Major" SortExpression="Major" />
-                    <asp:BoundField DataField="EnrollmentDate" HeaderText="EnrollmentDate" SortExpression="EnrollmentDate" />
+                    <asp:BoundField DataField="EnrollmentDate" HeaderText="EnrollmentDate" SortExpression="EnrollmentDate" DataFormatString="{0:MM/dd/yyyy}" />
                     <asp:BoundField DataField="GPA" HeaderText="GPA" SortExpression="GPA" />
                     <asp:BoundField DataField="Address" HeaderText="Address" SortExpression="Address" />
                     <asp:BoundField DataField="ZIP" HeaderText="ZIP" SortExpression="ZIP" />
