@@ -28,8 +28,8 @@
                 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like
                 Aldus PageMaker including versions of Lorem Ipsum.    
         </div>
-        <!-- Begin buttons/textboxes -->
-        <form id="form1" runat="server" class="container mt-3 h-100 d-flex justify-content-center align-content-end">
+        <!-- Begin buttons/textboxes form-->
+        <form id="form1" runat="server" class="container mt-2 h-100 d-flex justify-content-center align-content-end">
             <div>
                 <!-- Username label -->
                 <div class="d-flex justify-content-center mt-1">
@@ -54,6 +54,10 @@
                 <!-- Registeration page link -->
                 <div class="link-primary d-flex justify-content-center mt-2">
                     <asp:Label ID="Label4" runat="server" Text="Click here to register"></asp:Label>
+                </div>
+                <!-- Reset password link -->
+                <div class="link-primary d-flex justify-content-center">
+                    <asp:Label ID="Label5" runat="server" Text="Reset Password"></asp:Label>
                 </div>
             </div>
         </form>
