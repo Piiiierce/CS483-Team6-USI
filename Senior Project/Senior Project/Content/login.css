@@ -1,0 +1,29 @@
+﻿
+.background{
+    background-image: url("../images/usi.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+
+.login-box {
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    min-width: 400px;
+    min-height: 400px;
+    margin: auto;
+}
+
+.header{
+    width: auto;
+    height: auto;   
+    background-color:brown;
+}
+
+

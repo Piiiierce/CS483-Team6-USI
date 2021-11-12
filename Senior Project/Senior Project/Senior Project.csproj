@@ -123,6 +123,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\login.css" />
     <Content Include="Content\Site.css" />
     <Content Include="CreateProject.aspx" />
     <Content Include="EmailChange.aspx" />
@@ -138,6 +139,7 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="images\usi.jpg" />
     <Content Include="Login Page.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="ResearcherAccount.aspx" />
