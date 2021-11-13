@@ -29,7 +29,7 @@
                 Aldus PageMaker including versions of Lorem Ipsum.    
         </div>
         <!-- Begin buttons/textboxes form-->
-        <form id="form1" runat="server" class="container mt-2 h-100 d-flex justify-content-center align-content-end">
+        <form id="form1" runat="server" class="container mt-1 h-100 d-flex justify-content-center align-content-end">
             <div>
                 <!-- Username label -->
                 <div class="d-flex justify-content-center mt-1">
@@ -53,11 +53,11 @@
                 </div>
                 <!-- Registeration page link -->
                 <div class="link-primary d-flex justify-content-center mt-2">
-                    <asp:Label ID="Label4" runat="server" Text="Click here to register"></asp:Label>
+                    <a href="Register.aspx">Click here to register</a>
                 </div>
                 <!-- Reset password link -->
                 <div class="link-primary d-flex justify-content-center">
-                    <asp:Label ID="Label5" runat="server" Text="Reset Password"></asp:Label>
+                    <a href="">Reset password</a>
                 </div>
             </div>
         </form>
