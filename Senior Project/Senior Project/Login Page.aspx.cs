@@ -20,7 +20,7 @@ namespace Senior_Project
             con.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True";
             if (Request.QueryString["ReserveID"] != null)
             {
-                Label3.Text = Request.QueryString["ReserveID"];
+                Label4.Text = Request.QueryString["ReserveID"];
             }
         }
 
@@ -31,7 +31,7 @@ namespace Senior_Project
                 string reserve = "";
                 con.Open();
                 SqlCommand cmd = new SqlCommand("SELECT * FROM Reservation WHERE ReservationId = @ReservationId", con);
-                cmd.Parameters.Add(new SqlParameter("ReservationId", Label3.Text));
+                cmd.Parameters.Add(new SqlParameter("ReservationId", Label4.Text));
                 dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
@@ -54,7 +54,7 @@ namespace Senior_Project
                     }
                     else if (dr["Type"].ToString().Trim() == "Student")
                     {
-                        if (Label3.Text == reserve)
+                        if (Label4.Text == reserve)
                         {
                             Session["Reserve"] = Label3.Text;
                             Response.Redirect("~/ApproveReserve.aspx", false);
