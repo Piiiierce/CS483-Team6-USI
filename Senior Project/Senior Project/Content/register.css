@@ -1,14 +1,14 @@
 ﻿
-.background{
+.background {
     background-image: url("../images/usi.jpg");
     background-position: center;
     background-repeat: no-repeat;
     height: 100vh;
 }
 
-.login-box {
-    width: 500px;
-    height: 500px;
+.register-box {
+    width: 450px;
+    height: 675px;
     position: absolute;
     top: 0;
     bottom: 0;
@@ -19,10 +19,6 @@
     margin: auto;
 }
 
-.header{
-    width: auto;
-    height: auto;   
-    background-color:brown;
+.tableset{
+    float:right;
 }
-
-
