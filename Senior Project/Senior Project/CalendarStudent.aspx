@@ -4,9 +4,16 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>RCOB Lab Reservation</title>
+    <meta charset="utf-8">
+    <link href="../Content/studentview.css" rel="stylesheet">
+    <!-- Add bootstrap; online reference for most updated version -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
 </head>
-<body>
+
+<body class="background">
     <form id="form1" runat="server">
         <div>
             <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click">Your Schedule</asp:LinkButton>

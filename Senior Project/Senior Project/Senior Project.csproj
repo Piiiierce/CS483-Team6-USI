@@ -126,6 +126,7 @@
     <Content Include="Content\login.css" />
     <Content Include="Content\register.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\studentview.css" />
     <Content Include="CreateProject.aspx" />
     <Content Include="EmailChange.aspx" />
     <Content Include="favicon.ico" />
