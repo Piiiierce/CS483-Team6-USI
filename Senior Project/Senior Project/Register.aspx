@@ -28,7 +28,7 @@
 
                 <tr>
                     <td>
-                        <b>First Name:</b>
+                        <b>First Name:*</b>
                     </td>
                     <td>
                             <asp:TextBox ID="TextBox1" runat="server" Height="31px" Width="211px"></asp:TextBox>
@@ -36,7 +36,7 @@
                 </tr>
 
                 <tr>
-                    <td><b>Last Name:</b></td>
+                    <td><b>Last Name:*</b></td>
                     <td>
                         <asp:TextBox ID="TextBox2" runat="server" Height="31px" Width="211px"></asp:TextBox>
                     </td>
@@ -49,19 +49,19 @@
                 </tr>
 
                 <tr>
-                    <td>Email<b>:</b></td>
+                    <td>Email<b>:*</b></td>
                     <td>
                         <asp:TextBox ID="TextBox3" runat="server" Height="31px" Width="211px" TextMode="Email"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
-                    <td>Password<b>:</b></td>
+                    <td>Password<b>:*</b></td>
                     <td>
                         <asp:TextBox ID="TextBox4" runat="server" Height="31px" Width="211px" TextMode="Password"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
-                    <td><b>Confirm Password:</b></td>
+                    <td><b>Confirm Password:*</b></td>
                     <td>
                         <asp:TextBox ID="TextBox5" runat="server" Height="31px" Width="211px" TextMode="Password"></asp:TextBox>
                     </td>
@@ -88,7 +88,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td><b>Date of Birth:</b></td>
+                    <td><b>Date of Birth:*</b></td>
                     <td>
 
                         <asp:TextBox ID="TextBox11" runat="server" Height="31px" Width="211px" TextMode="Date"></asp:TextBox>
@@ -109,7 +109,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td><b>Enrollment Date:</b></td>
+                    <td><b>Enrollment Date:*</b></td>
                     <td>
 
                         <asp:TextBox ID="TextBox12" runat="server" Height="31px" Width="211px" TextMode="Date"></asp:TextBox>
@@ -119,23 +119,23 @@
                 <tr>
                     <td><b>GPA:</b></td>
                     <td>
-                        <asp:TextBox ID="TextBox6" runat="server" Height="31px" Width="211px" TextMode="Number"></asp:TextBox>
+                        <asp:TextBox ID="TextBox6" runat="server" Height="31px" Width="211px">0</asp:TextBox>
                     </td>
                 </tr>
                 <tr>
-                    <td><b>Address:</b></td>
+                    <td><b>Address:*</b></td>
                     <td>
                         <asp:TextBox ID="TextBox7" runat="server" Height="31px" Width="211px"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
-                    <td><b>ZIP:</b></td>
+                    <td><b>ZIP:*</b></td>
                     <td>
                         <asp:TextBox ID="TextBox8" runat="server" Height="31px" Width="211px" TextMode="Number"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
-                    <td><b>Payment Type:</b></td>
+                    <td><b>Payment Type:*</b></td>
                     <td>
                         <asp:DropDownList ID="DropDownList3" runat="server">
                             <asp:ListItem>Select Payment Type</asp:ListItem>
@@ -149,7 +149,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td><b>Payment Info:</b></td>
+                    <td><b>Payment Info:*</b></td>
                     <td>
                         <asp:TextBox ID="TextBox9" runat="server" Height="31px" Width="211px"></asp:TextBox>
                     </td>

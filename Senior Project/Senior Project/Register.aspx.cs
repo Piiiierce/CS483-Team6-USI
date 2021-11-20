@@ -6,56 +6,104 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Data;
+using System.Windows;
 
 namespace Senior_Project
 {
     public partial class WebForm1 : System.Web.UI.Page
     {
+        SqlConnection con = new SqlConnection();
+        SqlCommand cmd = new SqlCommand();
+        SqlDataReader dr;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            con.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True";
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True");
+            int hold = 0;
+            string email = "";
             con.Open();
-            SqlCommand cmd = new SqlCommand("INSERT INTO [User]" + "(Recruited,Type,SubjectID,FirstName,LastName,PaymentType,Email,Password,Gender,DateofBirth,Major,EnrollmentDate,GPA,Address,ZIP,PaymentInfo) VALUES (@Recruited,@Type,@SubjectID,@FirstName,@LastName,@PaymentType,@Email,@Password,@Gender,@DateofBirth,@Major,@EnrollmentDate,@GPA,@Address,@ZIP,@PaymentInfo)", con);
-            cmd.Parameters.AddWithValue("@FirstName", TextBox1.Text);
-            cmd.Parameters.AddWithValue("@LastName", TextBox2.Text);
-            cmd.Parameters.AddWithValue("@SubjectID", TextBox10.Text);
-            cmd.Parameters.AddWithValue("@Email", TextBox3.Text);
-            cmd.Parameters.AddWithValue("@Password", TextBox4.Text);
-            cmd.Parameters.AddWithValue("@Gender", DropDownList1.SelectedItem.Value);
-            cmd.Parameters.AddWithValue("@Type", DropDownList4.SelectedItem.Value);
-            cmd.Parameters.AddWithValue("@DateofBirth", TextBox11.Text);
-            cmd.Parameters.AddWithValue("@Major", DropDownList2.SelectedItem.Value);
-            cmd.Parameters.AddWithValue("@EnrollmentDate", TextBox12.Text);
-            cmd.Parameters.AddWithValue("@GPA", TextBox6.Text);
-            cmd.Parameters.AddWithValue("@Address", TextBox7.Text);
-            cmd.Parameters.AddWithValue("@ZIP", TextBox8.Text);
-            cmd.Parameters.AddWithValue("@PaymentType", DropDownList3.SelectedItem.Value);
-            cmd.Parameters.AddWithValue("@PaymentInfo", TextBox9.Text);
-            cmd.Parameters.AddWithValue("@Recruited", Boolean.FalseString);
-            cmd.ExecuteNonQuery();
+            cmd.Connection = con;
+            cmd.CommandText = "SELECT SubjectID FROM [User] WHERE Type = @Type ORDER BY SubjectID ASC";
+            cmd.Parameters.AddWithValue("@Type", "Student");
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                hold = Convert.ToInt32(dr["SubjectID"]);
+            }
             con.Close();
-            Label1.Text = "Registered Successfully";
-            TextBox1.Text = "";
-            TextBox2.Text = "";
-            TextBox3.Text = "";
-            TextBox4.Text = "";
-            TextBox5.Text = "";
-            TextBox6.Text = "";
-            TextBox7.Text = "";
-            TextBox8.Text = "";
-            TextBox9.Text = "";
-            TextBox10.Text = "";
-            TextBox11.Text = "";
-            TextBox12.Text = "";
-            DropDownList1.SelectedValue = "Select Gender";
-            DropDownList2.SelectedValue = "Select Major";
-            DropDownList3.SelectedValue = "Select Payment Type";
-            DropDownList4.SelectedValue = "Select Type";
+
+            con.Open();
+            cmd = new SqlCommand("SELECT * FROM [User] WHERE Email = @Email", con);
+            cmd.Parameters.Add(new SqlParameter("Email", TextBox3.Text));
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                email = dr["Email"].ToString().Trim();
+            }
+            con.Close();
+
+
+            if (TextBox1.Text == "" || TextBox2.Text == "" || TextBox3.Text == "" || TextBox4.Text == "" || TextBox5.Text == "" || TextBox11.Text == "" || TextBox12.Text == "" || TextBox7.Text == "" || TextBox8.Text == "" || TextBox9.Text == "" || DropDownList3.SelectedItem.Value == "Select Payment Value")
+            {
+                MessageBox.Show("One of the fields that needs to be filled out is empty!");
+            }
+            else
+            {
+                if (TextBox4.Text == TextBox5.Text)
+                {
+                    if (email != TextBox3.Text)
+                    {
+                        if (TextBox6.Text == "" || (Convert.ToInt32(TextBox6.Text) >= 0 && Convert.ToInt32(TextBox6.Text) <= 4))
+                        {
+                            try
+                            {
+                                hold++;
+                                con.Open();
+                                cmd = new SqlCommand("INSERT INTO [User]" + "(Recruited,Type,SubjectID,FirstName,LastName,PaymentType,Email,Password,Gender,DateofBirth,Major,EnrollmentDate,GPA,Address,ZIP,PaymentInfo) VALUES (@Recruited,@Type,@SubjectID,@FirstName,@LastName,@PaymentType,@Email,@Password,@Gender,@DateofBirth,@Major,@EnrollmentDate,@GPA,@Address,@ZIP,@PaymentInfo)", con);
+                                cmd.Parameters.AddWithValue("@FirstName", TextBox1.Text);
+                                cmd.Parameters.AddWithValue("@LastName", TextBox2.Text);
+                                cmd.Parameters.AddWithValue("@SubjectID", hold);
+                                cmd.Parameters.AddWithValue("@Email", TextBox3.Text);
+                                cmd.Parameters.AddWithValue("@Password", TextBox4.Text);
+                                cmd.Parameters.AddWithValue("@Gender", DropDownList1.SelectedItem.Value);
+                                cmd.Parameters.AddWithValue("@Type", "Student");
+                                cmd.Parameters.AddWithValue("@DateofBirth", TextBox11.Text);
+                                cmd.Parameters.AddWithValue("@Major", DropDownList2.SelectedItem.Value);
+                                cmd.Parameters.AddWithValue("@EnrollmentDate", TextBox12.Text);
+                                cmd.Parameters.AddWithValue("@GPA", TextBox6.Text);
+                                cmd.Parameters.AddWithValue("@Address", TextBox7.Text);
+                                cmd.Parameters.AddWithValue("@ZIP", TextBox8.Text);
+                                cmd.Parameters.AddWithValue("@PaymentType", DropDownList3.SelectedItem.Value);
+                                cmd.Parameters.AddWithValue("@PaymentInfo", TextBox9.Text);
+                                cmd.Parameters.AddWithValue("@Recruited", Boolean.FalseString);
+                                cmd.ExecuteNonQuery();
+                                con.Close();
+
+                                Response.Redirect("~/Login Page.aspx");
+                            }
+                            catch
+                            {
+                                TextBox6.Text = "";
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Please enter a number between 0-4 into GPA");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("This email already exists!");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Your password does not match!");
+                }
+            }
         }
     }
 }
