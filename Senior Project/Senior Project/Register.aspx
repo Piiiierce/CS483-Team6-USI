@@ -11,10 +11,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+    <style type="text/css">
+        .auto-style1 {
+            height: 39px;
+        }
+    </style>
 </head>
 
 <body class="background">
-    <form id="form1" runat="server" class="register-box bg-white border rounded border-dark">
+    <form id="form1" runat="server" class="register-box bg-white border rounded border-dark border-5">
         <div class="container d-flex justify-content-center">
 
             <table class="container d-flex justify-content-center">
@@ -109,8 +114,8 @@
                     </td>
                 </tr>
                 <tr>
-                    <td><b>Enrollment Date:*</b></td>
-                    <td>
+                    <td class="auto-style1"><b>Enrollment Date:*</b></td>
+                    <td class="auto-style1">
 
                         <asp:TextBox ID="TextBox12" runat="server" Height="31px" Width="211px" TextMode="Date"></asp:TextBox>
 

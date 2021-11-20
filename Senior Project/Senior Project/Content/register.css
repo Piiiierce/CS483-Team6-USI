@@ -17,6 +17,8 @@
     min-width: 400px;
     min-height: 400px;
     margin: auto;
+    border-width: 20px;
+    border-color: black;
 }
 
 .tableset{
