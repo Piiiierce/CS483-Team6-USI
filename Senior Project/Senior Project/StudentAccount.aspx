@@ -6,34 +6,38 @@
 <head runat="server">
     <title>RCOB Lab Reservation</title>
     <meta charset="utf-8">
-    <link href="../Content/studentview.css" rel="stylesheet">
     <!-- Add bootstrap; online reference for most updated version -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="../Content/master.css" rel="stylesheet">
+    <link href="../Content/studentview.css" rel="stylesheet">
 </head>
 
 <body class="background">
 
 
-        <form id="form1" runat="server">
-                   <div>
-        <div class="sideheader d-flex justify-content-center align-content-center">
-            <h1>Hello                 <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
-                <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
-</h1>
-        </div>
+    <form id="form1" runat="server">
         <div>
-            <ul class="sidebar">
-                <li><asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click">Calendar</asp:LinkButton></li>
-                <li><asp:LinkButton ID="LinkButton2" runat="server" OnClick="LinkButton2_Click">Your Schedule</asp:LinkButton></li>
-            </ul>
+            <div class="sideheader d-flex">
+                <h1>Hello                
+                    <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+                    <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
+                </h1>
+            </div>
+            <div class="sidebar">
+                <div class="d-flex sidecontent">
+                    <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click"  CssClass="button">Calendar</asp:LinkButton>
+                </div>
+                <div class="d-flex sidecontent">
+                    <asp:LinkButton ID="LinkButton2" runat="server" OnClick="LinkButton2_Click"  CssClass="button">Your Schedule</asp:LinkButton>
+                </div>
+            </div>
+
         </div>
 
-    </div>
- 
-                
-    <div class="container align-content-center">
+
+        <div class="container align-content-center">
             <div>
                 <asp:Label ID="Label5" runat="server" Text="Email:"></asp:Label>
                 <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>

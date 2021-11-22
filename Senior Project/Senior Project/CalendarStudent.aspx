@@ -6,6 +6,7 @@
 <head runat="server">
     <title>RCOB Lab Reservation</title>
     <meta charset="utf-8">
+    <link href="../Content/master.css" rel="stylesheet">
     <link href="../Content/studentview.css" rel="stylesheet">
     <!-- Add bootstrap; online reference for most updated version -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,7 +18,7 @@
     <form id="form1" runat="server">
         <div>
             <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click">Your Schedule</asp:LinkButton>
-&nbsp;<asp:LinkButton ID="LinkButton2" runat="server" OnClick="LinkButton2_Click">Account</asp:LinkButton>
+        &nbsp;<asp:LinkButton ID="LinkButton2" runat="server" OnClick="LinkButton2_Click">Account</asp:LinkButton>
             <br />
             <asp:Calendar ID="Calendar1" runat="server" OnDayRender="Calendar1_DayRender" OnSelectionChanged="Calendar1_SelectionChanged"></asp:Calendar>
             <asp:TextBox ID="TextBox1" runat="server" Visible="False"></asp:TextBox>

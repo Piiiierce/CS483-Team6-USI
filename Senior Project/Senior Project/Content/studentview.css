@@ -1,19 +1,12 @@
 ﻿
-.background {
-    background-image: url("../images/usi.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 100vh;
-}
-
 .sidebar {
     background-color: rgb(37, 150, 190);
-    opacity:1;
+    opacity: 1;
     position: absolute;
     width: 15%;
-    /*margin-right:15%;*/
     height: 100vh;
-
+    margin-right: 15%;
+    padding-top: 50px;
 }
 
 .sideheader {
@@ -22,7 +15,13 @@
     align-items:center;
     width: 15%;
     height: 10vh;
-    margin-right: 15%;
+
+}
+
+.sidecontent{
+    justify-content:center;
+    padding-top:10px;
+    padding-bottom:10px;
 }
 
 .content {
@@ -35,5 +34,5 @@
     right: 0;
     min-width: 400px;
     min-height: 400px;
-    margin: auto;
+    margin-left:10%;
 }

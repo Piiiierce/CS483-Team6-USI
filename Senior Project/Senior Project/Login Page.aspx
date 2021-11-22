@@ -6,6 +6,7 @@
 <head runat="server">
     <title>RCOB Lab Reservation</title>
     <meta charset="utf-8">
+    <link href="../Content/master.css" rel="stylesheet">
     <link href="../Content/login.css" rel="stylesheet">
     <!-- Add bootstrap; online reference for most updated version -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
