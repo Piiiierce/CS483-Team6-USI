@@ -23,18 +23,18 @@
 }
 
 .content-wrapper {
-    width: 450px;
-    height: 510px;
+    width: 1000px;
+    height: 400px;
     position: absolute;
     top: 0;
     bottom: 0;
-    left: 200px;
+    left: 0;
     right: 0;
-    min-width: 200px;
+    min-width: 1000px;
     min-height: 400px;
     margin: auto;
-    background-color:white;
-    justify-content:center;
+    background-color: white;
+    justify-content: center;
 }
 .content-labels {
     height: inherit;
