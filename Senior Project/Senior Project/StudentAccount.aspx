@@ -32,79 +32,91 @@
                 <div class="d-flex sidecontent">
                     <asp:LinkButton ID="LinkButton2" runat="server" OnClick="LinkButton2_Click" CssClass="button">Your Schedule</asp:LinkButton>
                 </div>
+                <div class="d-flex sidecontent">
+                    <asp:LinkButton ID="LinkButton3" runat="server" OnClick="LinkButton2_Click" CssClass="button">Account</asp:LinkButton>
+                </div>
             </div>
 
         </div>
 
 
-        <div class="container align-content-center content">
+        <div class="d-flex content-wrapper border rounded border-dark">
             <div>
-                <asp:Label ID="Label5" runat="server" Text="Email:"></asp:Label>
-                <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                <div class="content-labels">
+                    <div>
+                        <asp:Label ID="Label5" runat="server" Text="Email:" CssClass="labelspacing"></asp:Label>
+                    </div>
+                    <div>
+                        <asp:Label ID="Label7" runat="server" Text="Major:" CssClass="labelspacing"></asp:Label>
+                    </div>
+                    <div>
+                        <asp:Label ID="Label8" runat="server" Text="GPA:" CssClass="labelspacing"></asp:Label>
+                    </div>
+                    <div>
+                        <asp:Label ID="Label9" runat="server" Text="Address:" CssClass="labelspacing"></asp:Label>
+                    </div>
+                    <div>
+                        <asp:Label ID="Label10" runat="server" Text="ZIP:" CssClass="labelspacing"></asp:Label>
+                    </div>
+                    <div>
+                        <asp:Label ID="Label6" runat="server" Text="Payment Type:" CssClass="labelspacing"></asp:Label>
+                    </div>
+                    <div>
+                        <asp:Label ID="Label12" runat="server" Text="Payment Info:" CssClass="labelspacing"></asp:Label>
+                    </div>
 
-                <br />
-                <br />
+                    <div>
+                        <div style="padding-top:40px;">
+                            <asp:Label ID="Label17" runat="server" Text="Current Password:" CssClass="labelspacing"></asp:Label>
+                        </div>
+                        <div>
+                            <asp:Label ID="Label11" runat="server" Text="Current Password:" CssClass="labelspacing"></asp:Label>
+                        </div>
+                        <div>
+                            <asp:Label ID="Label18" runat="server" Text="Confirm New Password:"></asp:Label>
+                        </div>
+                    </div>
+                </div>
 
-                <asp:Label ID="Label7" runat="server" Text="Major:"></asp:Label>
-                <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+                <div class="content-input">
+                    <div class="content-padding">
+                        <asp:TextBox ID="TextBox1" runat="server" CssClass="inputspacing"></asp:TextBox>
+                    </div>
+                    <div>
+                        <asp:TextBox ID="TextBox2" runat="server" CssClass="inputspacing"></asp:TextBox>
+                    </div>
+                    <div>
+                        <asp:TextBox ID="TextBox3" runat="server" CssClass="inputspacing"></asp:TextBox>
+                    </div>
+                    <div>
+                        <asp:TextBox ID="TextBox4" runat="server" CssClass="inputspacing"></asp:TextBox>
+                    </div>
+                    <div>
+                        <asp:TextBox ID="TextBox5" runat="server" CssClass="inputspacing"></asp:TextBox>
+                    </div>
 
-                <br />
-                <br />
 
-                <asp:Label ID="Label8" runat="server" Text="GPA:"></asp:Label>
-                <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+                    <div>
+                        <asp:TextBox ID="TextBox6" runat="server" CssClass="inputspacing"></asp:TextBox>
+                    </div>
 
-                <br />
-                <br />
-
-                <asp:Label ID="Label9" runat="server" Text="Address:"></asp:Label>
-                <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
-
-                <br />
-                <br />
-
-                <asp:Label ID="Label10" runat="server" Text="ZIP:"></asp:Label>
-                <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
-
-                <br />
-                <br />
-
-                <asp:Label ID="Label6" runat="server" Text="Payment Type"></asp:Label>
-                <asp:TextBox ID="TextBox6" runat="server"></asp:TextBox>
-
-                <br />
-                <br />
-
-                <asp:Label ID="Label12" runat="server" Text="Payment Info:"></asp:Label>
-                <asp:TextBox ID="TextBox7" runat="server"></asp:TextBox>
-
-                <br />
-                <br />
-
-                <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Update" />
-            </div>
-
-            <div>
-                <asp:Label ID="Label17" runat="server" Text="Current Password:"></asp:Label>
-                <asp:TextBox ID="TextBox8" runat="server"></asp:TextBox>
-
-                <br />
-                <br />
-
-                <asp:Label ID="Label19" runat="server" Text="New Password:"></asp:Label>
-                <asp:TextBox ID="TextBox9" runat="server"></asp:TextBox>
-
-                <br />
-                <br />
-
-                <asp:Label ID="Label18" runat="server" Text="Confirm New Password:"></asp:Label>
-                <asp:TextBox ID="TextBox10" runat="server"></asp:TextBox>
-
-                <br />
-                <br />
-
-                <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Change Password" />
-            </div>
+                    <div>
+                        <asp:TextBox ID="TextBox7" runat="server" CssClass="inputspacing"></asp:TextBox>
+                        <div>
+                                                <div>
+                        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Update" CssClass="inputspacing"/>
+                    </div>
+                            <asp:TextBox ID="TextBox8" runat="server" CssClass="inputspacing"></asp:TextBox>
+                        </div>
+                        <div>
+                            <asp:TextBox ID="TextBox9" runat="server" CssClass="inputspacing"></asp:TextBox>
+                        </div>
+                        <div>
+                            <asp:TextBox ID="TextBox10" runat="server" CssClass="inputspacing"></asp:TextBox>
+                        </div>
+                        <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Change Password" />
+                    </div>
+                </div>
 
 
 
