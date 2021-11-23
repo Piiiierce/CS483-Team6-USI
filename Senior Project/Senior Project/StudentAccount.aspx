@@ -117,7 +117,7 @@
                         <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Change Password" />
                     </div>
                 </div>
-
+</div>
 
 
             <asp:Label ID="Label3" runat="server" Text="Label" Visible="False"></asp:Label>
