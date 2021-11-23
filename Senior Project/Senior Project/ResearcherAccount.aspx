@@ -23,17 +23,19 @@
                     <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
                 </h1>
             </div>
-            <div>
-                <ul class="sidebar">
-                    <li>
-                        <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click">Calendar</asp:LinkButton></li>
-                    <li>
-                        <asp:LinkButton ID="LinkButton2" runat="server" OnClick="LinkButton2_Click">Your Schedule</asp:LinkButton></li>
-                    <li>
-                        <asp:LinkButton ID="LinkButton3" runat="server" OnClick="LinkButton3_Click">Create Reservation</asp:LinkButton></li>
-                    <li>
-                        <asp:LinkButton ID="LinkButton4" runat="server" OnClick="LinkButton4_Click">Your Projects</asp:LinkButton></li>
-                </ul>
+            <div class="sidebar">
+                <div class="d-flex sidecontent">
+                    <asp:LinkButton ID="LinkButton1" runat="server" CssClass="button" OnClick="LinkButton1_Click">Calendar</asp:LinkButton>
+                </div>
+                <div class="d-flex sidecontent">
+                    <asp:LinkButton ID="LinkButton2" runat="server" CssClass="button" OnClick="LinkButton2_Click">Your Schedule</asp:LinkButton>
+                </div>
+                <div class="d-flex sidecontent">
+                    <asp:LinkButton ID="LinkButton3" runat="server" CssClass="button" OnClick="LinkButton3_Click">Create Reservation</asp:LinkButton>
+                </div>
+                <div class="d-flex sidecontent">
+                    <asp:LinkButton ID="LinkButton4" runat="server" CssClass="button" OnClick="LinkButton4_Click">Your Projects</asp:LinkButton>
+                </div>
             </div>
         </div>
 
