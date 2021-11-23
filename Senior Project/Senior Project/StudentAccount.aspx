@@ -48,10 +48,10 @@
         </div>
 
         <div class="bg-white border rounded border-dark container content-wrapper">
-            <table class="container d-flex justify-content-center">
+            <table class="container justify-content-center">
                 <tr>
-                    <td class="auto-style2">
-                            <asp:Label ID="Label5" runat="server" Text="Email:" CssClass="labelspacing"></asp:Label></tb>
+                    <td>
+                            <asp:Label ID="Label5" runat="server" Text="Email:" CssClass="labelspacing"></asp:Label>
                             <br />
                             <asp:Label ID="Label7" runat="server" Text="Major:" CssClass="labelspacing"></asp:Label>
                             <br />
@@ -65,7 +65,7 @@
                         <br />
                         <asp:Label ID="Label12" runat="server" Text="Payment Info:" CssClass="labelspacing"></asp:Label>
                     </td>
-                    <td class="auto-style1">
+                    <td>
                         <br />
                         <br />
                         <asp:TextBox ID="TextBox1" runat="server" CssClass="inputspacing"></asp:TextBox>
