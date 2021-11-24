@@ -23,15 +23,13 @@
 }
 
 .content-wrapper {
-    width: 1000px;
+    width: 800px;
     height: 400px;
     position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    min-width: 1000px;
-    min-height: 400px;
     margin: auto;
     background-color: white;
     justify-content: center;

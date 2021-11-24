@@ -48,9 +48,9 @@
         </div>
 
         <div class="bg-white border rounded border-dark container content-wrapper">
-            <table class="container justify-content-center">
+            <table class="d-flex container justify-content-center align-content-center m-1">
                 <tr>
-                    <td>
+                    <td style="padding-right:10px;">
                             <asp:Label ID="Label5" runat="server" Text="Email:" CssClass="labelspacing"></asp:Label>
                             <br />
                             <asp:Label ID="Label7" runat="server" Text="Major:" CssClass="labelspacing"></asp:Label>
@@ -82,9 +82,11 @@
                         <br />
                         <asp:TextBox ID="TextBox7" runat="server" CssClass="inputspacing"></asp:TextBox>
                         <br />
+                        <div class="d-flex justify-content-center">
                         <asp:Button ID="Button1" runat="server" Text="Update" CssClass="inputspacing" />
+                        </div>
                     </td>
-                    <td>
+                    <td style="padding-left:10px; padding-right:10px;">
                         <asp:Label ID="Label17" runat="server" Text="Current Password:" CssClass="labelspacing"></asp:Label>
                         <br />
                         <asp:Label ID="Label11" runat="server" Text="Current Password:" CssClass="labelspacing"></asp:Label>
@@ -99,8 +101,8 @@
                         <asp:TextBox ID="TextBox9" runat="server" CssClass="inputspacing"></asp:TextBox>
                         <br />
                         <asp:TextBox ID="TextBox10" runat="server" CssClass="inputspacing"></asp:TextBox>
-                        <div>
-                        <asp:Button ID="Button2" runat="server" Text="Change Password" />
+                        <div class="d-flex justify-content-center">
+                        <asp:Button ID="Button2" runat="server" Text="Change Password"/>
                             </div>
                     </td>
                 </tr>
