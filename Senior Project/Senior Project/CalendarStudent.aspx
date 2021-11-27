@@ -19,9 +19,10 @@
 
         <div>
             <div class="sideheader d-flex justify-content-center align-content-center">
-                <h1>Hello                
-                    <asp:Label ID="Label5" runat="server" Text="Label"></asp:Label>
-                    <asp:Label ID="Label6" runat="server" Text="Label"></asp:Label>
+                <h1>Hello    
+                                <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+                    <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
+
                 </h1>
             </div>
             <div class="sidebar">
@@ -37,7 +38,7 @@
             </div>
         </div>
 
-        <div class="border rounded border-dark container calendar-wrapper">
+        <div class="bg-white border rounded border-dark calendar-wrapper">
 
             <br />
             <asp:Calendar ID="Calendar1" runat="server" OnDayRender="Calendar1_DayRender" OnSelectionChanged="Calendar1_SelectionChanged" Height="500px" Width="800px"></asp:Calendar>
@@ -61,10 +62,8 @@
             </asp:SqlDataSource>
             <br />
             <br />
-            <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
-&nbsp;<asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
-&nbsp;<asp:Label ID="Label3" runat="server" Text="Label" Visible="False"></asp:Label>
-&nbsp;<asp:Label ID="Label4" runat="server" Text="Label" Visible="False"></asp:Label>
+            &nbsp;<asp:Label ID="Label3" runat="server" Text="Label" Visible="False"></asp:Label>
+            &nbsp;<asp:Label ID="Label4" runat="server" Text="Label" Visible="False"></asp:Label>
         </div>
     </form>
 </body>
