@@ -10,16 +10,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
-    <link href="../Content/master.css" rel="stylesheet">
     <link href="../Content/studentview.css" rel="stylesheet">
-    <style type="text/css">
-        .auto-style1 {
-            width: 301px;
-        }
-        .auto-style2 {
-            width: 196px;
-        }
-    </style>
+    <link href="../Content/master.css" rel="stylesheet">
 </head>
 
 <body class="background">
@@ -44,7 +36,6 @@
                     <asp:LinkButton ID="LinkButton3" runat="server"  CssClass="button">Account</asp:LinkButton>
                 </div>
             </div>
-
         </div>
 
         <div class="bg-white border rounded border-dark container content-wrapper">

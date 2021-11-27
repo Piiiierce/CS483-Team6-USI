@@ -1,27 +1,5 @@
 ﻿
-.sidebar {
-    background-color: rgb(37, 150, 190);
-    opacity: 1;
-    position: absolute;
-    width: 15%;
-    height: 100vh;
-    padding-top: 50px;
-}
-
-.sideheader {
-    background-color:brown;
-    justify-content:center;
-    align-items:center;
-    width: 15%;
-    height: 10vh;
-}
-
-.sidecontent{
-    justify-content:center;
-    padding-top:10px;
-    padding-bottom:10px;
-}
-
+/* Student account page CSS */
 .content-wrapper {
     width: 800px;
     height: 400px;
@@ -64,4 +42,20 @@
 
 .inputspacing{
     margin-bottom: 10px;
+}
+
+/* Student calender page CSS */
+.calendar-wrapper {
+    width: 400px;
+    height: 650px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    display:flex;
+    background-color: white;
+    justify-content: center;
+    align-content:center;
 }

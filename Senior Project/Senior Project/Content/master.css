@@ -5,6 +5,29 @@
     height: 100vh;
 }
 
+.sidebar {
+    background-color: rgb(37, 150, 190);
+    opacity: 1;
+    position: absolute;
+    width: 15%;
+    height: 100vh;
+    padding-top: 50px;
+}
+
+.sideheader {
+    background-color: brown;
+    justify-content: center;
+    align-items: center;
+    width: 15%;
+    height: 10vh;
+}
+
+.sidecontent {
+    justify-content: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
 .button {
     font: bold 15px Arial;
     width:150px;
