@@ -34,18 +34,6 @@ namespace Senior_Project
             con.Close();
         }
 
-        protected void LinkButton2_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/StudentSchedule.aspx", false);
-            Response.Redirect("~/StudentSchedule.aspx?Email=" + Label4.Text);
-        }
-
-        protected void LinkButton1_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/CalendarStudent.aspx", false);
-            Response.Redirect("~/CalendarStudent.aspx?Email=" + Label4.Text);
-        }
-
         protected void Button1_Click(object sender, EventArgs e)
         {
             string Email = "";
@@ -154,6 +142,24 @@ namespace Senior_Project
             catch (Exception ex)
             {
             }
+        }
+
+        protected void LinkButton2_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/StudentSchedule.aspx", false);
+            Response.Redirect("~/StudentSchedule.aspx?Email=" + Label4.Text);
+        }
+
+        protected void LinkButton1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/CalendarStudent.aspx", false);
+            Response.Redirect("~/CalendarStudent.aspx?Email=" + Label4.Text);
+        }
+
+        protected void LinkButton3_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/StudentAccount.aspx", false);
+            Response.Redirect("~/StudentAccount.aspx?Email=" + Label4.Text);
         }
     }
 }

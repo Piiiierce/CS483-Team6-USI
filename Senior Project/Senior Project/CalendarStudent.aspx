@@ -19,21 +19,20 @@
 
         <div>
             <div class="sideheader d-flex justify-content-center align-content-center">
-                <h1>Hello    
-                                <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+                <h1>Hello                
+                    <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
                     <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
-
                 </h1>
             </div>
             <div class="sidebar">
                 <div class="d-flex sidecontent">
-                    <asp:LinkButton ID="LinkButton3" runat="server" CssClass="button" OnClick="LinkButton1_Click">Calendar</asp:LinkButton>
+                    <asp:LinkButton ID="LinkButton1" runat="server"  CssClass="button" OnClick="LinkButton1_Click">Calendar</asp:LinkButton>
                 </div>
                 <div class="d-flex sidecontent">
-                    <asp:LinkButton ID="LinkButton4" runat="server" CssClass="button" OnClick="LinkButton2_Click">Your Schedule</asp:LinkButton>
+                    <asp:LinkButton ID="LinkButton2" runat="server"  CssClass="button" OnClick="LinkButton2_Click">Your Schedule</asp:LinkButton>
                 </div>
                 <div class="d-flex sidecontent">
-                    <asp:LinkButton ID="LinkButton5" runat="server" CssClass="button">Account</asp:LinkButton>
+                    <asp:LinkButton ID="LinkButton3" runat="server"  CssClass="button" OnClick="LinkButton3_Click">Account</asp:LinkButton>
                 </div>
             </div>
         </div>

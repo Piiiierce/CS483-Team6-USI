@@ -33,11 +33,6 @@ namespace Senior_Project
             con.Close();
         }
 
-        protected void LinkButton1_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/StudentSchedule.aspx", false);
-            Response.Redirect("~/StudentSchedule.aspx?Email=" + Label4.Text);
-        }
 
         protected void Calendar1_DayRender(object sender, DayRenderEventArgs e)
         {
@@ -76,6 +71,18 @@ namespace Senior_Project
         }
 
         protected void LinkButton2_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/StudentSchedule.aspx", false);
+            Response.Redirect("~/StudentSchedule.aspx?Email=" + Label4.Text);
+        }
+
+        protected void LinkButton1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/CalendarStudent.aspx", false);
+            Response.Redirect("~/CalendarStudent.aspx?Email=" + Label4.Text);
+        }
+
+        protected void LinkButton3_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/StudentAccount.aspx", false);
             Response.Redirect("~/StudentAccount.aspx?Email=" + Label4.Text);

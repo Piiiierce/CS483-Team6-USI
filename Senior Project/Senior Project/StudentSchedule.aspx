@@ -14,8 +14,28 @@
 <body>
     <form id="form1" runat="server">
         <div>
+            <div class="sideheader d-flex justify-content-center align-content-center">
+                <h1>Hello                
+                    <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+                    <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
+                </h1>
+            </div>
+            <div class="sidebar">
+                <div class="d-flex sidecontent">
+                    <asp:LinkButton ID="LinkButton3" runat="server"  CssClass="button" OnClick="LinkButton1_Click">Calendar</asp:LinkButton>
+                </div>
+                <div class="d-flex sidecontent">
+                    <asp:LinkButton ID="LinkButton4" runat="server"  CssClass="button" OnClick="LinkButton2_Click">Your Schedule</asp:LinkButton>
+                </div>
+                <div class="d-flex sidecontent">
+                    <asp:LinkButton ID="LinkButton5" runat="server"  CssClass="button" OnClick="LinkButton3_Click">Account</asp:LinkButton>
+                </div>
+            </div>
+        </div>
+
+        <div>
             <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click">Calendar</asp:LinkButton>
-&nbsp;<asp:LinkButton ID="LinkButton2" runat="server" OnClick="LinkButton2_Click">Account</asp:LinkButton>
+            &nbsp;<asp:LinkButton ID="LinkButton2" runat="server" OnClick="LinkButton2_Click">Account</asp:LinkButton>
             <br />
             <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
                 <Columns>
@@ -32,10 +52,8 @@
                 </SelectParameters>
             </asp:SqlDataSource>
             <br />
-            <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
-&nbsp;<asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
-&nbsp;<asp:Label ID="Label3" runat="server" Text="Label" Visible="False"></asp:Label>
-&nbsp;<asp:Label ID="Label4" runat="server" Text="Label" Visible="False"></asp:Label>
+            &nbsp;<asp:Label ID="Label3" runat="server" Text="Label" Visible="False"></asp:Label>
+            &nbsp;<asp:Label ID="Label4" runat="server" Text="Label" Visible="False"></asp:Label>
         </div>
     </form>
 </body>

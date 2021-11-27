@@ -28,13 +28,16 @@
                     <asp:LinkButton ID="LinkButton1" runat="server" CssClass="button" OnClick="LinkButton1_Click">Calendar</asp:LinkButton>
                 </div>
                 <div class="d-flex sidecontent">
-                    <asp:LinkButton ID="LinkButton2" runat="server" CssClass="button" OnClick="LinkButton2_Click">Your Schedule</asp:LinkButton>
+                    <asp:LinkButton ID="LinkButton2" runat="server" CssClass="button" OnClick="LinkButton2_Click">Your Projects</asp:LinkButton>
                 </div>
                 <div class="d-flex sidecontent">
-                    <asp:LinkButton ID="LinkButton3" runat="server" CssClass="button" OnClick="LinkButton3_Click">Create Reservation</asp:LinkButton>
+                    <asp:LinkButton ID="LinkButton3" runat="server" CssClass="button" OnClick="LinkButton3_Click">Your Schedule</asp:LinkButton>
                 </div>
                 <div class="d-flex sidecontent">
-                    <asp:LinkButton ID="LinkButton4" runat="server" CssClass="button" OnClick="LinkButton4_Click">Your Projects</asp:LinkButton>
+                    <asp:LinkButton ID="LinkButton4" runat="server" CssClass="button" OnClick="LinkButton4_Click">Create Reservation</asp:LinkButton>
+                </div>
+                <div class="d-flex sidecontent">
+                    <asp:LinkButton ID="LinkButton5" runat="server" CssClass="button" OnClick="LinkButton5_Click">Your Account</asp:LinkButton>
                 </div>
             </div>
         </div>

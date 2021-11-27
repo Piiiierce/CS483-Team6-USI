@@ -33,24 +33,6 @@ namespace Senior_Project
 
         }
 
-        protected void LinkButton2_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/Calendar.aspx", false);
-            Response.Redirect("~/Calendar.aspx?Email=" + Label4.Text);
-        }
-
-        protected void LinkButton3_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/ResearchProjects.aspx", false);
-            Response.Redirect("~/ResearchProjects.aspx?Email=" + Label4.Text);
-        }
-
-        protected void LinkButton4_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/ResearcherReservationSchedule.aspx", false);
-            Response.Redirect("~/ResearcherReservationSchedule.aspx?Email=" + Label4.Text);
-        }
-
         protected void Calendar1_SelectionChanged(object sender, EventArgs e)
         {
             TextBox1.Text = Calendar1.SelectedDate.ToString("MM/dd/yyyy");
@@ -315,6 +297,29 @@ namespace Senior_Project
                 Label10.Text = "Please insert a number between 1 - 50";
             }
         }
+        protected void LinkButton1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Calendar.aspx", false);
+            Response.Redirect("~/Calendar.aspx?Email=" + Label4.Text);
+        }
+
+        protected void LinkButton2_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/ResearchProjects.aspx", false);
+            Response.Redirect("~/ResearchProjects.aspx?Email=" + Label4.Text);
+        }
+
+        protected void LinkButton3_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/ResearcherReservationSchedule.aspx", false);
+            Response.Redirect("~/ResearcherReservationSchedule.aspx?Email=" + Label4.Text);
+        }
+        protected void LinkButton4_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/ResearchReservation.aspx", false);
+            Response.Redirect("~/ResearchReservation.aspx?Email=" + Label4.Text);
+        }
+
         protected void LinkButton5_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/ResearcherAccount.aspx", false);

@@ -78,6 +78,15 @@ namespace Senior_Project
         protected global::System.Web.UI.WebControls.LinkButton LinkButton4;
 
         /// <summary>
+        /// LinkButton5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton LinkButton5;
+
+        /// <summary>
         /// Label5 control.
         /// </summary>
         /// <remarks>

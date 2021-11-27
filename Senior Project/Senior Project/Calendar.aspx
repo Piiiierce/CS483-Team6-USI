@@ -10,21 +10,51 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
     <link href="../Content/master.css" rel="stylesheet">
+    <link href="../Content/studentview.css" rel="stylesheet">
     <style type="text/css">
-        .auto-style1 {}
+        .auto-style1 {
+        }
     </style>
 </head>
 <body>
     <form id="form1" runat="server">
         <div>
-            <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click">Your Projects</asp:LinkButton>
-&nbsp;<asp:LinkButton ID="LinkButton2" runat="server" OnClick="LinkButton2_Click">Your Schedule</asp:LinkButton>
-&nbsp;<asp:LinkButton ID="LinkButton3" runat="server" OnClick="LinkButton3_Click">Create Reservation</asp:LinkButton>
-            &nbsp;<asp:LinkButton ID="LinkButton4" runat="server" OnClick="LinkButton4_Click">Account</asp:LinkButton>
+            <div class="sideheader d-flex justify-content-center align-content-center">
+                <h1>Hello                
+                   
+                    <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+                    <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
+                </h1>
+            </div>
+            <div class="sidebar">
+                <div class="d-flex sidecontent">
+                    <asp:LinkButton ID="LinkButton1" runat="server" CssClass="button" OnClick="LinkButton1_Click">Calendar</asp:LinkButton>
+                </div>
+                <div class="d-flex sidecontent">
+                    <asp:LinkButton ID="LinkButton2" runat="server" CssClass="button" OnClick="LinkButton2_Click">Your Projects</asp:LinkButton>
+                </div>
+                <div class="d-flex sidecontent">
+                    <asp:LinkButton ID="LinkButton3" runat="server" CssClass="button" OnClick="LinkButton3_Click">Your Schedule</asp:LinkButton>
+                </div>
+                <div class="d-flex sidecontent">
+                    <asp:LinkButton ID="LinkButton4" runat="server" CssClass="button" OnClick="LinkButton4_Click">Create Reservation</asp:LinkButton>
+                </div>
+                <div class="d-flex sidecontent">
+                    <asp:LinkButton ID="LinkButton5" runat="server" CssClass="button" OnClick="LinkButton5_Click">Your Account</asp:LinkButton>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="bg-white border rounded border-dark calendar-wrapper">
+            <div>
             <br />
             <asp:Calendar ID="Calendar1" runat="server" CssClass="auto-style1" Height="335px" OnDayRender="Calendar1_DayRender" OnSelectionChanged="Calendar1_SelectionChanged" Width="431px"></asp:Calendar>
             <asp:TextBox ID="TextBox1" runat="server" Visible="False"></asp:TextBox>
+                <br />
+                </div>
             <br />
+            <div>
             <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
                 <Columns>
                     <asp:BoundField DataField="FirstName" HeaderText="FirstName" SortExpression="FirstName" />
@@ -35,6 +65,7 @@
                     <asp:BoundField DataField="EndTime" HeaderText="EndTime" SortExpression="EndTime" DataFormatString="{0:hh':'mm}" />
                 </Columns>
             </asp:GridView>
+                </div>
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [User].FirstName, [User].LastName, Project.Name, Reservation.Date, Reservation.StartTime, Reservation.EndTime FROM [User] INNER JOIN Recruit ON [User].SubjectID = Recruit.SubjectID INNER JOIN Project ON Recruit.ProjectID = Project.ProjectID INNER JOIN Reservation ON Project.ProjectID = Reservation.ProjectID WHERE (Reservation.ManagerApprove = 1) AND (Reservation.Date = @Date)">
                 <SelectParameters>
                     <asp:ControlParameter ControlID="TextBox1" Name="Date" PropertyName="Text" />
@@ -42,10 +73,8 @@
             </asp:SqlDataSource>
             <br />
             <br />
-            <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
-&nbsp;<asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
-&nbsp;<asp:Label ID="Label3" runat="server" Text="Label" Visible="False"></asp:Label>
-&nbsp;<asp:Label ID="Label4" runat="server" Text="Label" Visible="False"></asp:Label>
+            &nbsp;<asp:Label ID="Label3" runat="server" Text="Label" Visible="False"></asp:Label>
+            &nbsp;<asp:Label ID="Label4" runat="server" Text="Label" Visible="False"></asp:Label>
         </div>
     </form>
 </body>

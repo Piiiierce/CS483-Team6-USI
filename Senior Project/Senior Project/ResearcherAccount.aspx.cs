@@ -34,18 +34,6 @@ namespace Senior_Project
             con.Close();
         }
 
-        protected void LinkButton2_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/ResearcherReservationSchedule.aspx", false);
-            Response.Redirect("~/ResearcherReservationSchedule.aspx?Email=" + Label4.Text);
-        }
-
-        protected void LinkButton1_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/Calendar.aspx", false);
-            Response.Redirect("~/Calendar.aspx?Email=" + Label4.Text);
-        }
-
         protected void Button1_Click(object sender, EventArgs e)
         {
             string Email = "";
@@ -147,17 +135,33 @@ namespace Senior_Project
             {
             }
         }
+        protected void LinkButton1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Calendar.aspx", false);
+            Response.Redirect("~/Calendar.aspx?Email=" + Label4.Text);
+        }
+
+        protected void LinkButton2_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/ResearchProjects.aspx", false);
+            Response.Redirect("~/ResearchProjects.aspx?Email=" + Label4.Text);
+        }
 
         protected void LinkButton3_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/ResearcherReservationSchedule.aspx", false);
+            Response.Redirect("~/ResearcherReservationSchedule.aspx?Email=" + Label4.Text);
+        }
+        protected void LinkButton4_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/ResearchReservation.aspx", false);
             Response.Redirect("~/ResearchReservation.aspx?Email=" + Label4.Text);
         }
 
-        protected void LinkButton4_Click(object sender, EventArgs e)
+        protected void LinkButton5_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/ResearchProjects.aspx", false);
-            Response.Redirect("~/ResearchProjects.aspx?Email=" + Label4.Text);
+            Response.Redirect("~/ResearcherAccount.aspx", false);
+            Response.Redirect("~/ResearcherAccount.aspx?Email=" + Label4.Text);
         }
     }
 }
