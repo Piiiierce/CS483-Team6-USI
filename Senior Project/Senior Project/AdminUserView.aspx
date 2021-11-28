@@ -35,10 +35,11 @@
             </div>
         </div>
 
-        <div>
+        <div class="bg-white border rounded border-dark container">
             <br />
             <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="SubjectID" DataSourceID="SqlDataSource1">
                 <Columns>
+                    <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ShowSelectButton="True" />
                     <asp:BoundField DataField="SubjectID" HeaderText="SubjectID" ReadOnly="True" SortExpression="SubjectID" />
                     <asp:BoundField DataField="FirstName" HeaderText="FirstName" SortExpression="FirstName" />
                     <asp:BoundField DataField="LastName" HeaderText="LastName" SortExpression="LastName" />
@@ -57,7 +58,21 @@
                     <asp:BoundField DataField="PaymentInfo" HeaderText="PaymentInfo" SortExpression="PaymentInfo" />
                 </Columns>
             </asp:GridView>
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT SubjectID, FirstName, LastName, Recruited, PaymentType, Type, Email, Password, Gender, DateofBirth, Major, EnrollmentDate, GPA, Address, ZIP, PaymentInfo FROM [User] WHERE (Type != N'admin')"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT SubjectID, FirstName, LastName, Recruited, PaymentType, Type, Email, Password, Gender, DateofBirth, Major, EnrollmentDate, GPA, Address, ZIP, PaymentInfo FROM [User] WHERE (Type != N'admin')" DeleteCommand="DELETE FROM [User] WHERE (SubjectID = @SubjectID)" UpdateCommand="UPDATE [User] SET FirstName = @FirstName, LastName = @LastName, Password = @Password, Major = @Major, EnrollmentDate = @EnrollmentDate, GPA = @GPA, Address = @Address, ZIP = @ZIP">
+                <DeleteParameters>
+                    <asp:Parameter Name="SubjectID" />
+                </DeleteParameters>
+                <UpdateParameters>
+                    <asp:Parameter Name="FirstName" />
+                    <asp:Parameter Name="LastName" />
+                    <asp:Parameter Name="Password" />
+                    <asp:Parameter Name="Major" />
+                    <asp:Parameter Name="EnrollmentDate" />
+                    <asp:Parameter Name="GPA" />
+                    <asp:Parameter Name="Address" />
+                    <asp:Parameter Name="ZIP" />
+                </UpdateParameters>
+            </asp:SqlDataSource>
             <br />
             <br />
             &nbsp;<asp:Label ID="Label3" runat="server" Text="Label" Visible="False"></asp:Label>

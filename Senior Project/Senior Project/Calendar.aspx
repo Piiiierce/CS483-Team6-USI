@@ -46,7 +46,7 @@
             </div>
         </div>
 
-        <div class="bg-white border rounded border-dark calendar-wrapper">
+        <div class="bg-white border rounded border-dark calendar-wrapper d-flex align-content-center">
             <div>
             <br />
             <asp:Calendar ID="Calendar1" runat="server" CssClass="auto-style1" Height="335px" OnDayRender="Calendar1_DayRender" OnSelectionChanged="Calendar1_SelectionChanged" Width="431px"></asp:Calendar>

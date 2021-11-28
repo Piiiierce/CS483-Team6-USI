@@ -11,7 +11,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
     <link href="../Content/master.css" rel="stylesheet">
-    <link href="../Content/studentview.css" rel="stylesheet" />
+        <link href="../Content/researcherview.css" rel="stylesheet" />
+
 </head>
 <body class="background">
     <form id="form1" runat="server">

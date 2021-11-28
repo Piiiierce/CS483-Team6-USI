@@ -11,7 +11,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
     <link href="../Content/master.css" rel="stylesheet">
-
+            <link href="../Content/researcherview.css" rel="stylesheet" />
 </head>
 <body>
     <form id="form1" runat="server">
@@ -43,7 +43,7 @@
             </div>
         </div>
 
-        <div>
+        <div class="bg-white border rounded border-dark researcher-schedule-wrapper">
             <br />
             <br />
             <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AllowSorting="True">
@@ -62,7 +62,7 @@
             &nbsp;&nbsp;<br />
             <asp:Label ID="Label11" runat="server" Text="Amount of Applicants"></asp:Label>
             <br />
-            <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+            <asp:TextBox ID="TextBox3" runat="server" BorderStyle="Solid" ReadOnly="True"></asp:TextBox>
             <br />
             &nbsp;<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT Project.Name, Reservation.Date, Reservation.StartTime, Reservation.EndTime, Reservation.Status, Reservation.isRecruit, Reservation.isEmail, Reservation.Occupancy FROM [User] INNER JOIN Recruit ON [User].SubjectID = Recruit.SubjectID INNER JOIN Project ON Recruit.ProjectID = Project.ProjectID INNER JOIN Reservation ON Project.ProjectID = Reservation.ProjectID WHERE ([User].SubjectID = (SELECT SubjectID FROM [User] AS User_1 WHERE (Email = @Email))) ORDER BY Reservation.Status DESC">
                 <SelectParameters>
