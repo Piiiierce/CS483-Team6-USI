@@ -52,22 +52,28 @@ namespace Senior_Project
             }
             con.Close();
         }
+        protected void Calendar1_SelectionChanged(object sender, EventArgs e)
+        {
+            TextBox1.Text = Calendar1.SelectedDate.ToString("MM/dd/yyyy");
+        }
 
         protected void LinkButton1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/AdminCalendar.aspx", false);
+            Response.Redirect("~/AdminCalendar.aspx?Email=" + Label4.Text);
+        }
+
+        protected void LinkButton2_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/AdminApprove.aspx", false);
             Response.Redirect("~/AdminApprove.aspx?Email=" + Label4.Text);
         }
 
-        protected void LinkButton2_Click(object sender, EventArgs e)
+
+        protected void LinkButton3_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/AdminUserView.aspx", false);
             Response.Redirect("~/AdminUserView.aspx?Email=" + Label4.Text);
-        }
-
-        protected void Calendar1_SelectionChanged(object sender, EventArgs e)
-        {
-            TextBox1.Text = Calendar1.SelectedDate.ToString("MM/dd/yyyy");
         }
     }
 }

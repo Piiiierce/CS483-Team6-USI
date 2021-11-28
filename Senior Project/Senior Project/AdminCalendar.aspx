@@ -10,12 +10,34 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
     <link href="../Content/master.css" rel="stylesheet">
+    <link href="Content/studentview.css" rel="stylesheet" />
 </head>
+
 <body>
     <form id="form1" runat="server">
         <div>
-            <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click">Approve/Deny</asp:LinkButton>
-            &nbsp;<asp:LinkButton ID="LinkButton2" runat="server" OnClick="LinkButton2_Click">User View</asp:LinkButton>
+            <div class="sideheader d-flex justify-content-center align-content-center">
+                <h1>Hello                
+                   
+                    <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+                    <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
+                </h1>
+            </div>
+            <div class="sidebar">
+                <div class="d-flex sidecontent">
+                    <asp:LinkButton ID="LinkButton1" runat="server" CssClass="button" OnClick="LinkButton1_Click">Calendar</asp:LinkButton>
+                </div>
+                <div class="d-flex sidecontent">
+                    <asp:LinkButton ID="LinkButton2" runat="server" CssClass="button" OnClick="LinkButton2_Click">Approve/Deny</asp:LinkButton>
+                </div>
+                <div class="d-flex sidecontent">
+                    <asp:LinkButton ID="LinkButton3" runat="server" CssClass="button" OnClick="LinkButton3_Click">User View</asp:LinkButton>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="bg-white border rounded border-dark calendar-wrapper">
             <br />
             <asp:Calendar ID="Calendar1" runat="server" CssClass="auto-style1" Height="335px" OnDayRender="Calendar1_DayRender" Width="431px" OnSelectionChanged="Calendar1_SelectionChanged"></asp:Calendar>
             <asp:TextBox ID="TextBox1" runat="server" Visible="False"></asp:TextBox>
@@ -37,8 +59,6 @@
             </asp:SqlDataSource>
             <br />
             <br />
-            <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
-            &nbsp;<asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
             &nbsp;<asp:Label ID="Label4" runat="server" Text="Label" Visible="False"></asp:Label>
         </div>
     </form>

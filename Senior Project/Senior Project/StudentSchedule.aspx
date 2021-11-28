@@ -6,12 +6,14 @@
 <head runat="server">
     <title></title>
     <!-- Add bootstrap; online reference for most updated version -->
+        <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
     <link href="../Content/master.css" rel="stylesheet">
+    <link href="../Content/studentview.css" rel="stylesheet" />
 </head>
-<body>
+<body class="background">
     <form id="form1" runat="server">
         <div>
             <div class="sideheader d-flex justify-content-center align-content-center">
@@ -22,20 +24,18 @@
             </div>
             <div class="sidebar">
                 <div class="d-flex sidecontent">
-                    <asp:LinkButton ID="LinkButton3" runat="server"  CssClass="button" OnClick="LinkButton1_Click">Calendar</asp:LinkButton>
+                    <asp:LinkButton ID="LinkButton1" runat="server"  CssClass="button" OnClick="LinkButton1_Click">Calendar</asp:LinkButton>
                 </div>
                 <div class="d-flex sidecontent">
-                    <asp:LinkButton ID="LinkButton4" runat="server"  CssClass="button" OnClick="LinkButton2_Click">Your Schedule</asp:LinkButton>
+                    <asp:LinkButton ID="LinkButton2" runat="server"  CssClass="button" OnClick="LinkButton2_Click">Your Schedule</asp:LinkButton>
                 </div>
                 <div class="d-flex sidecontent">
-                    <asp:LinkButton ID="LinkButton5" runat="server"  CssClass="button" OnClick="LinkButton3_Click">Account</asp:LinkButton>
+                    <asp:LinkButton ID="LinkButton3" runat="server"  CssClass="button" OnClick="LinkButton3_Click">Account</asp:LinkButton>
                 </div>
             </div>
         </div>
 
-        <div>
-            <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click">Calendar</asp:LinkButton>
-            &nbsp;<asp:LinkButton ID="LinkButton2" runat="server" OnClick="LinkButton2_Click">Account</asp:LinkButton>
+        <div class="bg-white border rounded border-dark schedule-wrapper">
             <br />
             <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
                 <Columns>

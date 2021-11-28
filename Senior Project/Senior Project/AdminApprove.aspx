@@ -14,8 +14,28 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click">Calendar</asp:LinkButton>
-&nbsp;<asp:LinkButton ID="LinkButton2" runat="server" OnClick="LinkButton2_Click">User View</asp:LinkButton>
+            <div class="sideheader d-flex justify-content-center align-content-center">
+                <h1>Hello                
+                   
+                    <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+                    <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
+                </h1>
+            </div>
+            <div class="sidebar">
+                <div class="d-flex sidecontent">
+                    <asp:LinkButton ID="LinkButton1" runat="server" CssClass="button" OnClick="LinkButton1_Click">Calendar</asp:LinkButton>
+                </div>
+                <div class="d-flex sidecontent">
+                    <asp:LinkButton ID="LinkButton2" runat="server" CssClass="button" OnClick="LinkButton2_Click">Approve/Deny</asp:LinkButton>
+                </div>
+                <div class="d-flex sidecontent">
+                    <asp:LinkButton ID="LinkButton3" runat="server" CssClass="button" OnClick="LinkButton3_Click">User View</asp:LinkButton>
+                </div>
+
+            </div>
+        </div>
+
+        <div>
             <br />
             <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
                 <Columns>
@@ -37,21 +57,20 @@
             </asp:SqlDataSource>
             <br />
             <asp:Button ID="Button1" runat="server" Text="Approve" Visible="False" OnClick="Button1_Click1" />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Button ID="Button2" runat="server" Text="Decline" Visible="False" OnClick="Button2_Click" />
             <br />
             <br />
             <br />
             <br />
-            <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
-&nbsp;<asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
-&nbsp;<asp:Label ID="Label3" runat="server" Text="Label" Visible="False"></asp:Label>
-&nbsp;<asp:Label ID="Label4" runat="server" Text="Label" Visible="False"></asp:Label>
-&nbsp;<asp:Label ID="Label5" runat="server" Text="Label" Visible="False"></asp:Label>
-&nbsp;<asp:Label ID="Label6" runat="server" Text="Label" Visible="False"></asp:Label>
-&nbsp;<asp:Label ID="Label7" runat="server" Text="Label" Visible="False"></asp:Label>
-&nbsp;<asp:Label ID="Label8" runat="server" Text="Label" Visible="False"></asp:Label>
-&nbsp;</div>
+            &nbsp;<asp:Label ID="Label3" runat="server" Text="Label" Visible="False"></asp:Label>
+            &nbsp;<asp:Label ID="Label4" runat="server" Text="Label" Visible="False"></asp:Label>
+            &nbsp;<asp:Label ID="Label5" runat="server" Text="Label" Visible="False"></asp:Label>
+            &nbsp;<asp:Label ID="Label6" runat="server" Text="Label" Visible="False"></asp:Label>
+            &nbsp;<asp:Label ID="Label7" runat="server" Text="Label" Visible="False"></asp:Label>
+            &nbsp;<asp:Label ID="Label8" runat="server" Text="Label" Visible="False"></asp:Label>
+            &nbsp;
+        </div>
     </form>
 </body>
 </html>

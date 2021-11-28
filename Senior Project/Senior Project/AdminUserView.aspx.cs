@@ -43,5 +43,12 @@ namespace Senior_Project
             Response.Redirect("~/AdminApprove.aspx", false);
             Response.Redirect("~/AdminApprove.aspx?Email=" + Label4.Text);
         }
+
+
+        protected void LinkButton3_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/AdminUserView.aspx", false);
+            Response.Redirect("~/AdminUserView.aspx?Email=" + Label4.Text);
+        }
     }
 }
