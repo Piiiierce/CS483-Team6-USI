@@ -42,19 +42,19 @@
                 <div class="d-flex sidecontent">
                     <asp:LinkButton ID="LinkButton5" runat="server" CssClass="button" OnClick="LinkButton5_Click">Your Account</asp:LinkButton>
                 </div>
-
             </div>
         </div>
 
-        <div class="bg-white border rounded border-dark calendar-wrapper d-flex align-content-center">
-            <div>
+        <div class="bg-white border rounded border-dark calendar-wrapper">
+            <div class="calendar">
             <br />
             <asp:Calendar ID="Calendar1" runat="server" CssClass="auto-style1" Height="335px" OnDayRender="Calendar1_DayRender" OnSelectionChanged="Calendar1_SelectionChanged" Width="431px"></asp:Calendar>
             <asp:TextBox ID="TextBox1" runat="server" Visible="False"></asp:TextBox>
                 <br />
                 </div>
             <br />
-            <div>
+            <br />
+            <div class="data">
             <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
                 <Columns>
                     <asp:BoundField DataField="FirstName" HeaderText="FirstName" SortExpression="FirstName" />

@@ -141,6 +141,8 @@ namespace Senior_Project
         {
             ListBox1.Visible = true;
             Button4.Visible = true;
+            Button2.Visible = false;
+            Button5.Visible = false;
         }
 
         protected void Button4_Click(object sender, EventArgs e)
@@ -218,6 +220,8 @@ namespace Senior_Project
         {
             Button3.Visible = true;
             ListBox2.Visible = true;
+            Button2.Visible = false;
+            Button5.Visible = false;
         }
         protected void LinkButton1_Click(object sender, EventArgs e)
         {

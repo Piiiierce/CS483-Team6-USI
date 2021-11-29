@@ -45,8 +45,8 @@
 
         <div class="bg-white border rounded border-dark researcher-schedule-wrapper">
             <br />
-            <br />
-            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AllowSorting="True">
+            <div class ="center">
+            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AllowSorting="True" AllowPaging="True" PageSize="5">
                 <Columns>
                     <asp:CommandField ShowSelectButton="True" />
                     <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
@@ -58,11 +58,17 @@
                     <asp:BoundField DataField="isEmail" HeaderText="isEmail" SortExpression="isEmail" />
                     <asp:BoundField DataField="Occupancy" HeaderText="Occupancy" SortExpression="Occupancy" />
                 </Columns>
+                <PagerSettings PageButtonCount="5" />
             </asp:GridView>
+                </div>
             &nbsp;&nbsp;<br />
+            <div class ="center">
             <asp:Label ID="Label11" runat="server" Text="Amount of Applicants"></asp:Label>
-            <br />
+                </div>
+            <div class ="center">
+
             <asp:TextBox ID="TextBox3" runat="server" BorderStyle="Solid" ReadOnly="True"></asp:TextBox>
+                </div>
             <br />
             &nbsp;<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT Project.Name, Reservation.Date, Reservation.StartTime, Reservation.EndTime, Reservation.Status, Reservation.isRecruit, Reservation.isEmail, Reservation.Occupancy FROM [User] INNER JOIN Recruit ON [User].SubjectID = Recruit.SubjectID INNER JOIN Project ON Recruit.ProjectID = Project.ProjectID INNER JOIN Reservation ON Project.ProjectID = Reservation.ProjectID WHERE ([User].SubjectID = (SELECT SubjectID FROM [User] AS User_1 WHERE (Email = @Email))) ORDER BY Reservation.Status DESC">
                 <SelectParameters>
@@ -70,30 +76,41 @@
                 </SelectParameters>
             </asp:SqlDataSource>
             <br />
+            <div class ="center">
             <asp:Button ID="Button2" runat="server" Text="Recruit" Visible="False" OnClick="Button2_Click" />
             &nbsp;&nbsp;&nbsp;
             <asp:Button ID="Button5" runat="server" CssClass="auto-style3" OnClick="Button5_Click" Text="View Roster" Visible="False" />
+                </div>
             <br />
-            <br />
+            <div class ="center">
             <asp:ListBox ID="ListBox1" runat="server" CssClass="auto-style1" DataSourceID="SqlDataSource2" DataTextField="FirstName" DataValueField="Email" Height="224px" SelectionMode="Multiple" Visible="False" Width="184px"></asp:ListBox>
             <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT FirstName, LastName, Email FROM [User] WHERE (Type = N'student')"></asp:SqlDataSource>
+                </div>
             <br />
+            <div class ="center">
             <asp:Button ID="Button4" runat="server" Text="Send Email" Visible="False" OnClick="Button4_Click" />
             <br />
+                </div>
             <br />
-
+            <div class ="center">
             <asp:ListBox ID="ListBox2" runat="server" CssClass="auto-style2" DataSourceID="SqlDataSource3" DataTextField="FirstName" DataValueField="Email" Height="213px" Visible="False" Width="187px"></asp:ListBox>
             <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [User].FirstName, [User].LastName, [User].Email FROM [User] INNER JOIN StudentReserve ON [User].SubjectID = StudentReserve.StudentID WHERE (StudentReserve.ReservationID = @ReservationID) AND ([User].Type = N'student')">
                 <SelectParameters>
                     <asp:ControlParameter ControlID="TextBox2" Name="ReservationID" PropertyName="Text" />
                 </SelectParameters>
             </asp:SqlDataSource>
+                </div>
+            <br />
+            <div class ="center">
             <asp:Button ID="Button3" runat="server" Text="Send Reminder Email" Visible="False" OnClick="Button3_Click" />
+                </div>
             <br />
             <br />
             <br />
             <br />
+            <div class ="center">
             <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Cancel" Visible="False" />
+                </div>
             <br />
             <br />
             <br />
