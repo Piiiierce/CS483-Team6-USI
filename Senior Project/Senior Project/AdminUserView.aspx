@@ -58,7 +58,7 @@
                     <asp:BoundField DataField="PaymentInfo" HeaderText="PaymentInfo" SortExpression="PaymentInfo" />
                 </Columns>
             </asp:GridView>
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT SubjectID, FirstName, LastName, Recruited, PaymentType, Type, Email, Password, Gender, DateofBirth, Major, EnrollmentDate, GPA, Address, ZIP, PaymentInfo FROM [User] WHERE (Type != N'admin')" DeleteCommand="DELETE FROM [User] WHERE (SubjectID = @SubjectID)" UpdateCommand="UPDATE [User] SET FirstName = @FirstName, LastName = @LastName, Password = @Password, Major = @Major, EnrollmentDate = @EnrollmentDate, GPA = @GPA, Address = @Address, ZIP = @ZIP">
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT SubjectID, FirstName, LastName, Recruited, PaymentType, Type, Email, Password, Gender, DateofBirth, Major, EnrollmentDate, GPA, Address, ZIP, PaymentInfo FROM [User] WHERE (Type != N'admin')" DeleteCommand="DELETE FROM [User] WHERE (SubjectID = @SubjectID)" UpdateCommand="UPDATE [User] SET FirstName = @FirstName, LastName = @LastName, Password = @Password, Major = @Major, EnrollmentDate = @EnrollmentDate, GPA = @GPA, Address = @Address, ZIP = @ZIP WHERE (SubjectID = @SubjectID)">
                 <DeleteParameters>
                     <asp:Parameter Name="SubjectID" />
                 </DeleteParameters>
@@ -71,6 +71,7 @@
                     <asp:Parameter Name="GPA" />
                     <asp:Parameter Name="Address" />
                     <asp:Parameter Name="ZIP" />
+                    <asp:Parameter Name="SubjectID" />
                 </UpdateParameters>
             </asp:SqlDataSource>
             <br />
