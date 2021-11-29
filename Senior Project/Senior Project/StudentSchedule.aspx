@@ -11,7 +11,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
     <link href="../Content/master.css" rel="stylesheet">
-        <link href="../Content/researcherview.css" rel="stylesheet" />
+    <link href="../Content/studentview.css" rel="stylesheet" />
 
 </head>
 <body class="background">
@@ -38,15 +38,17 @@
 
         <div class="bg-white border rounded border-dark schedule-wrapper">
             <br />
-            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
-                <Columns>
-                    <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
-                    <asp:BoundField DataField="RecordLocation" HeaderText="RecordLocation" SortExpression="RecordLocation" />
-                    <asp:BoundField DataField="Date" DataFormatString="{0:MM/dd/yyyy}" HeaderText="Date" SortExpression="Date" />
-                    <asp:BoundField DataField="StartTime" HeaderText="StartTime" SortExpression="StartTime" DataFormatString="{0:hh':'mm}" />
-                    <asp:BoundField DataField="EndTime" HeaderText="EndTime" SortExpression="EndTime" DataFormatString="{0:hh':'mm}" />
-                </Columns>
-            </asp:GridView>
+            <div class="schedule">
+                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
+                    <Columns>
+                        <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
+                        <asp:BoundField DataField="RecordLocation" HeaderText="RecordLocation" SortExpression="RecordLocation" />
+                        <asp:BoundField DataField="Date" DataFormatString="{0:MM/dd/yyyy}" HeaderText="Date" SortExpression="Date" />
+                        <asp:BoundField DataField="StartTime" HeaderText="StartTime" SortExpression="StartTime" DataFormatString="{0:hh':'mm}" />
+                        <asp:BoundField DataField="EndTime" HeaderText="EndTime" SortExpression="EndTime" DataFormatString="{0:hh':'mm}" />
+                    </Columns>
+                </asp:GridView>
+            </div>
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT Project.Name, Project.RecordLocation, Reservation.Date, Reservation.StartTime, Reservation.EndTime FROM [User] INNER JOIN StudentReserve ON [User].SubjectID = StudentReserve.StudentID INNER JOIN Reservation ON StudentReserve.ReservationID = Reservation.ReservationId INNER JOIN Project ON Reservation.ProjectID = Project.ProjectID WHERE ([User].SubjectID = (SELECT SubjectID FROM [User] AS User_1 WHERE (Email = @Email)))">
                 <SelectParameters>
                     <asp:ControlParameter ControlID="Label4" Name="Email" PropertyName="Text" />

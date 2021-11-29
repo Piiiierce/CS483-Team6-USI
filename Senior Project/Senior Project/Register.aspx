@@ -6,6 +6,7 @@
 <head runat="server">
     <title>RCOB Registration</title>
     <meta charset="utf-8">
+    <link href="../Content/master.css" rel="stylesheet">
     <link href="../Content/register.css" rel="stylesheet">
     <!-- Add bootstrap; online reference for most updated version -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,7 +20,7 @@
 </head>
 
 <body class="background">
-    <form id="form1" runat="server" class="register-box bg-white border rounded border-dark border-5">
+    <form id="form1" runat="server" class="register-box bg-white border rounded border-dark border-2">
         <div class="container d-flex justify-content-center">
 
             <table class="container d-flex justify-content-center">
