@@ -191,19 +191,19 @@ namespace Senior_Project
             foreach (ListItem email1 in ListBox2.Items)
             {
 
-                      /*  MailMessage Msg = new MailMessage();
-                        Msg.From = new MailAddress("testingforschoolprogram@gmail.com", "<DoNotReply>Lab");// Sender details here, replace with valid value
-                        Msg.Subject = "TEST"; // subject of email
-                        Msg.To.Add(email1.Value.Trim()); //Add Email id, to which we will send email
-                        Msg.Body = "Hello " + email1.Text;
+                MailMessage Msg = new MailMessage();
+                Msg.From = new MailAddress("testingforschoolprogram@gmail.com", "<DoNotReply>Lab");// Sender details here, replace with valid value
+                Msg.Subject = "TEST"; // subject of email
+                Msg.To.Add(email1.Value.Trim()); //Add Email id, to which we will send email
+                Msg.Body = "Hello " + email1.Text;
 
-                        SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
-                        smtp.UseDefaultCredentials = false; // to get rid of error "SMTP server requires a secure connection"
-                        smtp.Credentials = new System.Net.NetworkCredential("testingforschoolprogram@gmail.com", "Testing!234");// replace with valid value
-                        smtp.EnableSsl = true;
-                        smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+                SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
+                smtp.UseDefaultCredentials = false; // to get rid of error "SMTP server requires a secure connection"
+                smtp.Credentials = new System.Net.NetworkCredential("testingforschoolprogram@gmail.com", "Testing!234");// replace with valid value
+                smtp.EnableSsl = true;
+                smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
 
-                        smtp.Send(Msg); */
+                smtp.Send(Msg);
 
 
             }
