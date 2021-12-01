@@ -64,7 +64,6 @@ namespace Senior_Project
             cmd = new SqlCommand("SELECT COUNT (*) FROM StudentReserve WHERE ReservationID = @ReservationID ", con);
             cmd.Parameters.Add(new SqlParameter("@ReservationID", Label3.Text));
             s = Convert.ToInt32(cmd.ExecuteScalar());
-            Label6.Text = s.ToString();
             con.Close();
 
             con.Open();
@@ -74,7 +73,6 @@ namespace Senior_Project
             while (dr.Read())
             {
                 c = Convert.ToInt32(dr["Occupancy"]);
-                Label7.Text = c.ToString();
             }
             con.Close();
 
@@ -98,17 +96,25 @@ namespace Senior_Project
                     Response.Redirect("~/CalendarStudent.aspx", false);
                     Response.Redirect("~/CalendarStudent.aspx?Email=" + Label4.Text);
                 }
-                catch
+                catch (Exception ex)
                 {
                     MessageBox.Show("You have already signed up for a session with the same name.");
                     Response.Redirect("~/CalendarStudent.aspx", false);
                     Response.Redirect("~/CalendarStudent.aspx?Email=" + Label4.Text);
                 }
             }
-            else
+            else 
             {
-                Response.Write("<script type=\"text/javascript\">alert('Reservation is full.');</script>");
+                MessageBox.Show("This Reservation is full");
+                Response.Redirect("~/CalendarStudent.aspx", false);
+                Response.Redirect("~/CalendarStudent.aspx?Email=" + Label4.Text);
             }
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/CalendarStudent.aspx", false);
+            Response.Redirect("~/CalendarStudent.aspx?Email=" + Label4.Text);
         }
     }
 }

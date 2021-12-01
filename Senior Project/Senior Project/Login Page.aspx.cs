@@ -56,7 +56,7 @@ namespace Senior_Project
                     {
                         if (Label4.Text == reserve)
                         {
-                            Session["Reserve"] = Label3.Text;
+                            Session["Reserve"] = Label4.Text;
                             Response.Redirect("~/ApproveReserve.aspx", false);
                             Response.Redirect("~/ApproveReserve.aspx?Email=" + TextBox1.Text);
                         }

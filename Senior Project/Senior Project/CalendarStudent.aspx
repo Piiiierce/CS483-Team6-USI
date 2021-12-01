@@ -42,7 +42,8 @@
         </div>
 
         <div class="border rounded border-dark calendar-wrapper">
-
+            <br />
+            <br />
             <div class="data">
                 <asp:Calendar ID="Calendar1" runat="server" OnDayRender="Calendar1_DayRender" OnSelectionChanged="Calendar1_SelectionChanged" Height="500px" Width="700px"></asp:Calendar>
             <asp:TextBox ID="TextBox1" runat="server" Visible="False"></asp:TextBox>

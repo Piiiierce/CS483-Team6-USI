@@ -40,8 +40,8 @@
 
         <div class="bg-white border rounded border-dark adminapprove-wrapper">
             <br />
-            <div class="center">
-            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+            <div class ="center">
+            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AllowPaging="True" PageSize="8">
                 <Columns>
                     <asp:CommandField ShowSelectButton="True" />
                     <asp:BoundField DataField="FirstName" HeaderText="FirstName" SortExpression="FirstName" />

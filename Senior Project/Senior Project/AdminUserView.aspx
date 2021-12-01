@@ -10,6 +10,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
     <link href="../Content/master.css" rel="stylesheet">
+    <link href="../Content/AdminView.css" rel="stylesheet">
 </head>
 <body>
     <form id="form1" runat="server">
@@ -39,9 +40,10 @@
 
         <div class="bg-white border rounded border-dark container">
             <br />
-            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="SubjectID" DataSourceID="SqlDataSource1">
+            <div>
+            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="SubjectID" DataSourceID="SqlDataSource1" AllowPaging="True" AllowSorting="True">
                 <Columns>
-                    <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ShowSelectButton="True" />
+                    <asp:CommandField ShowEditButton="True" />
                     <asp:BoundField DataField="SubjectID" HeaderText="SubjectID" ReadOnly="True" SortExpression="SubjectID" />
                     <asp:BoundField DataField="FirstName" HeaderText="FirstName" SortExpression="FirstName" />
                     <asp:BoundField DataField="LastName" HeaderText="LastName" SortExpression="LastName" />
@@ -76,6 +78,7 @@
                     <asp:Parameter Name="SubjectID" />
                 </UpdateParameters>
             </asp:SqlDataSource>
+                </div>
             <br />
             <br />
             &nbsp;<asp:Label ID="Label3" runat="server" Text="Label" Visible="False"></asp:Label>
