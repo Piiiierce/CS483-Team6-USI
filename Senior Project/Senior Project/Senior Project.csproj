@@ -135,6 +135,7 @@
     <Content Include="Content\register.css" />
     <Content Include="Content\ResearcherSchedule.css" />
     <Content Include="Content\researcherview.css" />
+    <Content Include="Content\ResetPassword.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\studentview.css" />
     <Content Include="CreateProject.aspx" />

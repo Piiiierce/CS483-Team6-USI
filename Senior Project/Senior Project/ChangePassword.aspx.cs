@@ -29,7 +29,7 @@ namespace Senior_Project
         {
             if (ChangeUserPassword())
             {
-                lblMessage.Text = "Password Changed Successfully!";
+                Response.Redirect("~/Login Page.aspx");
             }
             else
             {
