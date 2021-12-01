@@ -89,6 +89,10 @@ namespace Senior_Project
         {
             Response.Redirect("~/Register.aspx");
         }
+        protected void LinkButton2_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/ResetPassword.aspx");
+        }
     }
 }
 

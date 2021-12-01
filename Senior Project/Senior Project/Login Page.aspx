@@ -58,7 +58,7 @@
                 </div>
                 <!-- Reset password link -->
                 <div class="link-primary d-flex justify-content-center">
-                    <a href="">Reset password</a>
+                    <a href="ResetPassword.aspx">Reset password</a>
                 </div>
             </div>
         </form>
