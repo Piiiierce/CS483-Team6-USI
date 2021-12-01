@@ -127,26 +127,30 @@ namespace Senior_Project
 
         protected void LinkButton2_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/ResearchReservationSchedule.aspx", false);
-            Response.Redirect("~/ResearchReservationSchedule.aspx?Email=" + Label4.Text);
+            Response.Redirect("~/ResearchProjects.aspx", false);
+            Response.Redirect("~/ResearchProjects.aspx?Email=" + Label4.Text);
         }
 
         protected void LinkButton3_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/ResearchReservation.aspx", false);
-            Response.Redirect("~/ResearchReservation.aspx?Email=" + Label4.Text);
+            Response.Redirect("~/ResearcherReservationSchedule.aspx", false);
+            Response.Redirect("~/ResearcherReservationSchedule.aspx?Email=" + Label4.Text);
         }
-
         protected void LinkButton4_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/ResearchProjects.aspx", false);
-           Response.Redirect("~/ResearchProjects.aspx?Email=" + Label4.Text);
+            Response.Redirect("~/ResearchReservation.aspx", false);
+            Response.Redirect("~/ResearchReservation.aspx?Email=" + Label4.Text);
         }
 
         protected void LinkButton5_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/ResearcherAccount.aspx", false);
             Response.Redirect("~/ResearcherAccount.aspx?Email=" + Label4.Text);
+        }
+
+        protected void LinkButton6_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Login Page.aspx");
         }
     }
 }

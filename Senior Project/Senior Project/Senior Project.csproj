@@ -119,12 +119,16 @@
     </Content>
     <Content Include="Calendar.aspx" />
     <Content Include="CalendarStudent.aspx" />
+    <Content Include="Content\AdminApprove.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\CreateProject.css" />
+    <Content Include="Content\CreateReservation.css" />
     <Content Include="Content\login.css" />
     <Content Include="Content\master.css" />
+    <Content Include="Content\ProjectView.css" />
     <Content Include="Content\register.css" />
     <Content Include="Content\researcherview.css" />
     <Content Include="Content\Site.css" />

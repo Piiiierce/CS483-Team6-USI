@@ -131,5 +131,10 @@ namespace Senior_Project
             Response.Redirect("~/CreateProject.aspx", false);
             Response.Redirect("~/CreateProject.aspx?Email=" + Label4.Text);
         }
+
+        protected void LinkButton6_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Login Page.aspx");
+        }
     }
 }

@@ -42,11 +42,15 @@
                 <div class="d-flex sidecontent">
                     <asp:LinkButton ID="LinkButton5" runat="server" CssClass="button" OnClick="LinkButton5_Click">Your Account</asp:LinkButton>
                 </div>
+                                <div class="d-flex sidecontent">
+                    <asp:LinkButton ID="LinkButton6" runat="server" CssClass="button" OnClick="LinkButton6_Click">Log Out</asp:LinkButton>
+                </div>
+
             </div>
         </div>
 
         <div class="bg-white border rounded border-dark calendar-wrapper">
-            <div class="calendar">
+            <div class="data">
             <br />
             <asp:Calendar ID="Calendar1" runat="server" CssClass="auto-style1" Height="335px" OnDayRender="Calendar1_DayRender" OnSelectionChanged="Calendar1_SelectionChanged" Width="431px"></asp:Calendar>
             <asp:TextBox ID="TextBox1" runat="server" Visible="False"></asp:TextBox>

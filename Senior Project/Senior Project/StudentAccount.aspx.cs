@@ -161,5 +161,10 @@ namespace Senior_Project
             Response.Redirect("~/StudentAccount.aspx", false);
             Response.Redirect("~/StudentAccount.aspx?Email=" + Label4.Text);
         }
+
+        protected void LinkButton4_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Login Page.aspx");
+        }
     }
 }

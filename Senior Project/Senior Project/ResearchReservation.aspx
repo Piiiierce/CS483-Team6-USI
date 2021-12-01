@@ -10,6 +10,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
     <link href="../Content/master.css" rel="stylesheet">
+    <link href="../Content/CreateReservation.css" rel="stylesheet">
 </head>
 <body>
     <form id="form1" runat="server">
@@ -37,14 +38,89 @@
                 <div class="d-flex sidecontent">
                     <asp:LinkButton ID="LinkButton5" runat="server" CssClass="button" OnClick="LinkButton5_Click">Your Account</asp:LinkButton>
                 </div>
-
+                <div class="d-flex sidecontent">
+                    <asp:LinkButton ID="LinkButton6" runat="server" CssClass="button" OnClick="LinkButton6_Click">Log Out</asp:LinkButton>
+                </div>
             </div>
             <br />
             <br />
-            <asp:Calendar ID="Calendar1" runat="server" OnDayRender="Calendar1_DayRender" OnSelectionChanged="Calendar1_SelectionChanged"></asp:Calendar>
-            <br />
-            <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource2" DataTextField="Name" DataValueField="Name">
-            </asp:DropDownList>
+            <div class="bg-white border rounded border-dark createreservation-wrapper">
+                <table class="container justify-content-center">
+                    <tr>
+                        <td class="center">
+                            <asp:Calendar ID="Calendar1" runat="server" Height="280px" OnDayRender="Calendar1_DayRender" OnSelectionChanged="Calendar1_SelectionChanged" Width="330px"></asp:Calendar>
+                        </td>
+                        <td>
+                            <label>Start Times</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <label>End Times</label>
+                            <div>
+                                <asp:ListBox ID="ListBox1" runat="server" DataSourceID="SqlDataSource1" DataTextField="StartTime" DataValueField="StartTime" DataFormatString="{0:hh':'mm}"></asp:ListBox>
+
+                                &nbsp;&nbsp;
+            <asp:ListBox ID="ListBox2" runat="server" DataSourceID="SqlDataSource1" DataTextField="EndTime" DataValueField="EndTime" DataFormatString="{0:hh':'mm}"></asp:ListBox>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <br />
+                <br />
+
+                <br />
+                <div class="center">
+                    <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource2" DataTextField="Name" DataValueField="Name">
+                    </asp:DropDownList>
+                </div>
+                <br />
+                <br />
+
+                <asp:Label ID="Label14" runat="server" Text="Label" Visible="False"></asp:Label>
+                <div class="center">
+                    <asp:Label ID="Label5" runat="server" Text="Date:"></asp:Label>
+                </div>
+                <div class="center">
+                    <asp:TextBox ID="TextBox1" runat="server" ReadOnly="True"></asp:TextBox>
+                </div>
+                <div class="center">
+                    <asp:Label ID="Label11" runat="server" Text="Please Select a Date from the Calendar" Visible="False"></asp:Label>
+                </div>
+                <br />
+                <div class="center">
+                    <asp:Label ID="Label6" runat="server" Text="Start Time:"></asp:Label>
+                </div>
+                <div class="center">
+                    <asp:TextBox ID="TextBox2" runat="server" TextMode="Time" format="HH:mm"></asp:TextBox>
+                </div>
+                <div class="center">
+                    <asp:Label ID="Label12" runat="server" Text="Please Enter Start Time" Visible="False"></asp:Label>
+                </div>
+                <br />
+                <div class="center">
+                    <asp:Label ID="Label7" runat="server" Text="End Time:"></asp:Label>
+                </div>
+                <div class="center">
+                    <asp:TextBox ID="TextBox3" runat="server" TextMode="Time" format="HH:mm"></asp:TextBox>
+                </div>
+                <div class="center">
+                    <asp:Label ID="Label13" runat="server" Text="Please Enter End Time" Visible="False"></asp:Label>
+                </div>
+                <br />
+                <div class="center">
+                    <asp:Label ID="Label8" runat="server" Text="Occupancy:"></asp:Label>
+                </div>
+                <div class="center">
+                    <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+                </div>
+                <div class="center">
+                    <asp:Label ID="Label10" runat="server" Text="Label" Visible="False"></asp:Label>
+                </div>
+                <br />
+                <br />
+                <div class="center">
+                    <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Create Reservation" />
+                </div>
+                <br />
+                <br />
+            </div>
             <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT Project.Name FROM [User] INNER JOIN Recruit ON [User].SubjectID = Recruit.SubjectID INNER JOIN Project ON Recruit.ProjectID = Project.ProjectID WHERE ([User].Email = @Email)">
                 <SelectParameters>
                     <asp:ControlParameter ControlID="Label4" Name="Email" PropertyName="Text" />
@@ -76,52 +152,9 @@
                     <asp:ControlParameter ControlID="TextBox1" Name="Date" PropertyName="Text" />
                 </SelectParameters>
             </asp:SqlDataSource>
+
             <br />
-            <asp:ListBox ID="ListBox1" runat="server" DataSourceID="SqlDataSource1" DataTextField="StartTime" DataValueField="StartTime" DataFormatString="{0:hh':'mm}"></asp:ListBox>
-            <br />
-            <br />
-            <asp:ListBox ID="ListBox2" runat="server" DataSourceID="SqlDataSource1" DataTextField="EndTime" DataValueField="EndTime" DataFormatString="{0:hh':'mm}"></asp:ListBox>
-            <br />
-            <br />
-            <asp:Label ID="Label14" runat="server" Text="Label" Visible="False"></asp:Label>
-            <br />&nbsp;<br />
-            <asp:TextBox ID="TextBox5" runat="server" TextMode="MultiLine"></asp:TextBox>
-            <br />
-            <br />
-            <br />
-            <asp:Label ID="Label5" runat="server" Text="Date:"></asp:Label>
-            <br />
-            <asp:TextBox ID="TextBox1" runat="server" ReadOnly="True"></asp:TextBox>
-            <br />
-            <asp:Label ID="Label11" runat="server" Text="Please Select a Date from the Calendar" Visible="False"></asp:Label>
-            <br />
-            <br />
-            <asp:Label ID="Label6" runat="server" Text="Start Time:"></asp:Label>
-            <br />
-            <asp:TextBox ID="TextBox2" runat="server" TextMode="Time" format="HH:mm"></asp:TextBox>
-            <br />
-            <asp:Label ID="Label12" runat="server" Text="Please Enter Start Time" Visible="False"></asp:Label>
-            <br />
-            <br />
-            <asp:Label ID="Label7" runat="server" Text="End Time:"></asp:Label>
-            <br />
-            <asp:TextBox ID="TextBox3" runat="server" TextMode="Time" format="HH:mm"></asp:TextBox>
-            <br />
-            <asp:Label ID="Label13" runat="server" Text="Please Enter End Time" Visible="False"></asp:Label>
-            <br />
-            <br />
-            <asp:Label ID="Label8" runat="server" Text="Occupancy:"></asp:Label>
-            <br />
-            <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
-            <br />
-            <asp:Label ID="Label10" runat="server" Text="Label" Visible="False"></asp:Label>
-            <br />
-            <br />
-            <br />
-            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Create Reservation" />
-            <br />
-            <br />
-            <br />&nbsp;<asp:Label ID="Label3" runat="server" Text="Label" Visible="False"></asp:Label>
+            &nbsp;<asp:Label ID="Label3" runat="server" Text="Label" Visible="False"></asp:Label>
             &nbsp;<asp:Label ID="Label4" runat="server" Text="Label" Visible="False"></asp:Label>
             <br />
             <asp:Label ID="Label9" runat="server" Text="Label" Visible="False"></asp:Label>

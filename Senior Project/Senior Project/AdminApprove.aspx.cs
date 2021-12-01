@@ -205,5 +205,10 @@ namespace Senior_Project
             Response.Redirect("~/AdminUserView.aspx", false);
             Response.Redirect("~/AdminUserView.aspx?Email=" + Label4.Text);
         }
+
+        protected void LinkButton4_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Login Page.aspx");
+        }
     }
 }

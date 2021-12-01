@@ -34,32 +34,35 @@
                 <div class="d-flex sidecontent">
                     <asp:LinkButton ID="LinkButton3" runat="server"  CssClass="button" OnClick="LinkButton3_Click">Account</asp:LinkButton>
                 </div>
+                                <div class="d-flex sidecontent">
+                    <asp:LinkButton ID="LinkButton4" runat="server"  CssClass="button" OnClick="LinkButton4_Click">Log Out</asp:LinkButton>
+                </div>
+
             </div>
         </div>
 
         <div class="border rounded border-dark calendar-wrapper">
 
-            <div class="calendar">
+            <div class="data">
                 <asp:Calendar ID="Calendar1" runat="server" OnDayRender="Calendar1_DayRender" OnSelectionChanged="Calendar1_SelectionChanged" Height="500px" Width="700px"></asp:Calendar>
-            </div>
             <asp:TextBox ID="TextBox1" runat="server" Visible="False"></asp:TextBox>
-
-
+            </div>
+<br />
+            <div class="data">
                 <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
                     <Columns>
                         <asp:BoundField DataField="FirstName" HeaderText="FirstName" SortExpression="FirstName" />
                         <asp:BoundField DataField="LastName" HeaderText="LastName" SortExpression="LastName" />
                         <asp:BoundField DataField="Date" HeaderText="Date" SortExpression="Date" DataFormatString="{0:MM/dd/yyyy}" />
-                        <asp:BoundField DataField="StartTime" HeaderText="StartTime" SortExpression="StartTime" DataFormatString="{0:hh':'mm}" />
-                        <asp:BoundField DataField="EndTime" HeaderText="EndTime" SortExpression="EndTime" DataFormatString="{0:hh':'mm}" />
+                        <asp:BoundField DataField="StartTime" HeaderText="StartTime" SortExpression="StartTime" />
+                        <asp:BoundField DataField="EndTime" HeaderText="EndTime" SortExpression="EndTime" />
                         <asp:BoundField DataField="RecordLocation" HeaderText="RecordLocation" SortExpression="RecordLocation" />
                     </Columns>
                 </asp:GridView>
-
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [User].FirstName, [User].LastName, Reservation.Date, Reservation.StartTime, Reservation.EndTime, Project.RecordLocation FROM [User] INNER JOIN Recruit ON [User].SubjectID = Recruit.SubjectID INNER JOIN Project ON Recruit.ProjectID = Project.ProjectID INNER JOIN Reservation ON Project.ProjectID = Reservation.ProjectID WHERE (Reservation.Date = @Date) AND (Reservation.ReservationId = @ReservationId)">
+                </div>
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [User].FirstName, [User].LastName, Reservation.Date, Reservation.StartTime, Reservation.EndTime, Project.RecordLocation FROM [User] INNER JOIN Recruit ON [User].SubjectID = Recruit.SubjectID INNER JOIN Project ON Recruit.ProjectID = Project.ProjectID INNER JOIN Reservation ON Project.ProjectID = Reservation.ProjectID WHERE (Reservation.Date = @Date)">
                 <SelectParameters>
                     <asp:ControlParameter ControlID="TextBox1" Name="Date" PropertyName="Text" />
-                    <asp:ControlParameter ControlID="Label3" Name="ReservationId" PropertyName="Text" />
                 </SelectParameters>
             </asp:SqlDataSource>
             <br />

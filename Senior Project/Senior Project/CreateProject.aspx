@@ -10,13 +10,15 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
     <link href="../Content/master.css" rel="stylesheet">
+    <link href="../Content/CreateProject.css" rel="stylesheet" />
     <style type="text/css">
-        .auto-style1 {}
+        .auto-style1 {
+        }
     </style>
 </head>
 <body>
     <form id="form1" runat="server">
-                <div>
+        <div>
             <div class="sideheader d-flex justify-content-center align-content-center">
                 <h1>Hello                
                    
@@ -40,28 +42,42 @@
                 <div class="d-flex sidecontent">
                     <asp:LinkButton ID="LinkButton5" runat="server" CssClass="button" OnClick="LinkButton5_Click">Your Account</asp:LinkButton>
                 </div>
+                <div class="d-flex sidecontent">
+                    <asp:LinkButton ID="LinkButton6" runat="server" CssClass="button" OnClick="LinkButton6_Click">Log Out</asp:LinkButton>
+                </div>
 
             </div>
         </div>
 
-        <div>
+        <div class="bg-white border rounded border-dark projectcreate-wrapper">
             <br />
-            <asp:Label ID="Label5" runat="server" Text="Project Name:"></asp:Label>
-            <br />
-            <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-            <br />
-            <br />
-            <asp:Label ID="Label7" runat="server" Text="Notes:"></asp:Label>
-            <br />
-            <asp:TextBox ID="TextBox3" runat="server" CssClass="auto-style1" Height="111px" TextMode="MultiLine"></asp:TextBox>
+            <div class="center">
+                <asp:Label ID="Label5" runat="server" Text="Project Name:"></asp:Label>
+                </div>
+                        <div class="center">
+                <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+            </div>
             <br />
             <br />
-            <asp:Label ID="Label8" runat="server" Text="Record Location:"></asp:Label>
+            <div class="center">
+                <asp:Label ID="Label7" runat="server" Text="Notes:"></asp:Label>
+                </div>
+                            <div class="center">
+                <asp:TextBox ID="TextBox3" runat="server" CssClass="auto-style1" Height="111px" TextMode="MultiLine"></asp:TextBox>
+            </div>
             <br />
-            <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+            <br />
+            <div class="center">
+                <asp:Label ID="Label8" runat="server" Text="Record Location:"></asp:Label>
+                </div>
+                        <div class="center">
+                <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+            </div>
             <br />
             <br />
-            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Create Project" />
+            <div class="center">
+                <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Create Project" />
+            </div>
             <br />
             <br />
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" InsertCommand="INSERT INTO Project(ProjectID, Name, Sessions, Notes, RecordLocation) VALUES (@ProjectID, @Name, @Sessions, @Notes, @RecordLocation)" SelectCommand="SELECT Project.* FROM Project">
@@ -80,12 +96,14 @@
                 </InsertParameters>
             </asp:SqlDataSource>
             <br />
-            <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Cancel" />
+            <div class="center">
+                <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Cancel" />
+            </div>
             <br />
             <br />
-&nbsp;<asp:Label ID="Label3" runat="server" Text="Label" Visible="False"></asp:Label>
-&nbsp;<asp:Label ID="Label4" runat="server" Text="Label" Visible="False"></asp:Label>
-&nbsp;</div>
+            &nbsp;<asp:Label ID="Label3" runat="server" Text="Label" Visible="False"></asp:Label>
+            &nbsp;<asp:Label ID="Label4" runat="server" Text="Label" Visible="False"></asp:Label>
+        </div>
     </form>
 </body>
 </html>

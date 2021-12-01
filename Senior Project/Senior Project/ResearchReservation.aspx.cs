@@ -171,7 +171,6 @@ namespace Senior_Project
                                     end[ii] = DateTime.Parse(EndTime.Value);
                                     ii++;
                                 }
-                                TextBox5.Text = f.ToString();
                                 if (f != 0)
                                 {
                                     for (int iii = 0; iii < start.Length + 1; iii++)
@@ -181,7 +180,6 @@ namespace Senior_Project
                                             DateTime Endz30 = DateTime.Parse(TextBox3.Text).AddMinutes(29);
                                             DateTime Start30 = DateTime.Parse(TextBox2.Text).AddMinutes(29);
                                             DateTime End30 = end[iii].AddMinutes(29);
-                                            TextBox5.Text = End30.ToString() + " " + Start30.ToString() + " " + start[iii].ToString() + " " + end[iii].ToString();
                                             if (DateTime.Parse(TextBox2.Text).AddMinutes(14) >= DateTime.Parse(TextBox3.Text))
                                             {
                                                 Label14.Visible = true;
@@ -324,6 +322,11 @@ namespace Senior_Project
         {
             Response.Redirect("~/ResearcherAccount.aspx", false);
             Response.Redirect("~/ResearcherAccount.aspx?Email=" + Label4.Text);
+        }
+
+        protected void LinkButton6_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Login Page.aspx");
         }
     }
 }

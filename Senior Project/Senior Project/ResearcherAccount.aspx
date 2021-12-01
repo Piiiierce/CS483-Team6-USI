@@ -39,6 +39,10 @@
                 <div class="d-flex sidecontent">
                     <asp:LinkButton ID="LinkButton5" runat="server" CssClass="button" OnClick="LinkButton5_Click">Your Account</asp:LinkButton>
                 </div>
+                                <div class="d-flex sidecontent">
+                    <asp:LinkButton ID="LinkButton6" runat="server" CssClass="button" OnClick="LinkButton6_Click">Log Out</asp:LinkButton>
+                </div>
+
             </div>
         </div>
 
