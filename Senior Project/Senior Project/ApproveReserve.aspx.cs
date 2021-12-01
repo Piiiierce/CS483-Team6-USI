@@ -64,7 +64,6 @@ namespace Senior_Project
             cmd = new SqlCommand("SELECT COUNT (*) FROM StudentReserve WHERE ReservationID = @ReservationID ", con);
             cmd.Parameters.Add(new SqlParameter("@ReservationID", Label3.Text));
             s = Convert.ToInt32(cmd.ExecuteScalar());
-            Label6.Text = s.ToString();
             con.Close();
 
             con.Open();
@@ -74,7 +73,6 @@ namespace Senior_Project
             while (dr.Read())
             {
                 c = Convert.ToInt32(dr["Occupancy"]);
-                Label7.Text = c.ToString();
             }
             con.Close();
 
