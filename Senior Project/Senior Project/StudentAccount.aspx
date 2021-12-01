@@ -78,7 +78,7 @@
                         <asp:TextBox ID="TextBox7" runat="server" CssClass="inputspacing"></asp:TextBox>
                         <br />
                         <div class="d-flex justify-content-center">
-                        <asp:Button ID="Button1" runat="server" Text="Update" CssClass="inputspacing" />
+                        <asp:Button ID="Button1" runat="server" Text="Update" CssClass="inputspacing" OnClick="Button1_Click" />
                         </div>
                     </td>
                     <td style="padding-left:10px; padding-right:10px;">
@@ -97,7 +97,7 @@
                         <br />
                         <asp:TextBox ID="TextBox10" runat="server" CssClass="inputspacing"></asp:TextBox>
                         <div class="d-flex justify-content-center">
-                        <asp:Button ID="Button2" runat="server" Text="Change Password"/>
+                        <asp:Button ID="Button2" runat="server" Text="Change Password" OnClick="Button2_Click"/>
                             </div>
                     </td>
                 </tr>

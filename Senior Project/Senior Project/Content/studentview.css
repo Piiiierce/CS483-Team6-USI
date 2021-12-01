@@ -53,14 +53,14 @@
     left: 0;
     right: 0;
     margin: auto;
-    display:block;
+    display: block;
     background-color: white;
     justify-content: center;
     align-content: center;
+    padding-top: 35px;
 }
 
 .calendar {
-    padding-top: 15px;
     position: relative;
     justify-content: center;
     align-content: center;

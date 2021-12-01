@@ -161,11 +161,11 @@ namespace Senior_Project
             {
                 if (email.Selected)
                 {
-                /*    MailMessage Msg = new MailMessage();
+                    MailMessage Msg = new MailMessage();
                     Msg.From = new MailAddress("testingforschoolprogram@gmail.com", "<DoNotReply>Lab");// Sender details here, replace with valid value
                     Msg.Subject = "TEST"; // subject of email
                     Msg.To.Add(email.Value.Trim()); //Add Email id, to which we will send email
-                    Msg.Body = "Hello " + email.Text + "\n" + "https://localhost:44387/Login%20Page?ReserveID=" + hold ;
+                    Msg.Body = "Hello " + email.Text + "\n" + "https://localhost:44387/Login%20Page?ReserveID=" + hold;
 
                     SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
                     smtp.UseDefaultCredentials = false; // to get rid of error "SMTP server requires a secure connection"
@@ -173,7 +173,7 @@ namespace Senior_Project
                     smtp.EnableSsl = true;
                     smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
 
-                    smtp.Send(Msg); */
+                    smtp.Send(Msg);
                 }
             }
 

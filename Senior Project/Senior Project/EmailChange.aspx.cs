@@ -18,7 +18,7 @@ namespace Senior_Project
             if (Request.QueryString["Email"] != null)
             {
                 Label3.Text = Session["Email"].ToString();
-                Label4.Text = Request.QueryString["Email"]; 
+                Label4.Text = Request.QueryString["Email"];
             }
             con.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True";
             con.Open();

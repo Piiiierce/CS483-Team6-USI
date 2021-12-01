@@ -136,6 +136,14 @@ namespace Senior_Project
                         TextBox10.Text = "";
 
                     }
+                    else
+                    {
+                        MessageBox.Show("The new password you have entered and your confirm password do not match");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("The password you have entered and your current password do not match");
                 }
                 con.Close();
             }

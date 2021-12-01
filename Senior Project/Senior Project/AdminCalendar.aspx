@@ -39,11 +39,16 @@
             </div>
         </div>
 
-        <div class="bg-white border rounded border-dark calendar-wrapper d-flex align-content-center">
+        <div class="bg-white border rounded border-dark calendar-wrapper">
             <br />
+            <br />
+            <div class="data">
             <asp:Calendar ID="Calendar1" runat="server" CssClass="auto-style1" Height="335px" OnDayRender="Calendar1_DayRender" Width="431px" OnSelectionChanged="Calendar1_SelectionChanged"></asp:Calendar>
             <asp:TextBox ID="TextBox1" runat="server" Visible="False"></asp:TextBox>
             <br />
+                </div>
+            <br />
+            <div class="data">
             <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
                 <Columns>
                     <asp:BoundField DataField="FirstName" HeaderText="FirstName" SortExpression="FirstName" />
@@ -59,6 +64,7 @@
                     <asp:ControlParameter ControlID="TextBox1" Name="Date" PropertyName="Text" />
                 </SelectParameters>
             </asp:SqlDataSource>
+                </div>
             <br />
             <br />
             &nbsp;<asp:Label ID="Label4" runat="server" Text="Label" Visible="False"></asp:Label>

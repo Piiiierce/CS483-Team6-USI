@@ -98,17 +98,25 @@ namespace Senior_Project
                     Response.Redirect("~/CalendarStudent.aspx", false);
                     Response.Redirect("~/CalendarStudent.aspx?Email=" + Label4.Text);
                 }
-                catch
+                catch (Exception ex)
                 {
                     MessageBox.Show("You have already signed up for a session with the same name.");
                     Response.Redirect("~/CalendarStudent.aspx", false);
                     Response.Redirect("~/CalendarStudent.aspx?Email=" + Label4.Text);
                 }
             }
-            else
+            else 
             {
-                Response.Write("<script type=\"text/javascript\">alert('Reservation is full.');</script>");
+                MessageBox.Show("This Reservation is full");
+                Response.Redirect("~/CalendarStudent.aspx", false);
+                Response.Redirect("~/CalendarStudent.aspx?Email=" + Label4.Text);
             }
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/CalendarStudent.aspx", false);
+            Response.Redirect("~/CalendarStudent.aspx?Email=" + Label4.Text);
         }
     }
 }
