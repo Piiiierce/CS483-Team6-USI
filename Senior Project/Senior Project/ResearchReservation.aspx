@@ -51,8 +51,8 @@
                             <asp:Calendar ID="Calendar1" runat="server" Height="280px" OnDayRender="Calendar1_DayRender" OnSelectionChanged="Calendar1_SelectionChanged" Width="330px"></asp:Calendar>
                         </td>
                         <td>
-                            <label>Start Times</label>&nbsp;&nbsp;&nbsp;&nbsp;
-                            <label>End Times</label>
+                            <asp:Label ID="Label15" runat="server" Text="Label">Start Times</asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <asp:Label ID="Label16" runat="server" Text="End Times"></asp:Label>
                             <div>
                                 <asp:ListBox ID="ListBox1" runat="server" DataSourceID="SqlDataSource1" DataTextField="StartTime" DataValueField="StartTime" DataFormatString="{0:hh':'mm}"></asp:ListBox>
 
