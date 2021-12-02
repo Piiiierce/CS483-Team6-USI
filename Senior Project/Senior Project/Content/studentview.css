@@ -86,11 +86,14 @@
     right: 0;
     padding-top: 50px;
     margin: auto;
-    display:flex;
+    display:block;
     background-color: white;
     justify-content:center;
 }
 
 .schedule {
-    position: absolute;
+    position: relative;
+    justify-content: center;
+    align-content: center;
+    display: flex;
 }

@@ -11,7 +11,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
     <link href="../Content/master.css" rel="stylesheet">
-    <link href="../Content/studentview.css" rel="stylesheet" />
+    <link href="../Content/StudentSchedule.css" rel="stylesheet" />
 
 </head>
 <body class="background">
@@ -43,8 +43,9 @@
         <div class="bg-white border rounded border-dark schedule-wrapper">
             <br />
             <div class="schedule">
-                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
+                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
                     <Columns>
+                        <asp:CommandField ShowSelectButton="True" />
                         <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
                         <asp:BoundField DataField="RecordLocation" HeaderText="RecordLocation" SortExpression="RecordLocation" />
                         <asp:BoundField DataField="Date" DataFormatString="{0:MM/dd/yyyy}" HeaderText="Date" SortExpression="Date" />
@@ -59,8 +60,16 @@
                 </SelectParameters>
             </asp:SqlDataSource>
             <br />
+            <br />
+            <br />
+            <div class="schedule">
+            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Cancel" Visible="False" /></div>
+            <br />
             &nbsp;<asp:Label ID="Label3" runat="server" Text="Label" Visible="False"></asp:Label>
             &nbsp;<asp:Label ID="Label4" runat="server" Text="Label" Visible="False"></asp:Label>
+        &nbsp;<asp:Label ID="Label5" runat="server" Text="Label" Visible="False"></asp:Label>
+&nbsp;<asp:Label ID="Label6" runat="server" Text="Label" Visible="False"></asp:Label>
+&nbsp;<asp:Label ID="Label7" runat="server" Text="Label" Visible="False"></asp:Label>
         </div>
     </form>
 </body>
