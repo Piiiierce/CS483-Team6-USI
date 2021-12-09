@@ -95,11 +95,14 @@
                     <td>
                         <asp:DropDownList ID="DropDownList2" runat="server" Height="31px" Width="211px">
                             <asp:ListItem>Select Major</asp:ListItem>
-                            <asp:ListItem>Accounting</asp:ListItem>
                             <asp:ListItem>Business</asp:ListItem>
+                            <asp:ListItem>Health Professions</asp:ListItem>
                             <asp:ListItem>Computer Science</asp:ListItem>
-                            <asp:ListItem>Economics</asp:ListItem>
+                            <asp:ListItem>Biology</asp:ListItem>
                             <asp:ListItem>Engineering</asp:ListItem>
+                            <asp:ListItem>Communications</asp:ListItem>
+                            <asp:ListItem>Art</asp:ListItem>
+                            <asp:ListItem>Education</asp:ListItem>
                         </asp:DropDownList>
                     </td>
                 </tr>

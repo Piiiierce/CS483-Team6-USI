@@ -90,6 +90,9 @@
                 <asp:RadioButton ID="RadioButton2" runat="server" GroupName="1" OnCheckedChanged="RadioButton2_CheckedChanged" Text="Male" />
                 <asp:RadioButton ID="RadioButton3" runat="server" GroupName="1" OnCheckedChanged="RadioButton3_CheckedChanged" Text="Female" />
                 <asp:RadioButton ID="RadioButton4" runat="server" GroupName="1" OnCheckedChanged="RadioButton4_CheckedChanged" Text="Other" />
+                <br />
+                <asp:DropDownList ID="DropDownList1" runat="server" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
+                </asp:DropDownList>
             </asp:Panel>
             <br />
             <div class="center">
