@@ -11,6 +11,18 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
     <link href="../Content/master.css" rel="stylesheet">
                 <link href="../Content/ProjectView.css" rel="stylesheet" />
+    <style type="text/css">
+        .auto-style1 {
+            background-color: rgb(37, 150, 190);
+            opacity: 1;
+            position: absolute;
+            width: 15%;
+            height: 100vh;
+            padding-top: 50px;
+            left: 0px;
+            top: 76px;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -22,7 +34,7 @@
                     <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
                 </h1>
             </div>
-            <div class="sidebar">
+            <div class="auto-style1">
                 <div class="d-flex sidecontent">
                     <asp:LinkButton ID="LinkButton1" runat="server" CssClass="button" OnClick="LinkButton1_Click">Calendar</asp:LinkButton>
                 </div>
@@ -48,14 +60,15 @@
         <div class="bg-white border rounded border-dark projectview-wrapper">
             <br />
             <div class="center">
-            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+            <asp:GridView ID="GridView1" runat="server" CssClass=" " AutoGenerateColumns="False" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" BorderStyle="Solid">
                 <Columns>
                     <asp:CommandField ShowSelectButton="True" />
                     <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
                     <asp:BoundField DataField="Sessions" HeaderText="Sessions" SortExpression="Sessions" />
+                    <asp:BoundField DataField="RecordLocation" HeaderText="RecordLocation" SortExpression="RecordLocation" />
                 </Columns>
             </asp:GridView>
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT Project.Name, Project.Sessions FROM [User] INNER JOIN Recruit ON [User].SubjectID = Recruit.SubjectID INNER JOIN Project ON Recruit.ProjectID = Project.ProjectID WHERE ([User].SubjectID = (SELECT SubjectID FROM [User] AS User_1 WHERE (Email = @Email)))">
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT Project.Name, Project.Sessions, Project.RecordLocation FROM [User] INNER JOIN Recruit ON [User].SubjectID = Recruit.SubjectID INNER JOIN Project ON Recruit.ProjectID = Project.ProjectID WHERE ([User].SubjectID = (SELECT SubjectID FROM [User] AS User_1 WHERE (Email = @Email)))">
                 <SelectParameters>
                     <asp:ControlParameter ControlID="Label4" Name="Email" PropertyName="Text" />
                 </SelectParameters>

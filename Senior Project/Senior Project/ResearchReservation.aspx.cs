@@ -195,9 +195,11 @@ namespace Senior_Project
                                                 }
                                                 else
                                                 {
+                                                    DateTime dateNow = DateTime.Now;
+
                                                     Label14.Visible = false;
                                                     con.Open();
-                                                    cmd = new SqlCommand("INSERT INTO Reservation (ReservationId, StartTime, EndTime, Status, isRecruit, isEmail, ProjectID, ManagerApprove, Date, Occupancy) VALUES (@ReservationId, @StartTime, @EndTime, @Status, @isRecruit, @isEmail, @ProjectID, @ManagerApprove, @Date, @Occupancy)", con);
+                                                    cmd = new SqlCommand("INSERT INTO Reservation (ReservationId, StartTime, EndTime, Status, isRecruit, isEmail, ProjectID, ManagerApprove, Date, Occupancy, CreateDate) VALUES (@ReservationId, @StartTime, @EndTime, @Status, @isRecruit, @isEmail, @ProjectID, @ManagerApprove, @Date, @Occupancy, @CreateDate)", con);
                                                     cmd.Parameters.Add(new SqlParameter("ReservationId", c.ToString()));
                                                     cmd.Parameters.Add(new SqlParameter("StartTime", TextBox2.Text));
                                                     cmd.Parameters.Add(new SqlParameter("EndTime", TextBox3.Text));
@@ -208,6 +210,7 @@ namespace Senior_Project
                                                     cmd.Parameters.Add(new SqlParameter("isEmail", "False"));
                                                     cmd.Parameters.Add(new SqlParameter("isRecruit", "False"));
                                                     cmd.Parameters.Add(new SqlParameter("ManagerApprove", "0"));
+                                                    cmd.Parameters.Add(new SqlParameter("CreateDate", System.DateTime.Today));
                                                     cmd.ExecuteNonQuery();
                                                     con.Close();
 
