@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -26,8 +27,8 @@ namespace Senior_Project
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            //try
-            //{
+            try
+            {
                 string reserve = "";
                 con.Open();
                 SqlCommand cmd = new SqlCommand("SELECT * FROM Reservation WHERE ReservationId = @ReservationId", con);
@@ -39,50 +40,60 @@ namespace Senior_Project
                 }
                 con.Close();
 
+                string savedPasswordHash = "";
                 con.Open();
-                cmd = new SqlCommand("SELECT * FROM [User] WHERE Email = @Email and Password = @Password", con);
+                cmd = new SqlCommand("SELECT * FROM [User] WHERE Email = @Email", con);
                 cmd.Parameters.Add(new SqlParameter("Email", TextBox1.Text));
-                cmd.Parameters.Add(new SqlParameter("Password", TextBox2.Text));
                 dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
-                    if (dr["Type"].ToString().Trim() == "Researcher")
-                    {
-                        Response.Redirect("~/Calendar.aspx", false);
-                        Response.Redirect("~/Calendar.aspx?Email=" + TextBox1.Text);
+                    savedPasswordHash = dr["Password"].ToString();
 
-                    }
-                    else if (dr["Type"].ToString().Trim() == "Student")
-                    {
-                        if (Label4.Text == reserve)
+                    byte[] hashBytes = Convert.FromBase64String(savedPasswordHash);
+                    /* Get the salt */
+                    byte[] salt = new byte[16];
+                    Array.Copy(hashBytes, 0, salt, 0, 16);
+                    /* Compute the hash on the password the user entered */
+                    var pbkdf2 = new Rfc2898DeriveBytes(TextBox2.Text, salt, 100000);
+                    byte[] hash = pbkdf2.GetBytes(20);
+                    /* Compare the results */
+                    for (int i = 0; i < 20; i++)
+                        if (hashBytes[i + 16] == hash[i])
                         {
-                            Session["Reserve"] = Label4.Text;
-                            Response.Redirect("~/ApproveReserve.aspx", false);
-                            Response.Redirect("~/ApproveReserve.aspx?Email=" + TextBox1.Text);
+                            Label3.Text = "it worked";
+
+                            if (dr["Type"].ToString().Trim() == "Researcher")
+                            {
+                                Response.Redirect("~/Calendar.aspx", false);
+                                Response.Redirect("~/Calendar.aspx?Email=" + TextBox1.Text);
+
+                            }
+                            else if (dr["Type"].ToString().Trim() == "Student")
+                            {
+                                if (Label4.Text == reserve)
+                                {
+                                    Session["Reserve"] = Label4.Text;
+                                    Response.Redirect("~/ApproveReserve.aspx", false);
+                                    Response.Redirect("~/ApproveReserve.aspx?Email=" + TextBox1.Text);
+                                }
+                                else
+                                {
+                                    Response.Redirect("~/CalendarStudent.aspx", false);
+                                    Response.Redirect("~/CalendarStudent.aspx?Email=" + TextBox1.Text);
+                                }
+                            }
+                            else if (dr["Type"].ToString().Trim() == "Admin")
+                            {
+                                Response.Redirect("~/AdminCalendar.aspx", false);
+                                Response.Redirect("~/AdminCalendar.aspx?Email=" + TextBox1.Text);
+                            }
                         }
-                        else
-                        {
-                            Response.Redirect("~/CalendarStudent.aspx", false);
-                            Response.Redirect("~/CalendarStudent.aspx?Email=" + TextBox1.Text);
-                        }
-                    }
-                    else if (dr["Type"].ToString().Trim() == "Admin")
-                    {
-                        Response.Redirect("~/AdminCalendar.aspx", false);
-                        Response.Redirect("~/AdminCalendar.aspx?Email=" + TextBox1.Text);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Incorrect Login. Please Try Again!");
-                        //Thread.Sleep(2000);
-                        //Response.Redirect("~/Login%20Page.aspx");
-                    }
                 }
-            //}
+            }
 
-            //catch (Exception ex)
-            //{
-            //}
+            catch (Exception ex)
+            {
+            }
         }
 
         protected void LinkButton1_Click(object sender, EventArgs e)

@@ -12,6 +12,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
     <link href="../Content/studentview.css" rel="stylesheet">
     <link href="../Content/master.css" rel="stylesheet">
+    <style type="text/css">
+        .auto-style1 {
+            width: 464px;
+        }
+    </style>
 </head>
 
 <body class="background">
@@ -81,7 +86,7 @@
                         <asp:Button ID="Button1" runat="server" Text="Update" CssClass="inputspacing" OnClick="Button1_Click" />
                         </div>
                     </td>
-                    <td style="padding-left:10px; padding-right:10px;">
+                    <td style="padding-left:10px; padding-right:10px;" class="auto-style1">
                         <asp:Label ID="Label17" runat="server" Text="Current Password:" CssClass="labelspacing"></asp:Label>
                         <br />
                         <asp:Label ID="Label11" runat="server" Text="Current Password:" CssClass="labelspacing"></asp:Label>

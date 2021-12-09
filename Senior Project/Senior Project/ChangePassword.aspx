@@ -25,7 +25,7 @@
                         New Password
                     </td>
                     <td>
-                        :<asp:TextBox ID="txtNewPassword" TextMode="Password" 
+                        :<asp:TextBox ID="txtNewPassword" 
                         runat="server"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidatorNewPassword" 
                             runat="server" ErrorMessage="New Password required"
@@ -38,8 +38,7 @@
                         Confirm New Password
                     </td>
                     <td>
-                        :<asp:TextBox ID="txtConfirmNewPassword" TextMode="Password" runat="server">
-                        </asp:TextBox>
+                        :<asp:TextBox ID="txtConfirmNewPassword" runat="server"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidatorConfirmNewPassword" 
                             runat="server" ErrorMessage="Confirm New Password required" Text="*" 
                             ControlToValidate="txtConfirmNewPassword"

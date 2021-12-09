@@ -41,33 +41,32 @@
 
                 <tr>
                     <td class="auto-style2">
-                        <b>First Name:*</b>
-                    </td>
+                        <b>First Name:</b></td>
                     <td>
                             <asp:TextBox ID="TextBox1" runat="server" Height="31px" Width="211px"></asp:TextBox>
                     </td>
                 </tr>
 
                 <tr>
-                    <td class="auto-style2"><b>Last Name:*</b></td>
+                    <td class="auto-style2"><b>Last Name:</b></td>
                     <td>
                         <asp:TextBox ID="TextBox2" runat="server" Height="31px" Width="211px"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style2">Email<b>:*</b></td>
+                    <td class="auto-style2">Email<b>:</b></td>
                     <td>
                         <asp:TextBox ID="TextBox3" runat="server" Height="31px" Width="211px" TextMode="Email"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style2">Password<b>:*</b></td>
+                    <td class="auto-style2">Password<b>:</b></td>
                     <td>
                         <asp:TextBox ID="TextBox4" runat="server" Height="31px" Width="211px" TextMode="Password"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style2"><b>Confirm Password:*</b></td>
+                    <td class="auto-style2"><b>Confirm Password:</b></td>
                     <td>
                         <asp:TextBox ID="TextBox5" runat="server" Height="31px" Width="211px" TextMode="Password"></asp:TextBox>
                     </td>
@@ -84,7 +83,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style2"><b>Date of Birth:*</b></td>
+                    <td class="auto-style2"><b>Date of Birth:</b></td>
                     <td>
 
                         <asp:TextBox ID="TextBox11" runat="server" Height="31px" Width="211px" TextMode="Date"></asp:TextBox>
@@ -105,7 +104,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style3"><b>Enrollment Date:*</b></td>
+                    <td class="auto-style3"><b>Enrollment Date:</b></td>
                     <td class="auto-style1">
 
                         <asp:TextBox ID="TextBox12" runat="server" Height="31px" Width="211px" TextMode="Date"></asp:TextBox>
@@ -115,23 +114,23 @@
                 <tr>
                     <td class="auto-style2"><b>GPA:</b></td>
                     <td>
-                        <asp:TextBox ID="TextBox6" runat="server" Height="31px" Width="211px">0</asp:TextBox>
+                        <asp:TextBox ID="TextBox6" runat="server" Height="31px" Width="211px" TextMode="Number">0</asp:TextBox>
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style2"><b>Address:*</b></td>
+                    <td class="auto-style2"><b>Address:</b></td>
                     <td>
                         <asp:TextBox ID="TextBox7" runat="server" Height="31px" Width="211px"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style2"><b>ZIP:*</b></td>
+                    <td class="auto-style2"><b>ZIP:</b></td>
                     <td>
                         <asp:TextBox ID="TextBox8" runat="server" Height="31px" Width="211px" TextMode="Number"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style2"><b>Payment Type:*</b></td>
+                    <td class="auto-style2"><b>Payment Type:</b></td>
                     <td>
                         <asp:DropDownList ID="DropDownList3" runat="server">
                             <asp:ListItem>Select Payment Type</asp:ListItem>
@@ -145,7 +144,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style2"><b>Payment Info:*</b></td>
+                    <td class="auto-style2"><b>Payment Info:</b></td>
                     <td>
                         <asp:TextBox ID="TextBox9" runat="server" Height="31px" Width="211px"></asp:TextBox>
                     </td>

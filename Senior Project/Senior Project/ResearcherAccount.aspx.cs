@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Net.Mail;
+using System.Security.Cryptography;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -57,7 +58,7 @@ namespace Senior_Project
                     Msg.From = new MailAddress("testingforschoolprogram@gmail.com", "<DoNotReply>Lab");// Sender details here, replace with valid value
                     Msg.Subject = "TEST"; // subject of email
                     Msg.To.Add(TextBox1.Text); //Add Email id, to which we will send email
-                    Msg.Body = "Hello " + Label1.Text + "\n" + "https://localhost:44387/EmailChange?Email=" + Label4.Text;
+                    Msg.Body = "Hello " + Label1.Text + "\n" + "Please click on the link below to confirm the change in your email" + "\n" + "https://localhost:44387/EmailChange?Email=" + Label4.Text;
 
                     SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
                     smtp.UseDefaultCredentials = false; // to get rid of error "SMTP server requires a secure connection"
@@ -82,8 +83,7 @@ namespace Senior_Project
                     TextBox2.Text = "";
                     TextBox4.Text = "";
                     TextBox5.Text = "";
-                    Response.Redirect("~/ResearcherAccount.aspx", false);
-                    Response.Redirect("~/ResearcherAccount.aspx?Email=" + Label4.Text);
+                    Response.Redirect("~/Login Page.aspx");
                 }
                 else
                 {
@@ -99,7 +99,8 @@ namespace Senior_Project
 
         protected void Button2_Click(object sender, EventArgs e)
         {
-            string pass = "";
+            string savedPasswordHash = "";
+            string savedPasswordHashNew = "";
 
             con.Open();
             SqlCommand cmd = new SqlCommand("SELECT * FROM[User] WHERE Email = @Email ", con);
@@ -107,33 +108,64 @@ namespace Senior_Project
             dr = cmd.ExecuteReader();
             while (dr.Read())
             {
-                pass = dr["Password"].ToString().Trim();
+                savedPasswordHash = dr["Password"].ToString();
+
+
+                byte[] hashBytes = Convert.FromBase64String(savedPasswordHash);
+                /* Get the salt */
+                byte[] salt = new byte[16];
+                Array.Copy(hashBytes, 0, salt, 0, 16);
+                /* Compute the hash on the password the user entered */
+                var pbkdf2 = new Rfc2898DeriveBytes(TextBox8.Text, salt, 100000);
+                byte[] hash = pbkdf2.GetBytes(20);
+                /* Compare the results */
+                for (int i = 0; i < 20; i++)
+                    if (hashBytes[i + 16] != hash[i])
+                    { }
+                    else
+                    {
+                        try
+                        {
+                            if (TextBox9.Text == TextBox10.Text)
+                            {
+                                byte[] saltNew;
+                                new RNGCryptoServiceProvider().GetBytes(saltNew = new byte[16]);
+
+                                var pbkdf2New = new Rfc2898DeriveBytes(TextBox9.Text, saltNew, 100000);
+                                byte[] hashNew = pbkdf2New.GetBytes(20);
+
+                                byte[] hashBytesNew = new byte[36];
+                                Array.Copy(saltNew, 0, hashBytesNew, 0, 16);
+                                Array.Copy(hashNew, 0, hashBytesNew, 16, 20);
+
+                                savedPasswordHashNew = Convert.ToBase64String(hashBytesNew);
+
+                            }
+                            else
+                            {
+                                MessageBox.Show("The new password you have entered and your confirm password do not match");
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.ToString());
+                        }
+                    }
             }
 
             con.Close();
-            try
-            {
-                if (pass == TextBox8.Text)
-                {
-                    if (TextBox9.Text == TextBox10.Text)
-                    {
-                        con.Open();
-                        cmd = new SqlCommand("UPDATE [User] SET Password = @Password WHERE Email= @Email", con);
-                        cmd.Parameters.Add(new SqlParameter("Password", TextBox9.Text));
-                        cmd.Parameters.Add(new SqlParameter("Email", Label4.Text));
-                        cmd.ExecuteNonQuery();
-                        DataBind();
 
-                        TextBox8.Text = "";
-                        TextBox9.Text = "";
-                        TextBox10.Text = "";
-                    }
-                }
-                con.Close();
-            }
-            catch (Exception ex)
-            {
-            }
+            con.Open();
+            cmd = new SqlCommand("UPDATE [User] SET Password = @Password WHERE Email= @Email", con);
+            cmd.Parameters.Add(new SqlParameter("Password", savedPasswordHashNew));
+            cmd.Parameters.Add(new SqlParameter("Email", Label4.Text));
+            cmd.ExecuteNonQuery();
+
+            TextBox8.Text = "";
+            TextBox9.Text = "";
+            TextBox10.Text = "";
+
+            con.Close();
         }
         protected void LinkButton1_Click(object sender, EventArgs e)
         {

@@ -98,11 +98,12 @@ namespace Senior_Project
             }
             con.Close();
 
-      /*      MailMessage Msg = new MailMessage();
+            MailMessage Msg = new MailMessage();
             Msg.From = new MailAddress("testingforschoolprogram@gmail.com", "<DoNotReply>Lab");// Sender details here, replace with valid value
             Msg.Subject = "Lab Approval"; // subject of email
             Msg.To.Add(email); //Add Email id, to which we will send email
-            Msg.Body = "Hello Professor" + name;
+            Msg.Body = "Hello Professor " + name + ",\n"
+                + "Your reservation for " + Label3.Text + " has been approved.";
 
             SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
             smtp.UseDefaultCredentials = false; // to get rid of error "SMTP server requires a secure connection"
@@ -110,7 +111,7 @@ namespace Senior_Project
             smtp.EnableSsl = true;
             smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
 
-            smtp.Send(Msg); */
+            smtp.Send(Msg);
         }
 
         protected void Button2_Click(object sender, EventArgs e)
@@ -169,12 +170,12 @@ namespace Senior_Project
             Button1.Visible = false;
             Button2.Visible = false;
 
-       /*     MailMessage Msg = new MailMessage();
+            MailMessage Msg = new MailMessage();
             Msg.From = new MailAddress("testingforschoolprogram@gmail.com", "<DoNotReply>Lab");// Sender details here, replace with valid value
-            Msg.Subject = "Lab Approval"; // subject of email
+            Msg.Subject = "Lab Decline"; // subject of email
             Msg.To.Add(email); //Add Email id, to which we will send email
             Msg.Body = "Hello Professor " + name +",\n"
-                + "I am sorry to inform you that your reservation has been denied";
+                + "I am sorry to inform you that your reservation for " + Label3.Text + " has been denied.";
 
             SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
             smtp.UseDefaultCredentials = false; // to get rid of error "SMTP server requires a secure connection"
@@ -182,7 +183,7 @@ namespace Senior_Project
             smtp.EnableSsl = true;
             smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
 
-            smtp.Send(Msg);*/
+            smtp.Send(Msg);
 
 
         }

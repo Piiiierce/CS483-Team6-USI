@@ -8,6 +8,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Web.Security;
+using System.Security.Cryptography;
 
 namespace Senior_Project
 {
@@ -72,6 +73,18 @@ namespace Senior_Project
 
         private bool ChangeUserPassword()
         {
+            byte[] salt;
+            new RNGCryptoServiceProvider().GetBytes(salt = new byte[16]);
+
+            var pbkdf2 = new Rfc2898DeriveBytes(txtNewPassword.Text, salt, 100000);
+            byte[] hash = pbkdf2.GetBytes(20);
+
+            byte[] hashBytes = new byte[36];
+            Array.Copy(salt, 0, hashBytes, 0, 16);
+            Array.Copy(hash, 0, hashBytes, 16, 20);
+
+            string savedPasswordHash = Convert.ToBase64String(hashBytes);
+
             List<SqlParameter> paramList = new List<SqlParameter>()
     {
         new SqlParameter()
@@ -82,7 +95,7 @@ namespace Senior_Project
         new SqlParameter()
         {
             ParameterName = "@Password",
-            Value = (txtNewPassword.Text)
+            Value = (savedPasswordHash)
         }
     };
 

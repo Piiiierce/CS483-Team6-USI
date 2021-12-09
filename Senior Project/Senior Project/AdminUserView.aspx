@@ -43,7 +43,6 @@
             <div>
             <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="SubjectID" DataSourceID="SqlDataSource1" AllowPaging="True" AllowSorting="True">
                 <Columns>
-                    <asp:CommandField ShowEditButton="True" />
                     <asp:BoundField DataField="SubjectID" HeaderText="SubjectID" ReadOnly="True" SortExpression="SubjectID" />
                     <asp:BoundField DataField="FirstName" HeaderText="FirstName" SortExpression="FirstName" />
                     <asp:BoundField DataField="LastName" HeaderText="LastName" SortExpression="LastName" />
@@ -51,7 +50,6 @@
                     <asp:BoundField DataField="PaymentType" HeaderText="PaymentType" SortExpression="PaymentType" />
                     <asp:BoundField DataField="Type" HeaderText="Type" SortExpression="Type" />
                     <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
-                    <asp:BoundField DataField="Password" HeaderText="Password" SortExpression="Password" />
                     <asp:BoundField DataField="Gender" HeaderText="Gender" SortExpression="Gender" />
                     <asp:BoundField DataField="DateofBirth" HeaderText="DateofBirth" SortExpression="DateofBirth" DataFormatString="{0:MM/dd/yyyy}" />
                     <asp:BoundField DataField="Major" HeaderText="Major" SortExpression="Major" />
@@ -62,14 +60,13 @@
                     <asp:BoundField DataField="PaymentInfo" HeaderText="PaymentInfo" SortExpression="PaymentInfo" />
                 </Columns>
             </asp:GridView>
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT SubjectID, FirstName, LastName, Recruited, PaymentType, Type, Email, Password, Gender, DateofBirth, Major, EnrollmentDate, GPA, Address, ZIP, PaymentInfo FROM [User] WHERE (Type != N'admin')" DeleteCommand="DELETE FROM [User] WHERE (SubjectID = @SubjectID)" UpdateCommand="UPDATE [User] SET FirstName = @FirstName, LastName = @LastName, Password = @Password, Major = @Major, EnrollmentDate = @EnrollmentDate, GPA = @GPA, Address = @Address, ZIP = @ZIP WHERE (SubjectID = @SubjectID)">
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT SubjectID, FirstName, LastName, Recruited, PaymentType, Type, Email, Gender, DateofBirth, Major, EnrollmentDate, GPA, Address, ZIP, PaymentInfo FROM [User] WHERE (Type != N'admin')" DeleteCommand="DELETE FROM [User] WHERE (SubjectID = @SubjectID)" UpdateCommand="UPDATE [User] SET FirstName = @FirstName, LastName = @LastName, Major = @Major, EnrollmentDate = @EnrollmentDate, GPA = @GPA, Address = @Address, ZIP = @ZIP WHERE (SubjectID = @SubjectID)">
                 <DeleteParameters>
                     <asp:Parameter Name="SubjectID" />
                 </DeleteParameters>
                 <UpdateParameters>
                     <asp:Parameter Name="FirstName" />
                     <asp:Parameter Name="LastName" />
-                    <asp:Parameter Name="Password" />
                     <asp:Parameter Name="Major" />
                     <asp:Parameter Name="EnrollmentDate" />
                     <asp:Parameter Name="GPA" />

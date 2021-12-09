@@ -27,7 +27,9 @@
 
             <div class="bg-white border rounded border-dark emailchange-wrapper">
                 <div class="center">
-                    <asp:Label ID="Label5" runat="server" Text="Label">You have successfully changed your email!</asp:Label>
+                    <h2>
+                        <asp:Label ID="Label5" runat="server" Text="Label">You have successfully changed your email!</asp:Label>
+                    </h2>
                 </div>
             <br />
             <br />
