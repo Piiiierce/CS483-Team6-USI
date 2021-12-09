@@ -92,6 +92,7 @@
                 <asp:RadioButton ID="RadioButton4" runat="server" GroupName="1" OnCheckedChanged="RadioButton4_CheckedChanged" Text="Other" />
                 <br />
                 <asp:DropDownList ID="DropDownList1" runat="server" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
+                    <asp:ListItem>Any Major</asp:ListItem>
                     <asp:ListItem>Business</asp:ListItem>
                     <asp:ListItem>Health Professions</asp:ListItem>
                     <asp:ListItem>Computer Science</asp:ListItem>
