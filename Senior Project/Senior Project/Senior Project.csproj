@@ -119,8 +119,8 @@
     </Content>
     <Content Include="Calendar.aspx" />
     <Content Include="CalendarStudent.aspx" />
+    <Content Include="Content\AdminApprove1.css" />
     <Content Include="Content\AdminView.css" />
-    <Content Include="Content\AdminApprove.css" />
     <Content Include="Content\ApproveReserve.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
