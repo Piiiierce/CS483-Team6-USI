@@ -84,6 +84,12 @@
                 &nbsp;&nbsp;&nbsp;
             <asp:Button ID="Button5" runat="server" CssClass="auto-style3" OnClick="Button5_Click" Text="View Roster" Visible="False" />
             </div>
+            <asp:Panel ID="Panel1" runat="server">
+                <asp:RadioButton ID="RadioButton1" runat="server" GroupName="1" OnCheckedChanged="RadioButton1_CheckedChanged" Text="All Genders" />
+                <asp:RadioButton ID="RadioButton2" runat="server" GroupName="1" OnCheckedChanged="RadioButton2_CheckedChanged" Text="Male" />
+                <asp:RadioButton ID="RadioButton3" runat="server" GroupName="1" OnCheckedChanged="RadioButton3_CheckedChanged" Text="Female" />
+                <asp:RadioButton ID="RadioButton4" runat="server" GroupName="1" OnCheckedChanged="RadioButton4_CheckedChanged" Text="Other" />
+            </asp:Panel>
             <br />
             <div class="center">
                 <asp:ListBox ID="ListBox1" runat="server" CssClass="auto-style1" DataSourceID="SqlDataSource2" DataTextField="FirstName" DataValueField="Email" Height="224px" SelectionMode="Multiple" Visible="False" Width="184px"></asp:ListBox>

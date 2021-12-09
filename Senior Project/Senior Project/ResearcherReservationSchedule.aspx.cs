@@ -141,8 +141,56 @@ namespace Senior_Project
         {
             ListBox1.Visible = true;
             Button4.Visible = true;
-            Button2.Visible = false;
+            Button2.Visible = true;
             Button5.Visible = false;
+
+            ListBox1.Items.Clear();
+            SqlCommand cmd = new SqlCommand();
+            con.Open();
+            cmd.Connection = con;
+            cmd.CommandText = "select * FROM [User]";
+            dr = cmd.ExecuteReader();
+            if (RadioButton2.Checked == true)
+            {
+                con.Close();
+                con.Open();
+                cmd.CommandText = "SELECT * FROM [User] where Gender = 'Male'";
+                dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    ListBox1.Items.Add((string)dr["FirstName"]);
+                }
+            }
+            else if (RadioButton3.Checked == true)
+            {
+                con.Close();
+                con.Open();
+                cmd.CommandText = "SELECT * FROM [User] where Gender = 'Female'";
+                dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    ListBox1.Items.Add((string)dr["FirstName"]);
+                }
+            }
+            else if (RadioButton4.Checked == true)
+            {
+                con.Close();
+                con.Open();
+                cmd.CommandText = "SELECT * FROM [User] where Gender = 'Other'";
+                dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    ListBox1.Items.Add((string)dr["FirstName"]);
+                }
+            }
+            else
+            {
+                while (dr.Read())
+                {
+                    ListBox1.Items.Add((string)dr["FirstName"]);
+                }
+            }
+            con.Close();
         }
 
         protected void Button4_Click(object sender, EventArgs e)
@@ -255,6 +303,26 @@ namespace Senior_Project
         protected void LinkButton6_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Login Page.aspx");
+        }
+
+        protected void RadioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void RadioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void RadioButton3_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void RadioButton4_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
