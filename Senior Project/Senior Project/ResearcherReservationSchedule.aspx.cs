@@ -625,7 +625,7 @@ namespace Senior_Project
                     Msg.Subject = "TEST"; // subject of email
                     Msg.To.Add(email.Value.Trim()); //Add Email id, to which we will send email
                     Msg.Body = "Hello " + email.Text + "\n" + "You have been asked to participate in a " + Label12.Text.Trim() + " research project run by Professors " +
-                        PFirstName + " " + pLastName + "\n" + "Please click on link below to accept or decline the invitation" + "\n" + "https://localhost:44387/Login%20Page?ReserveID=" + hold;
+                        PFirstName + " " + pLastName + "\n" + "The date of the reaseach is " + Label5.Text + ". \n" + "Please click on link below to accept or decline the invitation" + "\n" + "https://localhost:44387/Login%20Page?ReserveID=" + hold;
 
                     SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
                     smtp.UseDefaultCredentials = false; // to get rid of error "SMTP server requires a secure connection"
@@ -655,7 +655,7 @@ namespace Senior_Project
                 Msg.From = new MailAddress("testingforschoolprogram@gmail.com", "<DoNotReply>Lab");// Sender details here, replace with valid value
                 Msg.Subject = "TEST"; // subject of email
                 Msg.To.Add(email1.Value.Trim()); //Add Email id, to which we will send email
-                Msg.Body = "Hello " + email1.Text + "\n" + "This is a reminder about the research that you have decided to join";
+                Msg.Body = "Hello " + email1.Text + "\n" + "This is a reminder that you have a research that you have decided to join that will be happening on " + Label5.Text;
 
                 SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
                 smtp.UseDefaultCredentials = false; // to get rid of error "SMTP server requires a secure connection"
