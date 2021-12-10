@@ -47,6 +47,7 @@ namespace Senior_Project
             Label8.Text = row.Cells[5].Text;
             Label9.Text = row.Cells[6].Text;
             Label10.Text = row.Cells[7].Text;
+            Label12.Text = row.Cells[1].Text;
 
             bool n = true;
             con.Open();
@@ -251,7 +252,7 @@ namespace Senior_Project
                         ListBox1.Items.Add((string)dr["FirstName"]);
                     }
                 }
-                //con.Close();
+                con.Close();
                 //con.Open();
                 //cmd.CommandText = "SELECT * FROM [User] where Gender = 'Male'";
                 //dr = cmd.ExecuteReader();
@@ -361,7 +362,7 @@ namespace Senior_Project
                         ListBox1.Items.Add((string)dr["FirstName"]);
                     }
                 }
-                //con.Close();
+                con.Close();
                 //con.Open();
                 //cmd.CommandText = "SELECT * FROM [User] where Gender = 'Female'";
                 //dr = cmd.ExecuteReader();
@@ -471,7 +472,7 @@ namespace Senior_Project
                         ListBox1.Items.Add((string)dr["FirstName"]);
                     }
                 }
-                //con.Close();
+                con.Close();
                 //con.Open();
                 //cmd.CommandText = "SELECT * FROM [User] where Gender = 'Other'";
                 //dr = cmd.ExecuteReader();
@@ -579,6 +580,10 @@ namespace Senior_Project
 
         protected void Button4_Click(object sender, EventArgs e)
         {
+            string hold = "";
+            string UID = "";
+            string PFirstName = "";
+            string pLastName = "";
             con.Open();
             SqlCommand cmd = new SqlCommand("SELECT * FROM Reservation WHERE ReservationId = @ReservationId", con);
             cmd.Parameters.Add(new SqlParameter("ReservationId", TextBox2.Text));
@@ -589,7 +594,29 @@ namespace Senior_Project
             }
             con.Close();
 
-                foreach (ListItem email in ListBox1.Items)
+            con.Open();
+            cmd = new SqlCommand("SELECT * FROM Notify WHERE ReservationID = @ReservationID", con);
+            cmd.Parameters.Add(new SqlParameter("ReservationID", hold));
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                UID = dr["UserID"].ToString();
+            }
+            con.Close();
+
+            con.Open();
+            cmd = new SqlCommand("SELECT * FROM [User] WHERE SubjectID = @SubjectID", con);
+            cmd.Parameters.Add(new SqlParameter("SubjectID", hold));
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                PFirstName = dr["FirstName"].ToString();
+                pLastName = dr["LastName"].ToString();
+            }
+            con.Close();
+
+
+            foreach (ListItem email in ListBox1.Items)
             {
                 if (email.Selected)
                 {
@@ -597,7 +624,8 @@ namespace Senior_Project
                     Msg.From = new MailAddress("testingforschoolprogram@gmail.com", "<DoNotReply>Lab");// Sender details here, replace with valid value
                     Msg.Subject = "TEST"; // subject of email
                     Msg.To.Add(email.Value.Trim()); //Add Email id, to which we will send email
-                    Msg.Body = "Hello " + email.Text + "\n" + "https://localhost:44387/Login%20Page?ReserveID=" + hold;
+                    Msg.Body = "Hello " + email.Text + "\n" + "You have been asked to participate in a " + Label12.Text.Trim() + " research project run by Professors " +
+                        PFirstName + " " + pLastName + "\n" + "Please click on link below to accept or decline the invitation" + "\n" + "https://localhost:44387/Login%20Page?ReserveID=" + hold;
 
                     SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
                     smtp.UseDefaultCredentials = false; // to get rid of error "SMTP server requires a secure connection"

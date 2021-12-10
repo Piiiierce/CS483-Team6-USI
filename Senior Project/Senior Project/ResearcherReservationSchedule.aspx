@@ -91,7 +91,8 @@
                 <asp:RadioButton ID="RadioButton3" runat="server" GroupName="1" OnCheckedChanged="RadioButton3_CheckedChanged" Text="Female" />
                 <asp:RadioButton ID="RadioButton4" runat="server" GroupName="1" OnCheckedChanged="RadioButton4_CheckedChanged" Text="Other" />
                 <br />
-                <asp:DropDownList ID="DropDownList1" runat="server" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
+                <div class="center">
+                <asp:DropDownList ID="DropDownList1" runat="server"  OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
                     <asp:ListItem>Any Major</asp:ListItem>
                     <asp:ListItem>Business</asp:ListItem>
                     <asp:ListItem>Health Professions</asp:ListItem>
@@ -102,6 +103,7 @@
                     <asp:ListItem>Art</asp:ListItem>
                     <asp:ListItem>Education</asp:ListItem>
                 </asp:DropDownList>
+                    </div>
             </asp:Panel>
             <br />
             <div class="center">
@@ -144,6 +146,7 @@
             &nbsp;<asp:Label ID="Label8" runat="server" Text="Label" Visible="False"></asp:Label>
             &nbsp;<asp:Label ID="Label9" runat="server" Text="Label" Visible="False"></asp:Label>
             &nbsp;<asp:Label ID="Label10" runat="server" Text="Label" Visible="False"></asp:Label>
+            <asp:Label ID="Label12" runat="server" Text="Label" Visible="False"></asp:Label>
             &nbsp;<asp:TextBox ID="TextBox2" runat="server" ReadOnly="True" Visible="False"></asp:TextBox>
         </div>
     </form>

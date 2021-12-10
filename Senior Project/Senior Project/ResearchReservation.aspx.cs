@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -195,7 +196,7 @@ namespace Senior_Project
                                                 }
                                                 else
                                                 {
-                                                    DateTime dateNow = DateTime.Now;
+                                                    DateTime dateNow = System.DateTime.Now;
 
                                                     Label14.Visible = false;
                                                     con.Open();
@@ -210,7 +211,7 @@ namespace Senior_Project
                                                     cmd.Parameters.Add(new SqlParameter("isEmail", "False"));
                                                     cmd.Parameters.Add(new SqlParameter("isRecruit", "False"));
                                                     cmd.Parameters.Add(new SqlParameter("ManagerApprove", "0"));
-                                                    cmd.Parameters.Add(new SqlParameter("CreateDate", System.DateTime.Today));
+                                                    cmd.Parameters.Add(new SqlParameter("CreateDate", System.DateTime.Now.ToString()));
                                                     cmd.ExecuteNonQuery();
                                                     con.Close();
 

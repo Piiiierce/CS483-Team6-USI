@@ -105,7 +105,6 @@ namespace Senior_Project
             }
             else 
             {
-                MessageBox.Show("This Reservation is full");
                 Response.Redirect("~/CalendarStudent.aspx", false);
                 Response.Redirect("~/CalendarStudent.aspx?Email=" + Label4.Text);
             }

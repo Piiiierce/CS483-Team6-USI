@@ -40,7 +40,7 @@ namespace Senior_Project
             dr = cmd.ExecuteReader();
             while (dr.Read())
             {
-                dateHold = dr["CreateDate"].ToString().Trim();
+                    dateHold = dr["CreateDate"].ToString().Trim();
             }
             con.Close();
 
