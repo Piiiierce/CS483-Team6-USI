@@ -615,6 +615,13 @@ namespace Senior_Project
             }
             con.Close();
 
+            con.Open();
+            cmd = new SqlCommand("UPDATE Reservation SET isRecruit = @isRecruit WHERE ReservationId = @ReservationId", con);
+            cmd.Parameters.Add(new SqlParameter("isRecruit", "True"));
+            cmd.Parameters.Add(new SqlParameter("ReservationId", hold));
+            cmd.ExecuteNonQuery();
+            DataBind();
+            con.Close();
 
             foreach (ListItem email in ListBox1.Items)
             {
@@ -647,7 +654,15 @@ namespace Senior_Project
 
         protected void Button3_Click(object sender, EventArgs e)
         {
-            
+
+            con.Open();
+            cmd = new SqlCommand("UPDATE Reservation SET isEmail = @isEmail WHERE ReservationId = @ReservationId", con);
+            cmd.Parameters.Add(new SqlParameter("isEmail", "True"));
+            cmd.Parameters.Add(new SqlParameter("ReservationId", TextBox2.Text));
+            cmd.ExecuteNonQuery();
+            DataBind();
+            con.Close();
+
             foreach (ListItem email1 in ListBox2.Items)
             {
 
