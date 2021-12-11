@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Net.Mail;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -222,6 +223,31 @@ namespace Senior_Project
                                                     cmd.ExecuteNonQuery();
                                                     con.Close();
 
+                                                    string email = "";
+
+                                                    con.Open();
+                                                    cmd = new SqlCommand("SELECT * FROM [User] WHERE Type = @Type ", con);
+                                                    cmd.Parameters.Add(new SqlParameter("Type", "Admin"));
+                                                    dr = cmd.ExecuteReader();
+                                                    while (dr.Read())
+                                                    {
+                                                        email = dr["Email"].ToString();
+                                                    }
+                                                    con.Close();
+
+                                                    MailMessage Msg = new MailMessage();
+                                                    Msg.From = new MailAddress("testingforschoolprogram@gmail.com", "<DoNotReply>Lab");// Sender details here, replace with valid value
+                                                    Msg.Subject = "Reservation Request"; // subject of email
+                                                    Msg.To.Add(email); //Add Email id, to which we will send email
+                                                    Msg.Body = "A reservation request has been sent to your account";
+
+                                                    SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
+                                                    smtp.UseDefaultCredentials = false; // to get rid of error "SMTP server requires a secure connection"
+                                                    smtp.Credentials = new System.Net.NetworkCredential("testingforschoolprogram@gmail.com", "Testing!234");// replace with valid value
+                                                    smtp.EnableSsl = true;
+                                                    smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+
+                                                    smtp.Send(Msg);
 
 
                                                     TextBox1.Text = "";
@@ -272,6 +298,32 @@ namespace Senior_Project
                                         cmd.ExecuteNonQuery();
                                         con.Close();
 
+                                        string email = "";
+
+                                        con.Open();
+                                        cmd = new SqlCommand("SELECT * FROM [User] WHERE Type = @Type ", con);
+                                        cmd.Parameters.Add(new SqlParameter("Type", "Admin"));
+                                        dr = cmd.ExecuteReader();
+                                        while (dr.Read())
+                                        {
+                                            email = dr["Email"].ToString();
+                                        }
+                                        con.Close();
+
+
+                                        MailMessage Msg = new MailMessage();
+                                        Msg.From = new MailAddress("testingforschoolprogram@gmail.com", "<DoNotReply>Lab");// Sender details here, replace with valid value
+                                        Msg.Subject = "Reservation Request"; // subject of email
+                                        Msg.To.Add(email); //Add Email id, to which we will send email
+                                        Msg.Body = "A reservation request has been sent to your account";
+
+                                        SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
+                                        smtp.UseDefaultCredentials = false; // to get rid of error "SMTP server requires a secure connection"
+                                        smtp.Credentials = new System.Net.NetworkCredential("testingforschoolprogram@gmail.com", "Testing!234");// replace with valid value
+                                        smtp.EnableSsl = true;
+                                        smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+
+                                        smtp.Send(Msg);
 
 
                                         TextBox1.Text = "";
