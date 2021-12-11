@@ -22,59 +22,59 @@ namespace Senior_Project
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Request.QueryString["Email"] != null)
-            {
-                Label3.Text = Session["Reserve"].ToString();
-                Label4.Text = Request.QueryString["Email"]; 
-            }
-            con.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True";
-            con.Open();
-            SqlCommand cmd = new SqlCommand("SELECT * FROM[User] WHERE Email = @Email ", con);
-            cmd.Parameters.Add(new SqlParameter("Email", Label4.Text));
-            dr = cmd.ExecuteReader();
-            while (dr.Read())
-            {
-                Label1.Text = dr["FirstName"].ToString().Trim();
-                Label2.Text = dr["LastName"].ToString().Trim();
-                Label5.Text = dr["SubjectID"].ToString().Trim();
-            }
-            con.Close();
+            //if (Request.QueryString["Email"] != null)
+            //{
+            //    Label3.Text = Session["Reserve"].ToString();
+            //    Label4.Text = Request.QueryString["Email"]; 
+            //}
+            //con.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True";
+            //con.Open();
+            //SqlCommand cmd = new SqlCommand("SELECT * FROM[User] WHERE Email = @Email ", con);
+            //cmd.Parameters.Add(new SqlParameter("Email", Label4.Text));
+            //dr = cmd.ExecuteReader();
+            //while (dr.Read())
+            //{
+            //    Label1.Text = dr["FirstName"].ToString().Trim();
+            //    Label2.Text = dr["LastName"].ToString().Trim();
+            //    Label5.Text = dr["SubjectID"].ToString().Trim();
+            //}
+            //con.Close();
 
-            con.Open();
-            cmd = new SqlCommand("SELECT * FROM Reservation WHERE ReservationId = @ReservationId ", con);
-            cmd.Parameters.Add(new SqlParameter("ReservationId", Label3.Text));
-            dr = cmd.ExecuteReader();
-            while (dr.Read())
-            {
-                pid = Convert.ToInt32(dr["ProjectID"]);
-            }
-            con.Close();
+            //con.Open();
+            //cmd = new SqlCommand("SELECT * FROM Reservation WHERE ReservationId = @ReservationId ", con);
+            //cmd.Parameters.Add(new SqlParameter("ReservationId", Label3.Text));
+            //dr = cmd.ExecuteReader();
+            //while (dr.Read())
+            //{
+            //    pid = Convert.ToInt32(dr["ProjectID"]);
+            //}
+            //con.Close();
 
-            con.Open();
-            cmd = new SqlCommand("SELECT * FROM Project WHERE ProjectID = @ProjectID ", con);
-            cmd.Parameters.Add(new SqlParameter("@ProjectID", pid));
-            dr = cmd.ExecuteReader();
-            while (dr.Read())
-            {
-                name = dr["Name"].ToString();
-            }
-            con.Close();
+            //con.Open();
+            //cmd = new SqlCommand("SELECT * FROM Project WHERE ProjectID = @ProjectID ", con);
+            //cmd.Parameters.Add(new SqlParameter("@ProjectID", pid));
+            //dr = cmd.ExecuteReader();
+            //while (dr.Read())
+            //{
+            //    name = dr["Name"].ToString();
+            //}
+            //con.Close();
 
-            con.Open();
-            cmd = new SqlCommand("SELECT COUNT (*) FROM StudentReserve WHERE ReservationID = @ReservationID ", con);
-            cmd.Parameters.Add(new SqlParameter("@ReservationID", Label3.Text));
-            s = Convert.ToInt32(cmd.ExecuteScalar());
-            con.Close();
+            //con.Open();
+            //cmd = new SqlCommand("SELECT COUNT (*) FROM StudentReserve WHERE ReservationID = @ReservationID ", con);
+            //cmd.Parameters.Add(new SqlParameter("@ReservationID", Label3.Text));
+            //s = Convert.ToInt32(cmd.ExecuteScalar());
+            //con.Close();
 
-            con.Open();
-            cmd = new SqlCommand("SELECT * FROM Reservation WHERE ReservationId = @ReservationId ", con);
-            cmd.Parameters.Add(new SqlParameter("ReservationId", Label3.Text));
-            dr = cmd.ExecuteReader();
-            while (dr.Read())
-            {
-                c = Convert.ToInt32(dr["Occupancy"]);
-            }
-            con.Close();
+            //con.Open();
+            //cmd = new SqlCommand("SELECT * FROM Reservation WHERE ReservationId = @ReservationId ", con);
+            //cmd.Parameters.Add(new SqlParameter("ReservationId", Label3.Text));
+            //dr = cmd.ExecuteReader();
+            //while (dr.Read())
+            //{
+            //    c = Convert.ToInt32(dr["Occupancy"]);
+            //}
+            //con.Close();
 
 
         }
