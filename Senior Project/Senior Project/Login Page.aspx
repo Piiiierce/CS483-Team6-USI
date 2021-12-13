@@ -46,7 +46,7 @@
                 </div>
                 <!-- Password textbox -->
                 <div class="d-flex justify-content-center mt-1">
-                    <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="TextBox2" runat="server" TextMode="Password"></asp:TextBox>
                 </div>
                 <!-- Login button -->
                 <div class="d-flex justify-content-center mt-2">
