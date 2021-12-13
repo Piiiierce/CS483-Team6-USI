@@ -84,15 +84,15 @@
                 &nbsp;&nbsp;&nbsp;
             <asp:Button ID="Button5" runat="server" CssClass="auto-style3" OnClick="Button5_Click" Text="View Roster" Visible="False" />
             </div>
-            <asp:Panel ID="Panel1" runat="server" >
+<%--            <asp:Panel ID="Panel1" runat="server" >
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:RadioButton ID="RadioButton1" runat="server" GroupName="1" OnCheckedChanged="RadioButton1_CheckedChanged" Text="All Genders" />
-                <asp:RadioButton ID="RadioButton2" runat="server" GroupName="1" OnCheckedChanged="RadioButton2_CheckedChanged" Text="Male" />
-                <asp:RadioButton ID="RadioButton3" runat="server" GroupName="1" OnCheckedChanged="RadioButton3_CheckedChanged" Text="Female" />
-                <asp:RadioButton ID="RadioButton4" runat="server" GroupName="1" OnCheckedChanged="RadioButton4_CheckedChanged" Text="Other" />
+                <asp:RadioButton ID="RadioButton1" runat="server" GroupName="1" Text="All Genders" />
+                <asp:RadioButton ID="RadioButton2" runat="server" GroupName="1" Text="Male" />
+                <asp:RadioButton ID="RadioButton3" runat="server" GroupName="1" Text="Female" />
+                <asp:RadioButton ID="RadioButton4" runat="server" GroupName="1" Text="Other" />
                 <br />
                 <div class="center">
-                <asp:DropDownList ID="DropDownList1" runat="server"  OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
+                <asp:DropDownList ID="DropDownList1" runat="server">
                     <asp:ListItem>Any Major</asp:ListItem>
                     <asp:ListItem>Business</asp:ListItem>
                     <asp:ListItem>Health Professions</asp:ListItem>
@@ -104,12 +104,13 @@
                     <asp:ListItem>Education</asp:ListItem>
                 </asp:DropDownList>
                     </div>
-            </asp:Panel>
+            </asp:Panel>--%>
             <br />
             <div class="center">
                 <asp:ListBox ID="ListBox1" runat="server" CssClass="auto-style1" DataSourceID="SqlDataSource2" DataTextField="FirstName" DataValueField="Email" Height="224px" SelectionMode="Multiple" Visible="False" Width="184px"></asp:ListBox>
                 <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT FirstName, LastName, Email FROM [User] WHERE (Type = N'student')"></asp:SqlDataSource>
             </div>
+            <asp:TextBox ID="TextBox4" runat="server" TextMode="MultiLine"></asp:TextBox>
             <br />
             <div class="center">
                 <asp:Button ID="Button4" runat="server" Text="Send Email" Visible="False" OnClick="Button4_Click" />
