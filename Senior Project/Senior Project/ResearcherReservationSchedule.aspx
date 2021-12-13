@@ -84,7 +84,7 @@
                 &nbsp;&nbsp;&nbsp;
             <asp:Button ID="Button5" runat="server" CssClass="auto-style3" OnClick="Button5_Click" Text="View Roster" Visible="False" />
             </div>
-            <asp:Panel ID="Panel1" runat="server" >
+<%--            <asp:Panel ID="Panel1" runat="server" >
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:RadioButton ID="RadioButton1" runat="server" GroupName="1" Text="All Genders" />
                 <asp:RadioButton ID="RadioButton2" runat="server" GroupName="1" Text="Male" />
@@ -104,7 +104,7 @@
                     <asp:ListItem>Education</asp:ListItem>
                 </asp:DropDownList>
                     </div>
-            </asp:Panel>
+            </asp:Panel>--%>
             <br />
             <div class="center">
                 <asp:ListBox ID="ListBox1" runat="server" CssClass="auto-style1" DataSourceID="SqlDataSource2" DataTextField="FirstName" DataValueField="Email" Height="224px" SelectionMode="Multiple" Visible="False" Width="184px"></asp:ListBox>

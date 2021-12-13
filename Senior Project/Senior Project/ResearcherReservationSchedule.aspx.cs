@@ -145,437 +145,437 @@ namespace Senior_Project
             Button2.Visible = true;
             Button5.Visible = false;
 
-            ListBox1.Items.Clear();
-            SqlCommand cmd = new SqlCommand();
-            con.Open();
-            cmd.Connection = con;
-            cmd.CommandText = "select * FROM [User]";
-            dr = cmd.ExecuteReader();
-            if (RadioButton2.Checked == true)
-            {
-                if (DropDownList1.SelectedIndex == 0)
-                {
-                    con.Close();
-                    con.Open();
-                    cmd.CommandText = "SELECT * FROM [User] where Gender = 'Male'";
-                    dr = cmd.ExecuteReader();
-                    while (dr.Read())
-                    {
-                        ListBox1.Items.Add((string)dr["FirstName"]);
-                    }
-                }
-                else if (DropDownList1.SelectedIndex == 1)
-                {
-                    con.Close();
-                    con.Open();
-                    cmd.CommandText = "SELECT * FROM [User] where Gender = 'Male' and Major = 'Business'";
-                    dr = cmd.ExecuteReader();
-                    while (dr.Read())
-                    {
-                        ListBox1.Items.Add((string)dr["FirstName"]);
-                    }
-                }
-                else if (DropDownList1.SelectedIndex == 2)
-                {
-                    con.Close();
-                    con.Open();
-                    cmd.CommandText = "SELECT * FROM [User] where Gender = 'Male' and Major = 'Health Professions'";
-                    dr = cmd.ExecuteReader();
-                    while (dr.Read())
-                    {
-                        ListBox1.Items.Add((string)dr["FirstName"]);
-                    }
-                }
-                else if (DropDownList1.SelectedIndex == 3)
-                {
-                    con.Close();
-                    con.Open();
-                    cmd.CommandText = "SELECT * FROM [User] where Gender = 'Male' and Major = 'Computer Science'";
-                    dr = cmd.ExecuteReader();
-                    while (dr.Read())
-                    {
-                        ListBox1.Items.Add((string)dr["FirstName"]);
-                    }
-                }
-                else if (DropDownList1.SelectedIndex == 4)
-                {
-                    con.Close();
-                    con.Open();
-                    cmd.CommandText = "SELECT * FROM [User] where Gender = 'Male' and Major = 'Biology'";
-                    dr = cmd.ExecuteReader();
-                    while (dr.Read())
-                    {
-                        ListBox1.Items.Add((string)dr["FirstName"]);
-                    }
-                }
-                else if (DropDownList1.SelectedIndex == 5)
-                {
-                    con.Close();
-                    con.Open();
-                    cmd.CommandText = "SELECT * FROM [User] where Gender = 'Male' and Major = 'Engineering'";
-                    dr = cmd.ExecuteReader();
-                    while (dr.Read())
-                    {
-                        ListBox1.Items.Add((string)dr["FirstName"]);
-                    }
-                }
-                else if (DropDownList1.SelectedIndex == 6)
-                {
-                    con.Close();
-                    con.Open();
-                    cmd.CommandText = "SELECT * FROM [User] where Gender = 'Male' and Major = 'Communication'";
-                    dr = cmd.ExecuteReader();
-                    while (dr.Read())
-                    {
-                        ListBox1.Items.Add((string)dr["FirstName"]);
-                    }
-                }
-                else if (DropDownList1.SelectedIndex == 7)
-                {
-                    con.Close();
-                    con.Open();
-                    cmd.CommandText = "SELECT * FROM [User] where Gender = 'Male' and Major = 'Art'";
-                    dr = cmd.ExecuteReader();
-                    while (dr.Read())
-                    {
-                        ListBox1.Items.Add((string)dr["FirstName"]);
-                    }
-                }
-                else
-                {
-                    con.Close();
-                    con.Open();
-                    cmd.CommandText = "SELECT * FROM [User] where Gender = 'Male' and Major = 'Education'";
-                    dr = cmd.ExecuteReader();
-                    while (dr.Read())
-                    {
-                        ListBox1.Items.Add((string)dr["FirstName"]);
-                    }
-                }
-                con.Close();
-                //con.Open();
-                //cmd.CommandText = "SELECT * FROM [User] where Gender = 'Male'";
-                //dr = cmd.ExecuteReader();
-                //while (dr.Read())
-                //{
-                //    ListBox1.Items.Add((string)dr["FirstName"]);
-                //}
-            }
-            else if (RadioButton3.Checked == true)
-            {
-                if (DropDownList1.SelectedIndex == 0)
-                {
-                    con.Close();
-                    con.Open();
-                    cmd.CommandText = "SELECT * FROM [User] where Gender = 'Female'";
-                    dr = cmd.ExecuteReader();
-                    while (dr.Read())
-                    {
-                        ListBox1.Items.Add((string)dr["FirstName"]);
-                    }
-                }
-                else if (DropDownList1.SelectedIndex == 1)
-                {
-                    con.Close();
-                    con.Open();
-                    cmd.CommandText = "SELECT * FROM [User] where Gender = 'Female' and Major = 'Business'";
-                    dr = cmd.ExecuteReader();
-                    while (dr.Read())
-                    {
-                        ListBox1.Items.Add((string)dr["FirstName"]);
-                    }
-                }
-                else if (DropDownList1.SelectedIndex == 2)
-                {
-                    con.Close();
-                    con.Open();
-                    cmd.CommandText = "SELECT * FROM [User] where Gender = 'Female' and Major = 'Health Professions'";
-                    dr = cmd.ExecuteReader();
-                    while (dr.Read())
-                    {
-                        ListBox1.Items.Add((string)dr["FirstName"]);
-                    }
-                }
-                else if (DropDownList1.SelectedIndex == 3)
-                {
-                    con.Close();
-                    con.Open();
-                    cmd.CommandText = "SELECT * FROM [User] where Gender = 'Female' and Major = 'Computer Science'";
-                    dr = cmd.ExecuteReader();
-                    while (dr.Read())
-                    {
-                        ListBox1.Items.Add((string)dr["FirstName"]);
-                    }
-                }
-                else if (DropDownList1.SelectedIndex == 4)
-                {
-                    con.Close();
-                    con.Open();
-                    cmd.CommandText = "SELECT * FROM [User] where Gender = 'Female' and Major = 'Biology'";
-                    dr = cmd.ExecuteReader();
-                    while (dr.Read())
-                    {
-                        ListBox1.Items.Add((string)dr["FirstName"]);
-                    }
-                }
-                else if (DropDownList1.SelectedIndex == 5)
-                {
-                    con.Close();
-                    con.Open();
-                    cmd.CommandText = "SELECT * FROM [User] where Gender = 'Female' and Major = 'Engineering'";
-                    dr = cmd.ExecuteReader();
-                    while (dr.Read())
-                    {
-                        ListBox1.Items.Add((string)dr["FirstName"]);
-                    }
-                }
-                else if (DropDownList1.SelectedIndex == 6)
-                {
-                    con.Close();
-                    con.Open();
-                    cmd.CommandText = "SELECT * FROM [User] where Gender = 'Female' and Major = 'Communication'";
-                    dr = cmd.ExecuteReader();
-                    while (dr.Read())
-                    {
-                        ListBox1.Items.Add((string)dr["FirstName"]);
-                    }
-                }
-                else if (DropDownList1.SelectedIndex == 7)
-                {
-                    con.Close();
-                    con.Open();
-                    cmd.CommandText = "SELECT * FROM [User] where Gender = 'Female' and Major = 'Art'";
-                    dr = cmd.ExecuteReader();
-                    while (dr.Read())
-                    {
-                        ListBox1.Items.Add((string)dr["FirstName"]);
-                    }
-                }
-                else
-                {
-                    con.Close();
-                    con.Open();
-                    cmd.CommandText = "SELECT * FROM [User] where Gender = 'Female' and Major = 'Education'";
-                    dr = cmd.ExecuteReader();
-                    while (dr.Read())
-                    {
-                        ListBox1.Items.Add((string)dr["FirstName"]);
-                    }
-                }
-                con.Close();
-                //con.Open();
-                //cmd.CommandText = "SELECT * FROM [User] where Gender = 'Female'";
-                //dr = cmd.ExecuteReader();
-                //while (dr.Read())
-                //{
-                //    ListBox1.Items.Add((string)dr["FirstName"]);
-                //}
-            }
-            else if (RadioButton4.Checked == true)
-            {
-                if (DropDownList1.SelectedIndex == 0)
-                {
-                    con.Close();
-                    con.Open();
-                    cmd.CommandText = "SELECT * FROM [User] where Gender = 'Other'";
-                    dr = cmd.ExecuteReader();
-                    while (dr.Read())
-                    {
-                        ListBox1.Items.Add((string)dr["FirstName"]);
-                    }
-                }
-                if (DropDownList1.SelectedIndex == 1)
-                {
-                    con.Close();
-                    con.Open();
-                    cmd.CommandText = "SELECT * FROM [User] where Gender = 'Other' and Major = 'Business'";
-                    dr = cmd.ExecuteReader();
-                    while (dr.Read())
-                    {
-                        ListBox1.Items.Add((string)dr["FirstName"]);
-                    }
-                }
-                else if (DropDownList1.SelectedIndex == 2)
-                {
-                    con.Close();
-                    con.Open();
-                    cmd.CommandText = "SELECT * FROM [User] where Gender = 'Other' and Major = 'Health Professions'";
-                    dr = cmd.ExecuteReader();
-                    while (dr.Read())
-                    {
-                        ListBox1.Items.Add((string)dr["FirstName"]);
-                    }
-                }
-                else if (DropDownList1.SelectedIndex == 3)
-                {
-                    con.Close();
-                    con.Open();
-                    cmd.CommandText = "SELECT * FROM [User] where Gender = 'Other' and Major = 'Computer Science'";
-                    dr = cmd.ExecuteReader();
-                    while (dr.Read())
-                    {
-                        ListBox1.Items.Add((string)dr["FirstName"]);
-                    }
-                }
-                else if (DropDownList1.SelectedIndex == 4)
-                {
-                    con.Close();
-                    con.Open();
-                    cmd.CommandText = "SELECT * FROM [User] where Gender = 'Other' and Major = 'Biology'";
-                    dr = cmd.ExecuteReader();
-                    while (dr.Read())
-                    {
-                        ListBox1.Items.Add((string)dr["FirstName"]);
-                    }
-                }
-                else if (DropDownList1.SelectedIndex == 5)
-                {
-                    con.Close();
-                    con.Open();
-                    cmd.CommandText = "SELECT * FROM [User] where Gender = 'Other' and Major = 'Engineering'";
-                    dr = cmd.ExecuteReader();
-                    while (dr.Read())
-                    {
-                        ListBox1.Items.Add((string)dr["FirstName"]);
-                    }
-                }
-                else if (DropDownList1.SelectedIndex == 6)
-                {
-                    con.Close();
-                    con.Open();
-                    cmd.CommandText = "SELECT * FROM [User] where Gender = 'Other' and Major = 'Communication'";
-                    dr = cmd.ExecuteReader();
-                    while (dr.Read())
-                    {
-                        ListBox1.Items.Add((string)dr["FirstName"]);
-                    }
-                }
-                else if (DropDownList1.SelectedIndex == 7)
-                {
-                    con.Close();
-                    con.Open();
-                    cmd.CommandText = "SELECT * FROM [User] where Gender = 'Other' and Major = 'Art'";
-                    dr = cmd.ExecuteReader();
-                    while (dr.Read())
-                    {
-                        ListBox1.Items.Add((string)dr["FirstName"]);
-                    }
-                }
-                else
-                {
-                    con.Close();
-                    con.Open();
-                    cmd.CommandText = "SELECT * FROM [User] where Gender = 'Other' and Major = 'Education'";
-                    dr = cmd.ExecuteReader();
-                    while (dr.Read())
-                    {
-                        ListBox1.Items.Add((string)dr["FirstName"]);
-                    }
-                }
-                con.Close();
-                //con.Open();
-                //cmd.CommandText = "SELECT * FROM [User] where Gender = 'Other'";
-                //dr = cmd.ExecuteReader();
-                //while (dr.Read())
-                //{
-                //    ListBox1.Items.Add((string)dr["FirstName"]);
-                //}
-            }
-            else if (RadioButton1.Checked == true)
-            {
-                if (DropDownList1.SelectedIndex == 0)
-                {
-                    while (dr.Read())
-                    {
-                        ListBox1.Items.Add((string)dr["FirstName"]);
-                    }
-                }
-                if (DropDownList1.SelectedIndex == 1)
-                {
-                    con.Close();
-                    con.Open();
-                    cmd.CommandText = "SELECT * FROM [User] where Major = 'Business'";
-                    dr = cmd.ExecuteReader();
-                    while (dr.Read())
-                    {
-                        ListBox1.Items.Add((string)dr["FirstName"]);
-                    }
-                }
-                else if (DropDownList1.SelectedIndex == 2)
-                {
-                    con.Close();
-                    con.Open();
-                    cmd.CommandText = "SELECT * FROM [User] where Major = 'Health Professions'";
-                    dr = cmd.ExecuteReader();
-                    while (dr.Read())
-                    {
-                        ListBox1.Items.Add((string)dr["FirstName"]);
-                    }
-                }
-                else if (DropDownList1.SelectedIndex == 3)
-                {
-                    con.Close();
-                    con.Open();
-                    cmd.CommandText = "SELECT * FROM [User] where Major = 'Computer Science'";
-                    dr = cmd.ExecuteReader();
-                    while (dr.Read())
-                    {
-                        ListBox1.Items.Add((string)dr["FirstName"]);
-                    }
-                }
-                else if (DropDownList1.SelectedIndex == 4)
-                {
-                    con.Close();
-                    con.Open();
-                    cmd.CommandText = "SELECT * FROM [User] where Major = 'Biology'";
-                    dr = cmd.ExecuteReader();
-                    while (dr.Read())
-                    {
-                        ListBox1.Items.Add((string)dr["FirstName"]);
-                    }
-                }
-                else if (DropDownList1.SelectedIndex == 5)
-                {
-                    con.Close();
-                    con.Open();
-                    cmd.CommandText = "SELECT * FROM [User] where Major = 'Engineering'";
-                    dr = cmd.ExecuteReader();
-                    while (dr.Read())
-                    {
-                        ListBox1.Items.Add((string)dr["FirstName"]);
-                    }
-                }
-                else if (DropDownList1.SelectedIndex == 6)
-                {
-                    con.Close();
-                    con.Open();
-                    cmd.CommandText = "SELECT * FROM [User] where Major = 'Communication'";
-                    dr = cmd.ExecuteReader();
-                    while (dr.Read())
-                    {
-                        ListBox1.Items.Add((string)dr["FirstName"]);
-                    }
-                }
-                else if (DropDownList1.SelectedIndex == 7)
-                {
-                    con.Close();
-                    con.Open();
-                    cmd.CommandText = "SELECT * FROM [User] where Major = 'Art'";
-                    dr = cmd.ExecuteReader();
-                    while (dr.Read())
-                    {
-                        ListBox1.Items.Add((string)dr["FirstName"]);
-                    }
-                }
-                else
-                {
-                    while (dr.Read())
-                    {
-                        ListBox1.Items.Add((string)dr["FirstName"]);
-                    }
-                }
-            }
-            con.Close();
+            //ListBox1.Items.Clear();
+            //SqlCommand cmd = new SqlCommand();
+            //con.Open();
+            //cmd.Connection = con;
+            //cmd.CommandText = "select * FROM [User]";
+            //dr = cmd.ExecuteReader();
+            //if (RadioButton2.Checked == true)
+            //{
+            //    if (DropDownList1.SelectedIndex == 0)
+            //    {
+            //        con.Close();
+            //        con.Open();
+            //        cmd.CommandText = "SELECT * FROM [User] where Gender = 'Male'";
+            //        dr = cmd.ExecuteReader();
+            //        while (dr.Read())
+            //        {
+            //            ListBox1.Items.Add((string)dr["FirstName"]);
+            //        }
+            //    }
+            //    else if (DropDownList1.SelectedIndex == 1)
+            //    {
+            //        con.Close();
+            //        con.Open();
+            //        cmd.CommandText = "SELECT * FROM [User] where Gender = 'Male' and Major = 'Business'";
+            //        dr = cmd.ExecuteReader();
+            //        while (dr.Read())
+            //        {
+            //            ListBox1.Items.Add((string)dr["FirstName"]);
+            //        }
+            //    }
+            //    else if (DropDownList1.SelectedIndex == 2)
+            //    {
+            //        con.Close();
+            //        con.Open();
+            //        cmd.CommandText = "SELECT * FROM [User] where Gender = 'Male' and Major = 'Health Professions'";
+            //        dr = cmd.ExecuteReader();
+            //        while (dr.Read())
+            //        {
+            //            ListBox1.Items.Add((string)dr["FirstName"]);
+            //        }
+            //    }
+            //    else if (DropDownList1.SelectedIndex == 3)
+            //    {
+            //        con.Close();
+            //        con.Open();
+            //        cmd.CommandText = "SELECT * FROM [User] where Gender = 'Male' and Major = 'Computer Science'";
+            //        dr = cmd.ExecuteReader();
+            //        while (dr.Read())
+            //        {
+            //            ListBox1.Items.Add((string)dr["FirstName"]);
+            //        }
+            //    }
+            //    else if (DropDownList1.SelectedIndex == 4)
+            //    {
+            //        con.Close();
+            //        con.Open();
+            //        cmd.CommandText = "SELECT * FROM [User] where Gender = 'Male' and Major = 'Biology'";
+            //        dr = cmd.ExecuteReader();
+            //        while (dr.Read())
+            //        {
+            //            ListBox1.Items.Add((string)dr["FirstName"]);
+            //        }
+            //    }
+            //    else if (DropDownList1.SelectedIndex == 5)
+            //    {
+            //        con.Close();
+            //        con.Open();
+            //        cmd.CommandText = "SELECT * FROM [User] where Gender = 'Male' and Major = 'Engineering'";
+            //        dr = cmd.ExecuteReader();
+            //        while (dr.Read())
+            //        {
+            //            ListBox1.Items.Add((string)dr["FirstName"]);
+            //        }
+            //    }
+            //    else if (DropDownList1.SelectedIndex == 6)
+            //    {
+            //        con.Close();
+            //        con.Open();
+            //        cmd.CommandText = "SELECT * FROM [User] where Gender = 'Male' and Major = 'Communication'";
+            //        dr = cmd.ExecuteReader();
+            //        while (dr.Read())
+            //        {
+            //            ListBox1.Items.Add((string)dr["FirstName"]);
+            //        }
+            //    }
+            //    else if (DropDownList1.SelectedIndex == 7)
+            //    {
+            //        con.Close();
+            //        con.Open();
+            //        cmd.CommandText = "SELECT * FROM [User] where Gender = 'Male' and Major = 'Art'";
+            //        dr = cmd.ExecuteReader();
+            //        while (dr.Read())
+            //        {
+            //            ListBox1.Items.Add((string)dr["FirstName"]);
+            //        }
+            //    }
+            //    else
+            //    {
+            //        con.Close();
+            //        con.Open();
+            //        cmd.CommandText = "SELECT * FROM [User] where Gender = 'Male' and Major = 'Education'";
+            //        dr = cmd.ExecuteReader();
+            //        while (dr.Read())
+            //        {
+            //            ListBox1.Items.Add((string)dr["FirstName"]);
+            //        }
+            //    }
+            //    con.Close();
+            //    //con.Open();
+            //    //cmd.CommandText = "SELECT * FROM [User] where Gender = 'Male'";
+            //    //dr = cmd.ExecuteReader();
+            //    //while (dr.Read())
+            //    //{
+            //    //    ListBox1.Items.Add((string)dr["FirstName"]);
+            //    //}
+            //}
+            //else if (RadioButton3.Checked == true)
+            //{
+            //    if (DropDownList1.SelectedIndex == 0)
+            //    {
+            //        con.Close();
+            //        con.Open();
+            //        cmd.CommandText = "SELECT * FROM [User] where Gender = 'Female'";
+            //        dr = cmd.ExecuteReader();
+            //        while (dr.Read())
+            //        {
+            //            ListBox1.Items.Add((string)dr["FirstName"]);
+            //        }
+            //    }
+            //    else if (DropDownList1.SelectedIndex == 1)
+            //    {
+            //        con.Close();
+            //        con.Open();
+            //        cmd.CommandText = "SELECT * FROM [User] where Gender = 'Female' and Major = 'Business'";
+            //        dr = cmd.ExecuteReader();
+            //        while (dr.Read())
+            //        {
+            //            ListBox1.Items.Add((string)dr["FirstName"]);
+            //        }
+            //    }
+            //    else if (DropDownList1.SelectedIndex == 2)
+            //    {
+            //        con.Close();
+            //        con.Open();
+            //        cmd.CommandText = "SELECT * FROM [User] where Gender = 'Female' and Major = 'Health Professions'";
+            //        dr = cmd.ExecuteReader();
+            //        while (dr.Read())
+            //        {
+            //            ListBox1.Items.Add((string)dr["FirstName"]);
+            //        }
+            //    }
+            //    else if (DropDownList1.SelectedIndex == 3)
+            //    {
+            //        con.Close();
+            //        con.Open();
+            //        cmd.CommandText = "SELECT * FROM [User] where Gender = 'Female' and Major = 'Computer Science'";
+            //        dr = cmd.ExecuteReader();
+            //        while (dr.Read())
+            //        {
+            //            ListBox1.Items.Add((string)dr["FirstName"]);
+            //        }
+            //    }
+            //    else if (DropDownList1.SelectedIndex == 4)
+            //    {
+            //        con.Close();
+            //        con.Open();
+            //        cmd.CommandText = "SELECT * FROM [User] where Gender = 'Female' and Major = 'Biology'";
+            //        dr = cmd.ExecuteReader();
+            //        while (dr.Read())
+            //        {
+            //            ListBox1.Items.Add((string)dr["FirstName"]);
+            //        }
+            //    }
+            //    else if (DropDownList1.SelectedIndex == 5)
+            //    {
+            //        con.Close();
+            //        con.Open();
+            //        cmd.CommandText = "SELECT * FROM [User] where Gender = 'Female' and Major = 'Engineering'";
+            //        dr = cmd.ExecuteReader();
+            //        while (dr.Read())
+            //        {
+            //            ListBox1.Items.Add((string)dr["FirstName"]);
+            //        }
+            //    }
+            //    else if (DropDownList1.SelectedIndex == 6)
+            //    {
+            //        con.Close();
+            //        con.Open();
+            //        cmd.CommandText = "SELECT * FROM [User] where Gender = 'Female' and Major = 'Communication'";
+            //        dr = cmd.ExecuteReader();
+            //        while (dr.Read())
+            //        {
+            //            ListBox1.Items.Add((string)dr["FirstName"]);
+            //        }
+            //    }
+            //    else if (DropDownList1.SelectedIndex == 7)
+            //    {
+            //        con.Close();
+            //        con.Open();
+            //        cmd.CommandText = "SELECT * FROM [User] where Gender = 'Female' and Major = 'Art'";
+            //        dr = cmd.ExecuteReader();
+            //        while (dr.Read())
+            //        {
+            //            ListBox1.Items.Add((string)dr["FirstName"]);
+            //        }
+            //    }
+            //    else
+            //    {
+            //        con.Close();
+            //        con.Open();
+            //        cmd.CommandText = "SELECT * FROM [User] where Gender = 'Female' and Major = 'Education'";
+            //        dr = cmd.ExecuteReader();
+            //        while (dr.Read())
+            //        {
+            //            ListBox1.Items.Add((string)dr["FirstName"]);
+            //        }
+            //    }
+            //    con.Close();
+            //    //con.Open();
+            //    //cmd.CommandText = "SELECT * FROM [User] where Gender = 'Female'";
+            //    //dr = cmd.ExecuteReader();
+            //    //while (dr.Read())
+            //    //{
+            //    //    ListBox1.Items.Add((string)dr["FirstName"]);
+            //    //}
+            //}
+            //else if (RadioButton4.Checked == true)
+            //{
+            //    if (DropDownList1.SelectedIndex == 0)
+            //    {
+            //        con.Close();
+            //        con.Open();
+            //        cmd.CommandText = "SELECT * FROM [User] where Gender = 'Other'";
+            //        dr = cmd.ExecuteReader();
+            //        while (dr.Read())
+            //        {
+            //            ListBox1.Items.Add((string)dr["FirstName"]);
+            //        }
+            //    }
+            //    if (DropDownList1.SelectedIndex == 1)
+            //    {
+            //        con.Close();
+            //        con.Open();
+            //        cmd.CommandText = "SELECT * FROM [User] where Gender = 'Other' and Major = 'Business'";
+            //        dr = cmd.ExecuteReader();
+            //        while (dr.Read())
+            //        {
+            //            ListBox1.Items.Add((string)dr["FirstName"]);
+            //        }
+            //    }
+            //    else if (DropDownList1.SelectedIndex == 2)
+            //    {
+            //        con.Close();
+            //        con.Open();
+            //        cmd.CommandText = "SELECT * FROM [User] where Gender = 'Other' and Major = 'Health Professions'";
+            //        dr = cmd.ExecuteReader();
+            //        while (dr.Read())
+            //        {
+            //            ListBox1.Items.Add((string)dr["FirstName"]);
+            //        }
+            //    }
+            //    else if (DropDownList1.SelectedIndex == 3)
+            //    {
+            //        con.Close();
+            //        con.Open();
+            //        cmd.CommandText = "SELECT * FROM [User] where Gender = 'Other' and Major = 'Computer Science'";
+            //        dr = cmd.ExecuteReader();
+            //        while (dr.Read())
+            //        {
+            //            ListBox1.Items.Add((string)dr["FirstName"]);
+            //        }
+            //    }
+            //    else if (DropDownList1.SelectedIndex == 4)
+            //    {
+            //        con.Close();
+            //        con.Open();
+            //        cmd.CommandText = "SELECT * FROM [User] where Gender = 'Other' and Major = 'Biology'";
+            //        dr = cmd.ExecuteReader();
+            //        while (dr.Read())
+            //        {
+            //            ListBox1.Items.Add((string)dr["FirstName"]);
+            //        }
+            //    }
+            //    else if (DropDownList1.SelectedIndex == 5)
+            //    {
+            //        con.Close();
+            //        con.Open();
+            //        cmd.CommandText = "SELECT * FROM [User] where Gender = 'Other' and Major = 'Engineering'";
+            //        dr = cmd.ExecuteReader();
+            //        while (dr.Read())
+            //        {
+            //            ListBox1.Items.Add((string)dr["FirstName"]);
+            //        }
+            //    }
+            //    else if (DropDownList1.SelectedIndex == 6)
+            //    {
+            //        con.Close();
+            //        con.Open();
+            //        cmd.CommandText = "SELECT * FROM [User] where Gender = 'Other' and Major = 'Communication'";
+            //        dr = cmd.ExecuteReader();
+            //        while (dr.Read())
+            //        {
+            //            ListBox1.Items.Add((string)dr["FirstName"]);
+            //        }
+            //    }
+            //    else if (DropDownList1.SelectedIndex == 7)
+            //    {
+            //        con.Close();
+            //        con.Open();
+            //        cmd.CommandText = "SELECT * FROM [User] where Gender = 'Other' and Major = 'Art'";
+            //        dr = cmd.ExecuteReader();
+            //        while (dr.Read())
+            //        {
+            //            ListBox1.Items.Add((string)dr["FirstName"]);
+            //        }
+            //    }
+            //    else
+            //    {
+            //        con.Close();
+            //        con.Open();
+            //        cmd.CommandText = "SELECT * FROM [User] where Gender = 'Other' and Major = 'Education'";
+            //        dr = cmd.ExecuteReader();
+            //        while (dr.Read())
+            //        {
+            //            ListBox1.Items.Add((string)dr["FirstName"]);
+            //        }
+            //    }
+            //    con.Close();
+            //    //con.Open();
+            //    //cmd.CommandText = "SELECT * FROM [User] where Gender = 'Other'";
+            //    //dr = cmd.ExecuteReader();
+            //    //while (dr.Read())
+            //    //{
+            //    //    ListBox1.Items.Add((string)dr["FirstName"]);
+            //    //}
+            //}
+            //else if (RadioButton1.Checked == true)
+            //{
+            //    if (DropDownList1.SelectedIndex == 0)
+            //    {
+            //        while (dr.Read())
+            //        {
+            //            ListBox1.Items.Add((string)dr["FirstName"]);
+            //        }
+            //    }
+            //    if (DropDownList1.SelectedIndex == 1)
+            //    {
+            //        con.Close();
+            //        con.Open();
+            //        cmd.CommandText = "SELECT * FROM [User] where Major = 'Business'";
+            //        dr = cmd.ExecuteReader();
+            //        while (dr.Read())
+            //        {
+            //            ListBox1.Items.Add((string)dr["FirstName"]);
+            //        }
+            //    }
+            //    else if (DropDownList1.SelectedIndex == 2)
+            //    {
+            //        con.Close();
+            //        con.Open();
+            //        cmd.CommandText = "SELECT * FROM [User] where Major = 'Health Professions'";
+            //        dr = cmd.ExecuteReader();
+            //        while (dr.Read())
+            //        {
+            //            ListBox1.Items.Add((string)dr["FirstName"]);
+            //        }
+            //    }
+            //    else if (DropDownList1.SelectedIndex == 3)
+            //    {
+            //        con.Close();
+            //        con.Open();
+            //        cmd.CommandText = "SELECT * FROM [User] where Major = 'Computer Science'";
+            //        dr = cmd.ExecuteReader();
+            //        while (dr.Read())
+            //        {
+            //            ListBox1.Items.Add((string)dr["FirstName"]);
+            //        }
+            //    }
+            //    else if (DropDownList1.SelectedIndex == 4)
+            //    {
+            //        con.Close();
+            //        con.Open();
+            //        cmd.CommandText = "SELECT * FROM [User] where Major = 'Biology'";
+            //        dr = cmd.ExecuteReader();
+            //        while (dr.Read())
+            //        {
+            //            ListBox1.Items.Add((string)dr["FirstName"]);
+            //        }
+            //    }
+            //    else if (DropDownList1.SelectedIndex == 5)
+            //    {
+            //        con.Close();
+            //        con.Open();
+            //        cmd.CommandText = "SELECT * FROM [User] where Major = 'Engineering'";
+            //        dr = cmd.ExecuteReader();
+            //        while (dr.Read())
+            //        {
+            //            ListBox1.Items.Add((string)dr["FirstName"]);
+            //        }
+            //    }
+            //    else if (DropDownList1.SelectedIndex == 6)
+            //    {
+            //        con.Close();
+            //        con.Open();
+            //        cmd.CommandText = "SELECT * FROM [User] where Major = 'Communication'";
+            //        dr = cmd.ExecuteReader();
+            //        while (dr.Read())
+            //        {
+            //            ListBox1.Items.Add((string)dr["FirstName"]);
+            //        }
+            //    }
+            //    else if (DropDownList1.SelectedIndex == 7)
+            //    {
+            //        con.Close();
+            //        con.Open();
+            //        cmd.CommandText = "SELECT * FROM [User] where Major = 'Art'";
+            //        dr = cmd.ExecuteReader();
+            //        while (dr.Read())
+            //        {
+            //            ListBox1.Items.Add((string)dr["FirstName"]);
+            //        }
+            //    }
+            //    else
+            //    {
+            //        while (dr.Read())
+            //        {
+            //            ListBox1.Items.Add((string)dr["FirstName"]);
+            //        }
+            //    }
+            //}
+            //con.Close();
         }
 
         protected void Button4_Click(object sender, EventArgs e)
