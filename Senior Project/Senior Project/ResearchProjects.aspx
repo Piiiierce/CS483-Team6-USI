@@ -10,7 +10,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
     <link href="../Content/master.css" rel="stylesheet">
-                <link href="../Content/ProjectView.css" rel="stylesheet" />
+    <link href="../Content/ProjectView.css" rel="stylesheet" />
     <style type="text/css">
         .auto-style1 {
             background-color: rgb(37, 150, 190);
@@ -20,7 +20,6 @@
             height: 100vh;
             padding-top: 50px;
             left: 0px;
-            top: 76px;
         }
     </style>
 </head>
@@ -29,11 +28,11 @@
         <div>
             <div class="sideheader d-flex justify-content-center align-content-center">
                 <h1>Hello                
-                   
                     <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
                     <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
                 </h1>
             </div>
+
             <div class="auto-style1">
                 <div class="d-flex sidecontent">
                     <asp:LinkButton ID="LinkButton1" runat="server" CssClass="button" OnClick="LinkButton1_Click">Calendar</asp:LinkButton>

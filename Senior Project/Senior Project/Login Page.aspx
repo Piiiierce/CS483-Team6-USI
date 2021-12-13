@@ -21,16 +21,12 @@
         <div class="header format-text border-bottom border-dark d-flex justify-content-center">
             <h2>RCOB Lab Management Portal</h2>  
         </div>
-        <!-- Filler text (for now) -->
-        <div class="format-text border-bottom border-dark justify-content-around p-1">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text 
-                ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived 
-                not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 
-                1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like
-                Aldus PageMaker including versions of Lorem Ipsum.    
+        <!-- Filler text  -->
+        <div class="login-text format-text border-bottom border-dark p-5 d-flex justify-content-center">
+                Welcome to the RCOB Lab Management Application. Please sign in with your username & password to access your schedule, or create an account below.
         </div>
         <!-- Begin buttons/textboxes form-->
-        <form id="form1" runat="server" class="container mt-1 h-100 d-flex justify-content-center align-content-end">
+        <form id="form1" runat="server" class="pt-4 container mt-1 h-100 d-flex justify-content-center align-content-end">
             <div>
                 <!-- Username label -->
                 <div class="d-flex justify-content-center mt-1">

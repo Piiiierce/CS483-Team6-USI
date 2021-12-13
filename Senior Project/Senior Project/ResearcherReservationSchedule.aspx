@@ -129,7 +129,6 @@
                     </SelectParameters>
                 </asp:SqlDataSource>
             </div>
-            <asp:TextBox ID="TextBox4" runat="server" TextMode="MultiLine"></asp:TextBox>
             <br />
             <div class="center">
                 <asp:Button ID="Button4" runat="server" Text="Send Email" Visible="False" OnClick="Button4_Click" />

@@ -74,7 +74,7 @@ namespace Senior_Project
                             //{
                             hold++;
                             con.Open();
-                            cmd = new SqlCommand("INSERT INTO [User]" + "(Recruited,Type,SubjectID,FirstName,LastName,PaymentType,Email,Password,Gender,DateofBirth,Major,EnrollmentDate,GPA,Address,ZIP,PaymentInfo) VALUES (@Recruited,@Type,@SubjectID,@FirstName,@LastName,@PaymentType,@Email,@Password,@Gender,@DateofBirth,@Major,@EnrollmentDate,@GPA,@Address,@ZIP,@PaymentInfo)", con);
+                            cmd = new SqlCommand("INSERT INTO [User]" + "(Type,SubjectID,FirstName,LastName,PaymentType,Email,Password,Gender,DateofBirth,Major,EnrollmentDate,GPA,Address,ZIP,PaymentInfo) VALUES (@Type,@SubjectID,@FirstName,@LastName,@PaymentType,@Email,@Password,@Gender,@DateofBirth,@Major,@EnrollmentDate,@GPA,@Address,@ZIP,@PaymentInfo)", con);
                             cmd.Parameters.AddWithValue("@FirstName", TextBox1.Text);
                             cmd.Parameters.AddWithValue("@LastName", TextBox2.Text);
                             cmd.Parameters.AddWithValue("@SubjectID", hold);
@@ -90,7 +90,6 @@ namespace Senior_Project
                             cmd.Parameters.AddWithValue("@ZIP", TextBox8.Text);
                             cmd.Parameters.AddWithValue("@PaymentType", DropDownList3.SelectedItem.Value);
                             cmd.Parameters.AddWithValue("@PaymentInfo", TextBox9.Text);
-                            cmd.Parameters.AddWithValue("@Recruited", Boolean.FalseString);
                             cmd.ExecuteNonQuery();
                             con.Close();
 
