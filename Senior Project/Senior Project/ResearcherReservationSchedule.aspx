@@ -86,13 +86,13 @@
             </div>
             <asp:Panel ID="Panel1" runat="server" >
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:RadioButton ID="RadioButton1" runat="server" GroupName="1" OnCheckedChanged="RadioButton1_CheckedChanged" Text="All Genders" />
-                <asp:RadioButton ID="RadioButton2" runat="server" GroupName="1" OnCheckedChanged="RadioButton2_CheckedChanged" Text="Male" />
-                <asp:RadioButton ID="RadioButton3" runat="server" GroupName="1" OnCheckedChanged="RadioButton3_CheckedChanged" Text="Female" />
-                <asp:RadioButton ID="RadioButton4" runat="server" GroupName="1" OnCheckedChanged="RadioButton4_CheckedChanged" Text="Other" />
+                <asp:RadioButton ID="RadioButton1" runat="server" GroupName="1" Text="All Genders" />
+                <asp:RadioButton ID="RadioButton2" runat="server" GroupName="1" Text="Male" />
+                <asp:RadioButton ID="RadioButton3" runat="server" GroupName="1" Text="Female" />
+                <asp:RadioButton ID="RadioButton4" runat="server" GroupName="1" Text="Other" />
                 <br />
                 <div class="center">
-                <asp:DropDownList ID="DropDownList1" runat="server"  OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
+                <asp:DropDownList ID="DropDownList1" runat="server">
                     <asp:ListItem>Any Major</asp:ListItem>
                     <asp:ListItem>Business</asp:ListItem>
                     <asp:ListItem>Health Professions</asp:ListItem>
