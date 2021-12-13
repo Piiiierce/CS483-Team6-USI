@@ -110,6 +110,7 @@
                 <asp:ListBox ID="ListBox1" runat="server" CssClass="auto-style1" DataSourceID="SqlDataSource2" DataTextField="FirstName" DataValueField="Email" Height="224px" SelectionMode="Multiple" Visible="False" Width="184px"></asp:ListBox>
                 <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT FirstName, LastName, Email FROM [User] WHERE (Type = N'student')"></asp:SqlDataSource>
             </div>
+            <asp:TextBox ID="TextBox4" runat="server" TextMode="MultiLine"></asp:TextBox>
             <br />
             <div class="center">
                 <asp:Button ID="Button4" runat="server" Text="Send Email" Visible="False" OnClick="Button4_Click" />
