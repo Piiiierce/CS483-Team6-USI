@@ -40,82 +40,86 @@ namespace Senior_Project
             dr = cmd.ExecuteReader();
             while (dr.Read())
             {
-                    dateHold = dr["CreateDate"].ToString().Trim();
+                dateHold = dr["CreateDate"].ToString().Trim();
             }
             con.Close();
 
-            DateTime dateCompare = DateTime.Parse(dateHold);
+            try {
 
-            int f = 0;
-            con.Open();
-            cmd = new SqlCommand("SELECT COUNT (*) FROM Reservation WHERE Date = @Date ", con);
-            cmd.Parameters.Add(new SqlParameter("Date", TextBox1.Text));
-            f = Convert.ToInt32(cmd.ExecuteScalar());
-            con.Close();
+                DateTime dateCompare = DateTime.Parse(dateHold);
 
-            DateTime Start = DateTime.Now;
-            DateTime End = DateTime.Now;
+                int f = 0;
+                con.Open();
+                cmd = new SqlCommand("SELECT COUNT (*) FROM Reservation WHERE Date = @Date ", con);
+                cmd.Parameters.Add(new SqlParameter("Date", TextBox1.Text));
+                f = Convert.ToInt32(cmd.ExecuteScalar());
+                con.Close();
 
-            con.Open();
-            cmd = new SqlCommand("SELECT * FROM Reservation WHERE Status = @Status AND CreateDate <= @CreateDate", con);
-            cmd.Parameters.Add(new SqlParameter("Status", "Pending"));
-            cmd.Parameters.Add(new SqlParameter("CreateDate", dateNow.AddDays(-2).ToShortDateString()));
-            dr = cmd.ExecuteReader();
-            while (dr.Read())
-            {
-                Start = DateTime.Parse(dr["StartTime"].ToString());
-                End = DateTime.Parse(dr["EndTime"].ToString());
-            }
-            con.Close();
+                DateTime Start = DateTime.Now;
+                DateTime End = DateTime.Now;
 
-
-            DateTime[] start = new DateTime[f];
-            int i = 0;
-            foreach (ListItem StartTime in ListBox1.Items)
-            {
-                start[i] = DateTime.Parse(StartTime.Value);
-                i++;
-            }
-
-            DateTime[] end = new DateTime[f];
-            int ii = 0;
-            foreach (ListItem EndTime in ListBox2.Items)
-            {
-                end[ii] = DateTime.Parse(EndTime.Value);
-                ii++;
-            }
-            if (f != 0)
-            {
-                for (int iii = 0; iii < start.Length + 1; iii++)
+                con.Open();
+                cmd = new SqlCommand("SELECT * FROM Reservation WHERE Status = @Status AND CreateDate <= @CreateDate", con);
+                cmd.Parameters.Add(new SqlParameter("Status", "Pending"));
+                cmd.Parameters.Add(new SqlParameter("CreateDate", dateNow.AddDays(-2).ToShortDateString()));
+                dr = cmd.ExecuteReader();
+                while (dr.Read())
                 {
-                    try
-                    {
-                        DateTime Endz30 = Start.AddMinutes(29);
-                        DateTime Start30 = End.AddMinutes(29);
-                        DateTime End30 = end[iii].AddMinutes(29);
-                        if (Start30 >= start[iii] && Start <= End30 || start[iii] <= End.AddMinutes(29) && End <= End30 || start[iii] >= Start30 && end[iii] <= End)
-                        {
+                    Start = DateTime.Parse(dr["StartTime"].ToString());
+                    End = DateTime.Parse(dr["EndTime"].ToString());
+                }
+                con.Close();
 
-                        }
-                        else
+
+                DateTime[] start = new DateTime[f];
+                int i = 0;
+                foreach (ListItem StartTime in ListBox1.Items)
+                {
+                    start[i] = DateTime.Parse(StartTime.Value);
+                    i++;
+                }
+
+                DateTime[] end = new DateTime[f];
+                int ii = 0;
+                foreach (ListItem EndTime in ListBox2.Items)
+                {
+                    end[ii] = DateTime.Parse(EndTime.Value);
+                    ii++;
+                }
+                if (f != 0)
+                {
+                    for (int iii = 0; iii < start.Length + 1; iii++)
+                    {
+                        try
                         {
-                            if (dateNow.ToShortDateString() == dateCompare.AddDays(2).ToShortDateString())
+                            DateTime Endz30 = Start.AddMinutes(29);
+                            DateTime Start30 = End.AddMinutes(29);
+                            DateTime End30 = end[iii].AddMinutes(29);
+                            if (Start30 >= start[iii] && Start <= End30 || start[iii] <= End.AddMinutes(29) && End <= End30 || start[iii] >= Start30 && end[iii] <= End)
                             {
-                                con.Open();
-                                cmd = new SqlCommand("UPDATE Reservation SET ManagerApprove = @ManagerApprove, Status = @Status WHERE Status = @Status1 AND CreateDate <= @CreateDate", con);
-                                cmd.Parameters.Add(new SqlParameter("ManagerApprove", "1"));
-                                cmd.Parameters.Add(new SqlParameter("Status", "Approved"));
-                                cmd.Parameters.Add(new SqlParameter("Status1", "Pending"));
-                                cmd.Parameters.Add(new SqlParameter("CreateDate", dateNow.AddDays(-2).ToShortDateString()));
-                                cmd.ExecuteNonQuery();
-                                GridView1.DataBind();
-                                con.Close();
+
+                            }
+                            else
+                            {
+                                if (dateNow.ToShortDateString() == dateCompare.AddDays(2).ToShortDateString())
+                                {
+                                    con.Open();
+                                    cmd = new SqlCommand("UPDATE Reservation SET ManagerApprove = @ManagerApprove, Status = @Status WHERE Status = @Status1 AND CreateDate <= @CreateDate", con);
+                                    cmd.Parameters.Add(new SqlParameter("ManagerApprove", "1"));
+                                    cmd.Parameters.Add(new SqlParameter("Status", "Approved"));
+                                    cmd.Parameters.Add(new SqlParameter("Status1", "Pending"));
+                                    cmd.Parameters.Add(new SqlParameter("CreateDate", dateNow.AddDays(-2).ToShortDateString()));
+                                    cmd.ExecuteNonQuery();
+                                    GridView1.DataBind();
+                                    con.Close();
+                                }
                             }
                         }
+                        catch { }
                     }
-                    catch { }
                 }
             }
+            catch { }
         }
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
